@@ -12,7 +12,7 @@ const NewsSection = () => {
       video: newsVideo,
     },
     {
-      title: "Honored to welcome His Royal Highness, Alhaji Yahaya Abubakar, Etsu Nupe of Nupe Kingdom and Chairman, Board of Directors, Digital Space Capital!",
+      title: "Honored to welcome His Royal Highness, Alhaji Yahaya Abubakar, Etsu Nupe of Nupe Kingdom and Chairman, Board of Directors, Digital Space Capital! 🙏🏽👑",
       category: "AVA Research Daily Commentary",
       date: "September 6, 2024",
       video: newsVideo2,
