@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import newsVideo from "@/assets/news-video.mp4";
 
 const NewsSection = () => {
   const newsItems = [
@@ -7,7 +8,7 @@ const NewsSection = () => {
       title: "AVA CAPITAL PARTNERS SERVES AS SOLE ARRANGER ON THE ₦50BN COMMERCIAL PAPER PROGRAMME BY PAYAZA AFRICA LIMITED",
       category: "Marketing",
       date: "January 16, 2025",
-      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=650&h=572&fit=crop",
+      video: newsVideo,
     },
     {
       title: "AVA Global Asset Managers Limited Rings Closing Gong at Nigeria Exchange Group to Mark the Successful listing of the AVA Infrastructure Fund Series 1 Issuance",
@@ -34,11 +35,22 @@ const NewsSection = () => {
           {newsItems.map((item, index) => (
             <Card key={index} className="group cursor-pointer overflow-hidden transition-smooth hover:shadow-lg">
               <div className="aspect-[650/572] overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                />
+                {item.video ? (
+                  <video 
+                    src={item.video} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                  />
+                )}
               </div>
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold text-foreground mb-3 line-clamp-3 group-hover:text-primary transition-smooth">
