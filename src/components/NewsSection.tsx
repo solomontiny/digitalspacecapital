@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import newsVideo from "@/assets/news-video.mp4";
+import newsVideo2 from "@/assets/news-video-2.mp4";
 
 const NewsSection = () => {
   const newsItems = [
@@ -14,7 +15,7 @@ const NewsSection = () => {
       title: "AVA Global Asset Managers Limited Rings Closing Gong at Nigeria Exchange Group to Mark the Successful listing of the AVA Infrastructure Fund Series 1 Issuance",
       category: "AVA Research Daily Commentary",
       date: "September 6, 2024",
-      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=650&h=572&fit=crop",
+      video: newsVideo2,
     },
     {
       title: "FGN Local bond & T-bills/OMO market",
