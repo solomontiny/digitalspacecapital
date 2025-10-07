@@ -1,22 +1,29 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 
 const Statistics = () => {
   const testimonials = [
     {
-      quote: "Digital Space Capital transformed our investment strategy. Their expertise and personalized approach helped us achieve returns beyond our expectations.",
+      quote: "Digital Space Capital transformed our investment strategy.",
       author: "Sarah Johnson",
       role: "CEO, Tech Innovations Ltd",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      initials: "SJ",
     },
     {
-      quote: "The team's professionalism and market insights are unparalleled. They've been instrumental in growing our portfolio over the past three years.",
+      quote: "The team's professionalism and market insights are unparalleled.",
       author: "Michael Chen",
       role: "CFO, Global Ventures",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      initials: "MC",
     },
     {
-      quote: "Outstanding service and results. Digital Space Capital's strategic guidance has been key to our financial success and long-term growth.",
+      quote: "Outstanding service and results. Strategic guidance has been key to our success.",
       author: "Aisha Mohammed",
-      role: "Investment Director, Future Capital",
+      role: "Investment Director",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+      initials: "AM",
     }
   ];
 
@@ -35,16 +42,20 @@ const Statistics = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="relative">
-              <CardContent className="pt-6">
-                <Quote className="h-8 w-8 text-primary/20 mb-4" />
-                <p className="text-sm text-foreground mb-6 italic">
+              <CardContent className="pt-6 text-center">
+                <Avatar className="w-20 h-20 mx-auto mb-4">
+                  <AvatarImage src={testimonial.image} alt={testimonial.author} />
+                  <AvatarFallback>{testimonial.initials}</AvatarFallback>
+                </Avatar>
+                <Quote className="h-6 w-6 text-primary/20 mx-auto mb-3" />
+                <p className="text-xs text-foreground mb-4 italic">
                   "{testimonial.quote}"
                 </p>
-                <div className="border-t pt-4">
-                  <p className="font-semibold text-foreground">
+                <div className="border-t pt-3">
+                  <p className="font-semibold text-sm text-foreground">
                     {testimonial.author}
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {testimonial.role}
                   </p>
                 </div>
