@@ -12,7 +12,7 @@ const NewsSection = () => {
       video: newsVideo,
     },
     {
-      title: "AVA Global Asset Managers Limited Rings Closing Gong at Nigeria Exchange Group to Mark the Successful listing of the AVA Infrastructure Fund Series 1 Issuance",
+      title: "Honored to welcome His Royal Highness, Alhaji Yahaya Abubakar, Etsu Nupe of Nupe Kingdom and Chairman, Board of Directors, Digital Space Capital!",
       category: "AVA Research Daily Commentary",
       date: "September 6, 2024",
       video: newsVideo2,
