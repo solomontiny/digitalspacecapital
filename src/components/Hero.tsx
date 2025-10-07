@@ -22,7 +22,7 @@ const Hero = () => {
           
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white/90 mb-4">
-              Stability, Liquidity, Growth
+              Finance at is finest
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
               We help people, businesses and institutions nurture and manage wealth so they can pursue their financial goals. We do this by providing a robust suite of well researched and tested financial solutions to our diverse client base.
