@@ -5,7 +5,7 @@ import newsVideo from "@/assets/news-video.mp4";
 const NewsSection = () => {
   const newsItems = [
     {
-      title: "AVA CAPITAL PARTNERS SERVES AS SOLE ARRANGER ON THE ₦50BN COMMERCIAL PAPER PROGRAMME BY PAYAZA AFRICA LIMITED",
+      title: "Exciting Times! 💃🏽🤗 The Emison Real Estate and DigiKolo teams were thrilled to participate in the 75th FIABCI World Real Estate Congress in Lagos, Nigeria (June 9-13, 2025)! We were honored to be among notable figures, including President Bola Ahmed Tinubu's representative, 2025 President-elect of NAR Kevin Brown, Prof. Yemi Osinbajo, SAN; GCON, Gov. Babajide Sanwoolu and FIABCI World President Ramon Rierra Toroba.",
       category: "Marketing",
       date: "January 16, 2025",
       video: newsVideo,
