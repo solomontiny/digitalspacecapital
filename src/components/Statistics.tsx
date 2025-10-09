@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
 
 const Statistics = () => {
   const testimonials = [
@@ -24,7 +25,7 @@ const Statistics = () => {
       quote: "Outstanding service and results. Strategic guidance has been key to our success.",
       author: "Aisha Mohammed",
       role: "Investment Director",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+      image: testimonial3,
       initials: "AM",
     }
   ];
