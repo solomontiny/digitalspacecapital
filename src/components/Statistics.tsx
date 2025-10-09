@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
 
 const Statistics = () => {
   const testimonials = [
@@ -16,7 +17,7 @@ const Statistics = () => {
       quote: "The team's professionalism and market insights are unparalleled.",
       author: "Michael Chen",
       role: "CFO, Global Ventures",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      image: testimonial2,
       initials: "MC",
     },
     {
