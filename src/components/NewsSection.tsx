@@ -2,9 +2,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import newsVideo from "@/assets/news-video.mp4";
 import newsVideo2 from "@/assets/news-video-2.mp4";
+import newsVideo3 from "@/assets/news-video-3.mp4";
 
 const NewsSection = () => {
-  const newsItems = [
+  const newsItems: Array<{
+    title: string;
+    category: string;
+    date: string;
+    video?: string;
+    image?: string;
+  }> = [
     {
       title: "Exciting Times! 💃🏽🤗 The Emison Real Estate and DigiKolo teams were thrilled to participate in the 75th FIABCI World Real Estate Congress in Lagos, Nigeria (June 9-13, 2025)! We were honored to be among notable figures, including President Bola Ahmed Tinubu's representative, 2025 President-elect of NAR Kevin Brown, Prof. Yemi Osinbajo, SAN; GCON, Gov. Babajide Sanwoolu and FIABCI World President Ramon Rierra Toroba.",
       category: "Marketing",
@@ -18,10 +25,10 @@ const NewsSection = () => {
       video: newsVideo2,
     },
     {
-      title: "FGN Local bond & T-bills/OMO market",
+      title: "Happy 65th Independence Day, Nigeria! 🇳🇬 💚 Today, we celebrate our nation's journey towards progress and unity.",
       category: "AVA Research Daily Commentary", 
-      date: "August 9, 2024",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=650&h=572&fit=crop",
+      date: "October 1, 2024",
+      video: newsVideo3,
     }
   ];
 
