@@ -7,17 +7,14 @@ const Header = () => {
     label: "ABOUT US",
     href: "/about"
   }, {
-    label: "OUR SERVICES",
-    href: "/services"
+    label: "WHAT WE DO",
+    href: "/what-we-do"
   }, {
-    label: "RESOURCES",
-    href: "/resources"
+    label: "DIRECTORS",
+    href: "/directors"
   }, {
-    label: "PRODUCTS",
-    href: "/products"
-  }, {
-    label: "COMPETITIONS",
-    href: "/competitions"
+    label: "OUR SUBSIDIARIES",
+    href: "/subsidiaries"
   }];
   return <header className="w-full bg-background border-b border-border">
       <div className="container mx-auto px-4 py-[16px]">
