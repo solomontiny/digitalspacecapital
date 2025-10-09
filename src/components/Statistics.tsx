@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
+import testimonial1 from "@/assets/testimonial-1.jpg";
 
 const Statistics = () => {
   const testimonials = [
@@ -8,7 +9,7 @@ const Statistics = () => {
       quote: "Digital Space Capital transformed our investment strategy.",
       author: "Sarah Johnson",
       role: "CEO, Tech Innovations Ltd",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      image: testimonial1,
       initials: "SJ",
     },
     {
