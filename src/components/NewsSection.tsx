@@ -20,13 +20,13 @@ const NewsSection = () => {
     },
     {
       title: "Honored to welcome His Royal Highness, Alhaji Yahaya Abubakar, Etsu Nupe of Nupe Kingdom and Chairman, Board of Directors, Digital Space Capital! 🙏🏽👑",
-      category: "AVA Research Daily Commentary",
+      category: "DSC Research Daily Commentary",
       date: "September 6, 2024",
       video: newsVideo2,
     },
     {
       title: "Happy 65th Independence Day, Nigeria! 🇳🇬 💚 Today, we celebrate our nation's journey towards progress and unity.",
-      category: "AVA Research Daily Commentary", 
+      category: "DSC Research Daily Commentary", 
       date: "October 1, 2024",
       video: newsVideo3,
     }
