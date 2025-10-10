@@ -3,7 +3,7 @@ import heroBackground from "@/assets/hero-background-new.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -16,22 +16,22 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
             Financial Solutions That Work
           </h1>
           
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white/90 mb-4">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white/90 mb-6">
               Finance at is finest
             </h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
               We help people, businesses and institutions nurture and manage wealth so they can pursue their financial goals. We do this by providing a robust suite of well researched and tested financial solutions to our diverse client base.
             </p>
           </div>
           
           <Button 
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 h-auto font-semibold"
+            className="bg-white text-primary hover:bg-white/90 text-xl px-12 py-8 h-auto font-semibold"
           >
             Read More
           </Button>
