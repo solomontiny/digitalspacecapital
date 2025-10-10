@@ -41,7 +41,7 @@ const About = () => {
                   Our Vision
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To be the most trusted and innovative financial services provider, setting new standards in investment management and capital markets excellence.
+                  To be Africa's finest pro-active and digital-led finance company renowned for excellent service.
                 </p>
               </CardContent>
             </Card>
