@@ -30,7 +30,7 @@ const About = () => {
                   Our Mission
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To empower individuals and institutions to achieve their financial goals through strategic investment management, innovative financial products, and exceptional client service.
+                  Our unique proposition is to achieve exponential growth through our robust result-driven streams of opportunities ensuring that we maximize returns for our stakeholders.
                 </p>
               </CardContent>
             </Card>
