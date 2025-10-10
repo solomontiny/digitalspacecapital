@@ -38,15 +38,6 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Navigation Indicators */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-20">
-        {[1, 2, 3, 4, 5, 6].map((num) => (
-          <div key={num} className="flex items-center space-x-2">
-            <div className="text-white text-sm font-light">0{num}</div>
-            <div className="w-8 h-px bg-white/40" />
-          </div>
-        ))}
-      </div>
     </section>
   );
 };
