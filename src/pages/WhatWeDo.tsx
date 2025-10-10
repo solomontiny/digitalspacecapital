@@ -12,7 +12,7 @@ const WhatWeDo = () => {
             What We Do
           </h1>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Digital Space Capital offers a comprehensive range of financial services designed to meet the diverse needs of our clients. From investment management to securities trading, we provide expert solutions across all aspects of capital markets.
+            Our collective expertise and experience highlight our ability to provide excellent services that surpass our clients' expectations.
           </p>
         </div>
 
