@@ -19,7 +19,7 @@ const About = () => {
                   Who We Are
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Digital Space Capital is a leading financial services company dedicated to providing innovative investment solutions and capital management services. With years of experience in the financial industry, we have built a reputation for excellence and trust.
+                  At DSC, our collective team expertise with years of experience highlights our ability to provide excellent services, surpassing our client's expectations. Digital Space Capital Limited offers you a wide range of financial services with seamless solutions in asset management, corporate finance & business advisory, on-lending, forex services, brokerage & dealings, crowdfunding & aggregation. Our services cut across key areas in finance and business management across Sub-Saharan Africa.
                 </p>
               </CardContent>
             </Card>
