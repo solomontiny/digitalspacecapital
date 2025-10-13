@@ -40,7 +40,7 @@ const Subsidiaries = () => {
             Our Subsidiaries
           </h1>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Through our network of specialized subsidiaries, we deliver comprehensive financial solutions tailored to meet diverse client needs across multiple sectors.
+            Our collective expertise and experience highlight our ability to provide excellent services that surpass our clients' expectations.
           </p>
         </div>
 
