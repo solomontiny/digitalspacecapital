@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Footer from "@/components/Footer";
 
 const Directors = () => {
   const directors = [
@@ -76,6 +77,8 @@ const Directors = () => {
           ))}
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };

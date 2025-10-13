@@ -6,6 +6,7 @@ import Statistics from "@/components/Statistics";
 import NewsSection from "@/components/NewsSection";
 import AppDownload from "@/components/AppDownload";
 import ChatWidget from "@/components/ChatWidget";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <NewsSection />
       <AppDownload />
       <ChatWidget />
+      <Footer />
     </div>
   );
 };

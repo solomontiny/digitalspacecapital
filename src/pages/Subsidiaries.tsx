@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, TrendingUp, Shield, Landmark, ArrowRight, CheckCircle2 } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -134,6 +135,8 @@ const Subsidiaries = () => {
           ))}
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };
