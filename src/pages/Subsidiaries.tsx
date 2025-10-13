@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, TrendingUp, Shield, Landmark } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Building2, TrendingUp, Shield, Landmark, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -8,25 +8,29 @@ const Subsidiaries = () => {
       name: "DSC Asset Management",
       icon: TrendingUp,
       description: "Specializing in portfolio management and investment advisory services for institutional and high-net-worth clients.",
-      services: ["Portfolio Management", "Investment Advisory", "Wealth Planning", "Risk Management"]
+      services: ["Portfolio Management", "Investment Advisory", "Wealth Planning", "Risk Management"],
+      gradient: "from-blue-500/10 to-blue-600/5"
     },
     {
       name: "DSC Securities Trading",
       icon: Building2,
       description: "A full-service brokerage offering securities trading, market analysis, and investment research.",
-      services: ["Equity Trading", "Bonds & Fixed Income", "Market Analysis", "Investment Research"]
+      services: ["Equity Trading", "Bonds & Fixed Income", "Market Analysis", "Investment Research"],
+      gradient: "from-primary/10 to-primary/5"
     },
     {
       name: "DSC Insurance Services",
       icon: Shield,
       description: "Providing comprehensive insurance and risk management solutions for businesses and individuals.",
-      services: ["Life Insurance", "General Insurance", "Risk Assessment", "Claims Management"]
+      services: ["Life Insurance", "General Insurance", "Risk Assessment", "Claims Management"],
+      gradient: "from-blue-400/10 to-blue-500/5"
     },
     {
       name: "DSC Trustees Limited",
       icon: Landmark,
       description: "Offering professional trusteeship services for pension funds, unit trusts, and corporate entities.",
-      services: ["Pension Fund Management", "Corporate Trustee Services", "Estate Planning", "Custodial Services"]
+      services: ["Pension Fund Management", "Corporate Trustee Services", "Estate Planning", "Custodial Services"],
+      gradient: "from-primary/15 to-primary/5"
     }
   ];
 
@@ -34,41 +38,82 @@ const Subsidiaries = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-primary mb-4 animate-fade-in">
-            Our Subsidiaries
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Our collective expertise and experience highlight our ability to provide excellent services that surpass our clients' expectations.
-          </p>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-primary/5 via-background to-primary/10 py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
+            <div className="inline-block">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <Building2 className="w-4 h-4" />
+                Excellence Across Sectors
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">
+              Our <span className="text-primary">Subsidiaries</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Our collective expertise and experience highlight our ability to provide excellent services that surpass our clients' expectations.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {/* Subsidiaries Grid */}
+      <main className="container mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {subsidiaries.map((subsidiary, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <subsidiary.icon className="h-8 w-8 text-primary" />
+            <Card 
+              key={index} 
+              className="group relative overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
+            >
+              {/* Gradient Background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${subsidiary.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <CardContent className="relative p-8 space-y-6">
+                {/* Icon and Title */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                      <div className="relative p-4 bg-gradient-to-br from-primary to-primary/80 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <subsidiary.icon className="h-8 w-8 text-primary-foreground" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {subsidiary.name}
+                      </h3>
+                    </div>
                   </div>
-                  <CardTitle className="text-2xl">{subsidiary.name}</CardTitle>
+                  <ArrowRight className="w-6 h-6 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+
+                {/* Description */}
+                <p className="text-muted-foreground leading-relaxed text-base">
                   {subsidiary.description}
                 </p>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-foreground mb-3">Key Services:</h4>
-                  <ul className="space-y-2">
+
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+                {/* Services */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide flex items-center gap-2">
+                    <span className="w-8 h-px bg-primary" />
+                    Key Services
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {subsidiary.services.map((service, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        {service}
-                      </li>
+                      <div 
+                        key={idx} 
+                        className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{service}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </CardContent>
             </Card>
