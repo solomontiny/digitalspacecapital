@@ -5,6 +5,13 @@ import { Building2, TrendingUp, Shield, Landmark, ArrowRight, CheckCircle2 } fro
 const Subsidiaries = () => {
   const subsidiaries = [
     {
+      name: "Digital Space Capital",
+      icon: Building2,
+      description: "The parent company providing strategic oversight and financial services coordination across all subsidiaries.",
+      services: ["Corporate Strategy", "Financial Planning", "Business Development", "Regulatory Compliance"],
+      gradient: "from-primary/10 to-primary/5"
+    },
+    {
       name: "DSC Asset Management",
       icon: TrendingUp,
       description: "Specializing in portfolio management and investment advisory services for institutional and high-net-worth clients.",
@@ -12,25 +19,32 @@ const Subsidiaries = () => {
       gradient: "from-blue-500/10 to-blue-600/5"
     },
     {
-      name: "DSC Securities Trading",
-      icon: Building2,
-      description: "A full-service brokerage offering securities trading, market analysis, and investment research.",
-      services: ["Equity Trading", "Bonds & Fixed Income", "Market Analysis", "Investment Research"],
-      gradient: "from-primary/10 to-primary/5"
-    },
-    {
-      name: "DSC Insurance Services",
-      icon: Shield,
-      description: "Providing comprehensive insurance and risk management solutions for businesses and individuals.",
-      services: ["Life Insurance", "General Insurance", "Risk Assessment", "Claims Management"],
+      name: "DSC Microfinance Bank",
+      icon: Landmark,
+      description: "Providing accessible financial services to underserved communities and supporting micro-enterprises.",
+      services: ["Micro Loans", "Savings Accounts", "Business Advisory", "Financial Literacy"],
       gradient: "from-blue-400/10 to-blue-500/5"
     },
     {
-      name: "DSC Trustees Limited",
-      icon: Landmark,
-      description: "Offering professional trusteeship services for pension funds, unit trusts, and corporate entities.",
-      services: ["Pension Fund Management", "Corporate Trustee Services", "Estate Planning", "Custodial Services"],
+      name: "Naingate Insurance Brokers",
+      icon: Shield,
+      description: "Expert insurance brokerage services offering comprehensive coverage solutions for individuals and businesses.",
+      services: ["Life Insurance", "Property Insurance", "Health Coverage", "Risk Assessment"],
       gradient: "from-primary/15 to-primary/5"
+    },
+    {
+      name: "Emison Real Estate",
+      icon: Building2,
+      description: "Full-service real estate solutions including property development, sales, and property management services.",
+      services: ["Property Development", "Real Estate Sales", "Property Management", "Investment Advisory"],
+      gradient: "from-blue-500/10 to-blue-600/5"
+    },
+    {
+      name: "Easy Pay",
+      icon: TrendingUp,
+      description: "Modern payment solutions platform enabling seamless digital transactions and financial services.",
+      services: ["Digital Payments", "Money Transfer", "Bill Payments", "Mobile Wallet"],
+      gradient: "from-primary/10 to-primary/5"
     }
   ];
 
