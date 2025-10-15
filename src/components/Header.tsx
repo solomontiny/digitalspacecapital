@@ -7,8 +7,20 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showSubsidiaries, setShowSubsidiaries] = useState(false);
+  
   const navItems = [
     { label: "HOME", href: "/" },
     { label: "ABOUT US", href: "/about" },
@@ -68,8 +80,63 @@ const Header = () => {
             </NavigationMenu>
           </nav>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-3">
+          {/* Mobile Menu */}
+          <div className="flex items-center gap-3 lg:hidden">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-4 text-xs">
+              CONTACT US
+            </Button>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="lg:hidden">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+                <SheetHeader>
+                  <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
+                <nav className="flex flex-col gap-4 mt-8">
+                  {navItems.map(item => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors py-2"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  
+                  <div className="border-t pt-4">
+                    <button
+                      onClick={() => setShowSubsidiaries(!showSubsidiaries)}
+                      className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-colors py-2"
+                    >
+                      THE GROUP
+                      <ChevronDown className={`h-4 w-4 transition-transform ${showSubsidiaries ? 'rotate-180' : ''}`} />
+                    </button>
+                    {showSubsidiaries && (
+                      <div className="flex flex-col gap-2 mt-2 ml-4">
+                        {subsidiaries.map((subsidiary) => (
+                          <a
+                            key={subsidiary.name}
+                            href={subsidiary.href}
+                            onClick={() => setIsOpen(false)}
+                            className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors py-1.5"
+                          >
+                            {subsidiary.name}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* Desktop Action Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-6">
               CONTACT US
             </Button>
