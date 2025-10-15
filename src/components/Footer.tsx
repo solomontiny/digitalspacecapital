@@ -35,41 +35,41 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-primary/5 to-background border-t border-border">
+    <footer className="bg-gradient-to-br from-primary via-primary/95 to-primary/90 border-t border-primary-foreground/20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-8">
           {/* Help Desk Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-foreground">Help Desk</h3>
-            <p className="text-muted-foreground">
+            <h3 className="text-xl font-bold text-primary-foreground">Help Desk</h3>
+            <p className="text-primary-foreground/80">
               Our support team is here to help you with any questions or concerns.
             </p>
           </div>
 
           {/* Contact Details Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-foreground">Contact Details</h3>
+            <h3 className="text-xl font-bold text-primary-foreground">Contact Details</h3>
             <div className="space-y-3">
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-3 text-primary-foreground/80">
+                <MapPin className="w-5 h-5 text-primary-foreground mt-1 flex-shrink-0" />
                 <p className="text-sm">
                   5a Adekunle Lawal Street, off Oba Adeyinka Oyekan Road, Ikoyi, Lagos Nigeria
                 </p>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+              <div className="flex items-center gap-3 text-primary-foreground/80">
+                <Mail className="w-5 h-5 text-primary-foreground flex-shrink-0" />
                 <a 
                   href="mailto:info@digitalspacecapital.com" 
-                  className="text-sm hover:text-primary transition-colors"
+                  className="text-sm hover:text-primary-foreground transition-colors"
                 >
                   info@digitalspacecapital.com
                 </a>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+              <div className="flex items-center gap-3 text-primary-foreground/80">
+                <Phone className="w-5 h-5 text-primary-foreground flex-shrink-0" />
                 <a 
                   href="tel:+2349131059419" 
-                  className="text-sm hover:text-primary transition-colors"
+                  className="text-sm hover:text-primary-foreground transition-colors"
                 >
                   +234 9131059419
                 </a>
@@ -79,8 +79,8 @@ const Footer = () => {
 
           {/* Subscribe Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-foreground">Subscribe</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-xl font-bold text-primary-foreground">Subscribe</h3>
+            <p className="text-sm text-primary-foreground/80">
               Subscribe to our emails and get the latest updates on our products and services
             </p>
             <form onSubmit={handleSubscribe} className="space-y-3">
@@ -90,14 +90,14 @@ const Footer = () => {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1"
+                  className="flex-1 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                   required
                 />
                 <Button 
                   type="submit" 
                   size="icon"
                   disabled={isLoading}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 bg-[hsl(var(--warning))] hover:bg-[hsl(var(--warning))]/90 text-[hsl(var(--warning-foreground))]"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
@@ -107,19 +107,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border">
+        <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground text-center md:text-left">
+            <p className="text-sm text-primary-foreground/80 text-center md:text-left">
               © {new Date().getFullYear()} Digital Space Capital. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <a href="/about" className="hover:text-primary transition-colors">
+            <div className="flex gap-6 text-sm text-primary-foreground/80">
+              <a href="/about" className="hover:text-primary-foreground transition-colors">
                 About
               </a>
-              <a href="/what-we-do" className="hover:text-primary transition-colors">
+              <a href="/what-we-do" className="hover:text-primary-foreground transition-colors">
                 What We Do
               </a>
-              <a href="/subsidiaries" className="hover:text-primary transition-colors">
+              <a href="/subsidiaries" className="hover:text-primary-foreground transition-colors">
                 Subsidiaries
               </a>
             </div>

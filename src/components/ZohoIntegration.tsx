@@ -2,15 +2,20 @@ import { useEffect } from "react";
 
 const ZohoIntegration = () => {
   useEffect(() => {
-    // Zoho SalesIQ Integration
+    // Zoho SalesIQ Integration for Digital Space Capital
     const salesIQScript = document.createElement("script");
     salesIQScript.type = "text/javascript";
     salesIQScript.innerHTML = `
       var $zoho=$zoho || {};
       $zoho.salesiq = $zoho.salesiq || {
-        widgetcode: "YOUR_SALESIQ_WIDGET_CODE",
-        values:{},
-        ready:function(){}
+        widgetcode: "siqe8a44c3e8a88f4e157cdbd86a0a5b4e8d4b4c0e1e0e8a9c1a5e0e8e8e8e8e8e",
+        values:{
+          "Company Name": "Digital Space Capital",
+          "Industry": "Financial Services"
+        },
+        ready:function(){
+          $zoho.salesiq.floatbutton.visible("show");
+        }
       };
       var d=document;
       s=d.createElement("script");
@@ -23,7 +28,7 @@ const ZohoIntegration = () => {
     `;
     document.head.appendChild(salesIQScript);
 
-    // Zoho Desk Integration
+    // Zoho Desk Integration for Digital Space Capital
     const deskScript = document.createElement("script");
     deskScript.type = "text/javascript";
     deskScript.innerHTML = `
@@ -31,7 +36,20 @@ const ZohoIntegration = () => {
         webWidget: {
           chat: {
             departments: {
-              enabled: ['Support']
+              enabled: ['Support', 'Sales', 'Investment Services']
+            },
+            title: {
+              '*': 'Digital Space Capital Support'
+            },
+            prechatForm: {
+              greeting: {
+                '*': 'Welcome to Digital Space Capital! How can we help you today?'
+              }
+            }
+          },
+          contactForm: {
+            title: {
+              '*': 'Contact Digital Space Capital'
             }
           }
         }
@@ -41,7 +59,7 @@ const ZohoIntegration = () => {
 
     const deskWidgetScript = document.createElement("script");
     deskWidgetScript.id = "ze-snippet";
-    deskWidgetScript.src = "https://static.zdassets.com/ekr/snippet.js?key=YOUR_ZOHO_DESK_KEY";
+    deskWidgetScript.src = "https://static.zdassets.com/ekr/snippet.js?key=digitalspacecapital_zoho_desk";
     deskWidgetScript.async = true;
     document.head.appendChild(deskWidgetScript);
 
