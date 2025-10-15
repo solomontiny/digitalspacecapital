@@ -70,11 +70,8 @@ const Header = () => {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            <Button variant="ghost" className="hidden md:inline-flex font-semibold hover:bg-primary/10 transition-all duration-300">
-              LOGIN
-            </Button>
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-6">
-              SIGN UP
+              CONTACT US
             </Button>
           </div>
         </div>
