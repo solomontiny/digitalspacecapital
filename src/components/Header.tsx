@@ -25,36 +25,36 @@ const Header = () => {
     { name: "EASY PAY", href: "/subsidiaries" }
   ];
 
-  return <header className="w-full bg-background border-b border-border">
-      <div className="container mx-auto px-4 py-[16px]">
+  return <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <img src="/digital-space-capital-logo.png" alt="Digital Space Capital" className="h-24 w-auto" />
+            <img src="/digital-space-capital-logo.png" alt="Digital Space Capital" className="h-20 w-auto transition-transform hover:scale-105" />
           </div>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-10">
             {navItems.map(item => (
-              <a key={item.label} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-smooth">
+              <a key={item.label} href={item.href} className="text-sm font-semibold text-foreground/80 hover:text-primary transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
                 {item.label}
               </a>
             ))}
             
-            <NavigationMenu>
+            <NavigationMenu className="z-50">
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
+                  <NavigationMenuTrigger className="text-sm font-semibold bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-foreground/80 hover:text-primary transition-all duration-300">
                     THE GROUP
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[240px] gap-1 p-2 bg-background border border-border">
+                  <NavigationMenuContent className="z-50">
+                    <ul className="grid w-[280px] gap-1 p-3 bg-background/98 backdrop-blur-md border border-border/50 shadow-lg rounded-lg">
                       {subsidiaries.map((subsidiary) => (
                         <li key={subsidiary.name}>
                           <NavigationMenuLink asChild>
                             <a
                               href={subsidiary.href}
-                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-sm"
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary text-sm font-medium"
                             >
                               {subsidiary.name}
                             </a>
@@ -69,15 +69,12 @@ const Header = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="hidden md:inline-flex">
-              LOGIN IN
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" className="hidden md:inline-flex font-semibold hover:bg-primary/10 transition-all duration-300">
+              LOGIN
             </Button>
-            <Button className="bg-primary hover:bg-primary-hover text-primary-foreground">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-6">
               SIGN UP
-            </Button>
-            <Button className="bg-primary hover:bg-primary-hover text-primary-foreground">
-              Login
             </Button>
           </div>
         </div>
