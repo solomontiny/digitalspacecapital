@@ -31,7 +31,7 @@ const ChatWidget = () => {
               <div>
                 <p className="text-sm font-medium mb-1">Hi!</p>
                 <p className="text-sm text-muted-foreground">
-                  Thank you for contacting AVA Capital Group, How can we assist you?
+                  Thank you for contacting Digital Space Capital Group, How can we assist you?
                 </p>
               </div>
             </div>
