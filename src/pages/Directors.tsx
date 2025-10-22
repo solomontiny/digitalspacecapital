@@ -36,7 +36,7 @@ const Directors = () => {
     {
       name: "Engr. Hakeem Ademola Adeoye",
       role: "Non-Executive Director",
-      bio: "With over 25 years in operational management, Mr. Johnson drives excellence across all divisions and ensures seamless service delivery.",
+      bio: "Engr Hakeem Ademola Adeoye is a renowned Mechanical Engineer with more than 25 years of experience in the Oil and Gas Industry in Nigeria. He was a proactive member of several project management teams that worked on various ground-breaking projects both within and outside of Nigeria. In addition, he is also a distinguished stakeholder engagement expert whose reputation precedes him globally. Engr Hakeem is an astute investor with a solid background in People, Project, and Stakeholders' management. He has functioned on projects with direct responsibility for the strategic management of reputation nationwide and globally. Engr Adeoye's antecedents shows he is committed to Operational Excellence, Contractual Agreements and Business Acumen. He is a rational decision maker with strong negotiation and influencing skills. His strategic thinking has made him excel in many projects. He is a registered engineer with COREN in Nigeria and Institute of Engineering and Technology (IET) in the United Kingdom.",
       initials: "HA",
       image: hakeemImage
     },
