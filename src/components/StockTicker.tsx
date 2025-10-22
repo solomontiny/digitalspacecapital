@@ -1,8 +1,8 @@
 const StockTicker = () => {
   const tickerData = [
-    "NFEM USD/NGN Rate: ₦1,535.50 | Nigeria's GDP Growth Q2 2025: 4.23%",
+    "USD/NGN Official Rate: ₦1,535.50 | Parallel Market: ₦1,685.00 | Nigeria's GDP Growth Q2 2025: 4.23%",
     "CBN Treasury Bills: 91-Day: 18.50% | 182-Day: 19.75% | 364-Day: 21.25%", 
-    "Inflation Rate (YoY): 32.15% | Foreign Reserves: $34.2B | Crude Oil: $82.45/barrel"
+    "Inflation Rate (YoY): 32.15% | Foreign Reserves: $34.2B | Crude Oil: $82.45/barrel | I&E Window: ₦1,542.30"
   ];
 
   const tickerText = tickerData.join("   |   ");
