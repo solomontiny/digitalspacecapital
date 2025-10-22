@@ -2,15 +2,16 @@ import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
+import gmdImage from "@/assets/director-gmd.png";
 
 const Directors = () => {
   const directors = [
     {
-      name: "Dr. Adebayo Ogunlesi",
-      role: "Chairman",
+      name: "AMB. Dr. Olubukola Abitoye",
+      role: "GROUP MANAGING DIRECTOR",
       bio: "With over 30 years of experience in investment banking and private equity, Dr. Ogunlesi brings strategic vision and global expertise to Digital Space Capital.",
-      initials: "AO",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop"
+      initials: "OA",
+      image: gmdImage
     },
     {
       name: "Mrs. Funke Adebayo",
