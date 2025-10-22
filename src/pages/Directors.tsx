@@ -43,7 +43,7 @@ const Directors = () => {
     {
       name: "Ms. Oluwatosin Odubela",
       role: "Non-Executive Director",
-      bio: "Mrs. Adeyemi brings deep expertise in financial management, regulatory compliance, and strategic financial planning to ensure fiscal stability.",
+      bio: "Oluwatosin earned her LLB degree from the University of Westminster London in July 2017. She was called to the Nigerian Bar Association (NBA) in August 2018 and Solicitor of the Supreme Court of Nigeria Her Legal career kicked off with a role at Rickey Tarfa & Co as a Legal Associate, where she gained extensive experience in Civil litigation, Family law, Criminal litigation, Real Estate and Property, Contracts, Mergers and Acquisitions, compliance as well as arbitration and mediation. Oluwatosin completed her LLM degree in International Trade Law at Swansea University, Wales, United Kingdom in 2021. Afterwards, she proceeded to join Kingdom as a Trainee practicing negligence, Immigration, Corporate TNA Solicitors, United in areas of medical law, Commercial law, Claims Against Public Authorities and Property Law. She is also a Member of International Bar Association (IBA) & Chartered Institute of Arbitrators (CIArb).",
       initials: "OO",
       image: oluwatosinImage
     },
