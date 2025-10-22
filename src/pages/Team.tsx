@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
 import gmdImage from "@/assets/team-gmd.png";
+import edImage from "@/assets/team-ed.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -14,11 +15,11 @@ const Team = () => {
       image: gmdImage
     },
     {
-      name: "Team Member 2",
-      role: "Position Title",
+      name: "LAWRENCE Sunday Ojebode",
+      role: "EXECUTIVE DIRECTOR",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
+      initials: "LO",
+      image: edImage
     },
     {
       name: "Team Member 3",
