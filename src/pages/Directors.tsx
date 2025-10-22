@@ -50,7 +50,7 @@ const Directors = () => {
     {
       name: "Mr. Adegoke Adegbami",
       role: "Non-Executive Director",
-      bio: "Dr. Musa provides strategic guidance with extensive experience in investment banking and capital markets across West Africa.",
+      bio: "Mrs. Mayowa Adeyinka graduated from Yaba College of Technology with an HND in Business Administration. She is an Associate member of the Nigeria Institute of Management (NIM) and the Chartered Institute of Marketing; she is also a Member of the Chartered Insurance Institute of London and the Canadian Institute of Marketing as well as a Fellow of the Chartered Institute Of Loan And Risks Management Of Nigeria. Mayowa is a seasoned marketer with over 24 years working experience. She is an astute Marketer who has carved a niche for herself in the Insurance Industry especially in the Northern region of Nigeria. In the course of her career she has attended several trainings, conferences, seminars and summits in the area of Insurance, Marketing, Leadership, Management and Finance both locally and internationally.",
       initials: "AA",
       image: adegokeImage
     },
