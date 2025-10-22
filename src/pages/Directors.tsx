@@ -7,6 +7,7 @@ import professorSanniImage from "@/assets/director-professor-sanni.png";
 import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
 import oluwatosinImage from "@/assets/director-oluwatosin.png";
+import adeyinkaImage from "@/assets/director-adeyinka.png";
 import babsImage from "@/assets/director-babs.png";
 import adegokeImage from "@/assets/director-adegoke.png";
 import oluwagbemilekeImage from "@/assets/director-oluwagbemileke.jpg";
@@ -47,6 +48,13 @@ const Directors = () => {
       bio: "Oluwatosin earned her LLB degree from the University of Westminster London in July 2017. She was called to the Nigerian Bar Association (NBA) in August 2018 and Solicitor of the Supreme Court of Nigeria Her Legal career kicked off with a role at Rickey Tarfa & Co as a Legal Associate, where she gained extensive experience in Civil litigation, Family law, Criminal litigation, Real Estate and Property, Contracts, Mergers and Acquisitions, compliance as well as arbitration and mediation. Oluwatosin completed her LLM degree in International Trade Law at Swansea University, Wales, United Kingdom in 2021. Afterwards, she proceeded to join Kingdom as a Trainee practicing negligence, Immigration, Corporate TNA Solicitors, United in areas of medical law, Commercial law, Claims Against Public Authorities and Property Law. She is also a Member of International Bar Association (IBA) & Chartered Institute of Arbitrators (CIArb).",
       initials: "OO",
       image: oluwatosinImage
+    },
+    {
+      name: "Dr. (Mrs.) Adeyinka Olumayowa",
+      role: "Non-Executive Director",
+      bio: "Mrs. Mayowa Adeyinka graduated from Yaba College of Technology with an HND in Business Administration. She is an Associate member of the Nigeria Institute of Management (NIM) and the Chartered Institute of Marketing; she is also a Member of the Chartered Insurance Institute of London and the Canadian Institute of Marketing as well as a Fellow of the Chartered Institute Of Loan And Risks Management Of Nigeria. Mayowa is a seasoned marketer with over 24 years working experience. She is an astute Marketer who has carved a niche for herself in the Insurance Industry especially in the Northern region of Nigeria. In the course of her career she has attended several trainings, conferences, seminars and summits in the area of Insurance, Marketing, Leadership, Management and Finance both locally and internationally.",
+      initials: "AO",
+      image: adeyinkaImage
     },
     {
       name: "Babs Olugbemi",
