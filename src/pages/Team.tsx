@@ -2,15 +2,16 @@ import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
+import gmdImage from "@/assets/team-gmd.png";
 
 const Team = () => {
   const teamMembers = [
     {
-      name: "Team Member 1",
-      role: "Position Title",
+      name: "AMB. Dr Mrs Olubukola Abitoye",
+      role: "GROUP MANAGING DIRECTOR",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
+      initials: "OA",
+      image: gmdImage
     },
     {
       name: "Team Member 2",
