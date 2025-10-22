@@ -12,6 +12,7 @@ import okikiayoImage from "@/assets/team-okikiayo.jpg";
 import toyinImage from "@/assets/team-toyin.jpg";
 import adeoyeImage from "@/assets/team-adeoye.jpg";
 import osokoImage from "@/assets/team-osoko.jpg";
+import josephImage from "@/assets/team-joseph.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -79,11 +80,11 @@ const Team = () => {
       image: adeoyeImage
     },
     {
-      name: "OSOKO Olufemi",
-      role: "B AND B MULTIPURPOSE TRADING VENTURE, M.D",
+      name: "JOSEPH Folarinde",
+      role: "COMPANY SECRETARY",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "OO",
-      image: osokoImage
+      initials: "JF",
+      image: josephImage
     },
     {
       name: "Team Member 11",
