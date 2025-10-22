@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
 import gmdImage from "@/assets/director-gmd.png";
-import professorImage from "@/assets/director-professor.png";
+import emirImage from "@/assets/director-emir.png";
 
 const Directors = () => {
   const directors = [
@@ -15,11 +15,11 @@ const Directors = () => {
       image: gmdImage
     },
     {
-      name: "Professor Abiola Sanni (SAN)",
+      name: "HRH Alh. (Dr.) Yahaya Abubakar CFR",
       role: "Managing Director",
       bio: "A seasoned financial expert with extensive experience in capital markets, Mrs. Adebayo leads our operations with innovation and excellence.",
-      initials: "AS",
-      image: professorImage
+      initials: "YA",
+      image: emirImage
     },
     {
       name: "Mr. Chidi Ike",
