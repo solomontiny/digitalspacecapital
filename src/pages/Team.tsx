@@ -10,6 +10,7 @@ import ezekielImage from "@/assets/team-ezekiel.jpg";
 import ifeomaImage from "@/assets/team-ifeoma.jpg";
 import okikiayoImage from "@/assets/team-okikiayo.jpg";
 import toyinImage from "@/assets/team-toyin.jpg";
+import adeoyeImage from "@/assets/team-adeoye.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -70,11 +71,11 @@ const Team = () => {
       image: toyinImage
     },
     {
-      name: "Team Member 9",
-      role: "Position Title",
+      name: "ADEOYE, Kayode Olugbemiga",
+      role: "NAINGATE INSURANCE BROKERS MANAGING DIRECTOR",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
+      initials: "AO",
+      image: adeoyeImage
     },
     {
       name: "Team Member 10",
