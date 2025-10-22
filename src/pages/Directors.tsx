@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import gmdImage from "@/assets/director-gmd.png";
 import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
+import oluwatosinImage from "@/assets/director-oluwatosin.png";
 
 const Directors = () => {
   const directors = [
@@ -30,11 +31,11 @@ const Directors = () => {
       image: hakeemImage
     },
     {
-      name: "Mrs. Folake Adeyemi",
-      role: "Executive Director, Finance",
+      name: "Ms. Oluwatosin Odubela",
+      role: "Non-Executive Director",
       bio: "Mrs. Adeyemi brings deep expertise in financial management, regulatory compliance, and strategic financial planning to ensure fiscal stability.",
-      initials: "FA",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop"
+      initials: "OO",
+      image: oluwatosinImage
     },
     {
       name: "Dr. Ibrahim Musa",
