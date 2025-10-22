@@ -6,7 +6,7 @@ import gmdImage from "@/assets/director-gmd.png";
 import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
 import oluwatosinImage from "@/assets/director-oluwatosin.png";
-import adegokeImage from "@/assets/director-adegoke.png";
+import oluwagbemilekeImage from "@/assets/director-oluwagbemileke.jpg";
 
 const Directors = () => {
   const directors = [
@@ -39,11 +39,11 @@ const Directors = () => {
       image: oluwatosinImage
     },
     {
-      name: "Mr. Adegoke Adegbami",
+      name: "Mr. Oluwagbemileke Joseph Ogunbanwo",
       role: "Non-Executive Director",
       bio: "Dr. Musa provides strategic guidance with extensive experience in investment banking and capital markets across West Africa.",
-      initials: "AA",
-      image: adegokeImage
+      initials: "OO",
+      image: oluwagbemilekeImage
     },
     {
       name: "Mrs. Chiamaka Okonkwo",
