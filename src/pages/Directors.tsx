@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
 import gmdImage from "@/assets/director-gmd.png";
+import professorImage from "@/assets/director-professor.png";
 
 const Directors = () => {
   const directors = [
@@ -14,11 +15,11 @@ const Directors = () => {
       image: gmdImage
     },
     {
-      name: "Mrs. Funke Adebayo",
+      name: "Professor Abiola Sanni (SAN)",
       role: "Managing Director",
       bio: "A seasoned financial expert with extensive experience in capital markets, Mrs. Adebayo leads our operations with innovation and excellence.",
-      initials: "FA",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+      initials: "AS",
+      image: professorImage
     },
     {
       name: "Mr. Chidi Ike",
