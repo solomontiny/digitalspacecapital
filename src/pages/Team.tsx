@@ -9,7 +9,7 @@ const Team = () => {
     {
       name: "AMB. Dr Mrs Olubukola Abitoye",
       role: "GROUP MANAGING DIRECTOR",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost orthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because",
       initials: "OA",
       image: gmdImage
     },
