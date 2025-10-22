@@ -6,6 +6,7 @@ import gmdImage from "@/assets/team-gmd.png";
 import edImage from "@/assets/team-ed.jpg";
 import gabrielImage from "@/assets/team-gabriel.jpg";
 import abimbolaImage from "@/assets/team-abimbola.jpg";
+import ezekielImage from "@/assets/team-ezekiel.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -38,11 +39,11 @@ const Team = () => {
       image: abimbolaImage
     },
     {
-      name: "Team Member 5",
-      role: "Position Title",
+      name: "Olabode Ezekiel",
+      role: "Group Head, Internal Control and Audit",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
+      initials: "OE",
+      image: ezekielImage
     },
     {
       name: "Team Member 6",
