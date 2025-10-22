@@ -6,6 +6,7 @@ import gmdImage from "@/assets/director-gmd.png";
 import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
 import oluwatosinImage from "@/assets/director-oluwatosin.png";
+import adeyinkaImage from "@/assets/director-adeyinka.png";
 
 const Directors = () => {
   const directors = [
@@ -38,11 +39,11 @@ const Directors = () => {
       image: oluwatosinImage
     },
     {
-      name: "Dr. Ibrahim Musa",
+      name: "Dr. (Mrs.) Adeyinka Olumayowa",
       role: "Non-Executive Director",
       bio: "Dr. Musa provides strategic guidance with extensive experience in investment banking and capital markets across West Africa.",
-      initials: "IM",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+      initials: "AO",
+      image: adeyinkaImage
     },
     {
       name: "Mrs. Chiamaka Okonkwo",
