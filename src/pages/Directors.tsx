@@ -7,6 +7,7 @@ import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
 import oluwatosinImage from "@/assets/director-oluwatosin.png";
 import adegokeImage from "@/assets/director-adegoke.png";
+import oluwagbemilekeImage from "@/assets/director-oluwagbemileke.jpg";
 
 const Directors = () => {
   const directors = [
@@ -46,11 +47,11 @@ const Directors = () => {
       image: adegokeImage
     },
     {
-      name: "Mrs. Chiamaka Okonkwo",
+      name: "Mr. Oluwagbemileke Joseph Ogunbanwo",
       role: "Non-Executive Director",
       bio: "A distinguished legal expert specializing in corporate law and governance, ensuring compliance and best practices.",
-      initials: "CO",
-      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop"
+      initials: "OO",
+      image: oluwagbemilekeImage
     },
     {
       name: "Mr. Olumide Adebayo",
