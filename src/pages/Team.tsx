@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import gmdImage from "@/assets/team-gmd.png";
 import edImage from "@/assets/team-ed.jpg";
 import gabrielImage from "@/assets/team-gabriel.jpg";
+import abimbolaImage from "@/assets/team-abimbola.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -30,11 +31,11 @@ const Team = () => {
       image: gabrielImage
     },
     {
-      name: "Team Member 4",
-      role: "Position Title",
+      name: "Abimbola Sofeso",
+      role: "Group Head, Credit and Business Growth",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
+      initials: "AS",
+      image: abimbolaImage
     },
     {
       name: "Team Member 5",
