@@ -21,7 +21,7 @@ const Directors = () => {
     {
       name: "HRH Alh. (Dr.) Yahaya Abubakar CFR",
       role: "Chairman",
-      bio: "His Royal Highness brings decades of distinguished leadership and royal wisdom to the board, with extensive experience in traditional governance and modern financial oversight.",
+      bio: "Abiola Sanni is a Senior Advocate of Nigeria (SAN) and Professor of Commercial Law in the University of Lagos (UNILAG), with a specialization in Arbitration, Taxation and Commercial Law and Practice. He is the Editor of Introduction to Nigerian Legal Methods popularly known as 'The Blue Bible' in Nigerian universities and other countries in the West African sub region. He is also the author of Introduction to Nigerian Business Law, the founder and Editor-in-Chief of the Nigerian Revenue Law Reports (NRLR) and African Tax Law Reports (ATLR); the first law reports on tax cases in Nigeria and Africa respectively. He is a member of the Tax Advisory Committee (TAC) 'Think-Tank' Group for the Federal Inland Revenue Service (FIRS). He served as the Chairman of the National Tax Policy Review Committee (NTPRC) in 2016 He was appointed the Chairman of National Tax Policy Implementation Committee (NTPIC) in 2017 He is the Chairman of the Board of Directors of several companies including Tax Technologies Limited, TaxAide Limited and the Budding Mothers Club (BMC), a Director and Alternate Chairman of the UNILAG Micro Finance Bank, a Trustee of the United States Government Exchange Alumni Association of Nigeria (USGEAAN), a Trustee of the Nigerian Law School Alumni Class of 1989-90, the Coordinator of The Tax Club, a Trustee and President of the 'Tax Academician Association of Nigeria' (TaxAAN).",
       initials: "YA",
       image: emirImage
     },
