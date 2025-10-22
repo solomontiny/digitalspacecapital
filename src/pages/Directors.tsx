@@ -7,6 +7,7 @@ import professorSanniImage from "@/assets/director-professor-sanni.png";
 import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
 import oluwatosinImage from "@/assets/director-oluwatosin.png";
+import babsImage from "@/assets/director-babs.png";
 import adegokeImage from "@/assets/director-adegoke.png";
 import oluwagbemilekeImage from "@/assets/director-oluwagbemileke.jpg";
 
@@ -46,6 +47,13 @@ const Directors = () => {
       bio: "Oluwatosin earned her LLB degree from the University of Westminster London in July 2017. She was called to the Nigerian Bar Association (NBA) in August 2018 and Solicitor of the Supreme Court of Nigeria Her Legal career kicked off with a role at Rickey Tarfa & Co as a Legal Associate, where she gained extensive experience in Civil litigation, Family law, Criminal litigation, Real Estate and Property, Contracts, Mergers and Acquisitions, compliance as well as arbitration and mediation. Oluwatosin completed her LLM degree in International Trade Law at Swansea University, Wales, United Kingdom in 2021. Afterwards, she proceeded to join Kingdom as a Trainee practicing negligence, Immigration, Corporate TNA Solicitors, United in areas of medical law, Commercial law, Claims Against Public Authorities and Property Law. She is also a Member of International Bar Association (IBA) & Chartered Institute of Arbitrators (CIArb).",
       initials: "OO",
       image: oluwatosinImage
+    },
+    {
+      name: "Babs Olugbemi",
+      role: "Independent Director",
+      bio: "Babs is a fellow of the Institute of Chartered Accountants of Nigeria and Accountants of the Association of Chartered and Certified Accountants of the United Kingdom. He was experienced banking professional for twenty years before yielding to his passion for helping individuals and organisations be at their best through coaching, mentoring, writing, speaking, and consulting on business continuity, legacy creation, finance, and institutional development. He is the author of the five highly motivating books: Transform Yourself (the secrets for unleashing and maximising your potential), The Students' Fortress (ten practical rules for passing your exams), The Teachers' Fortress (a simple guide to becoming a teacher of influence and impact), Take the Lead (how to live, energise, activate and develop your strength zone) and The Value Chain Banking.",
+      initials: "BO",
+      image: babsImage
     },
     {
       name: "Mr. Adegoke Adegbami",
