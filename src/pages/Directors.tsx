@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
 import gmdImage from "@/assets/director-gmd.png";
+import professorSanniImage from "@/assets/director-professor-sanni.png";
 import emirImage from "@/assets/director-emir.png";
 import hakeemImage from "@/assets/director-hakeem.png";
 import oluwatosinImage from "@/assets/director-oluwatosin.png";
@@ -17,6 +18,13 @@ const Directors = () => {
       bio: "Amb. Dr. Mrs. Olubukola M. Abitoye hails from Ondo town in Ondo State, Nigeria. A skilled Financial specialist, she holds a bachelor's degree in Management and Accounting from Obafemi Awolowo University and a master's degree in Business Administration from Charisma University in North America. As GMD of Digital Space Capital Group, Amb. Dr. Mrs. Abitoye oversees an all-in-one provider of Financial services, including investment banking, asset management, insurance, micro banking, and Fintech. 20+ years of experience in treasury management, corporate Finance, investment banking, commercial and retail banking, project Finance, interior designs, and real estate. A certified SEC-sponsored individual, she is authorized to provide investment advisory and manage Financial transactions. Amb. Dr. Mrs. Abitoye holds memberships in esteemed organizations such as: - Chartered Institute of Directors, Nigeria (CIOD) - Nigerian Institute of Management (NIM) - Fellow, Chartered Institute of Loan and Risk Management of Nigeria (doctorate holder - Financial Markets Association (ACI) - Doctoral Fellowship, International Certified Risk Management Professionals, United Kingdom She serves as a youth ambassador (ECOWAS Youth Council) and has received the Nelson Mandela Leadership Award of Excellence and Integrity. Amb. Dr. Mrs. Abitoye is a seasoned leader committed to excellence, with remarkable achievements in Finance and philanthropy.",
       initials: "OA",
       image: gmdImage
+    },
+    {
+      name: "Professor Abiola Sanni (SAN)",
+      role: "Non-Executive Director",
+      bio: "Abiola Sanni is a Senior Advocate of Nigeria (SAN) and Professor of Commercial Law in the University of Lagos (UNILAG), with a specialization in Arbitration, Taxation and Commercial Law and Practice. He is the Editor of Introduction to Nigerian Legal Methods popularly known as 'The Blue Bible' in Nigerian universities and other countries in the West African sub region. He is also the author of Introduction to Nigerian Business Law, the founder and Editor-in-Chief of the Nigerian Revenue Law Reports (NRLR) and African Tax Law Reports (ATLR); the first law reports on tax cases in Nigeria and Africa respectively. He is a member of the Tax Advisory Committee (TAC) 'Think-Tank' Group for the Federal Inland Revenue Service (FIRS). He served as the Chairman of the National Tax Policy Review Committee (NTPRC) in 2016 He was appointed the Chairman of National Tax Policy Implementation Committee (NTPIC) in 2017 He is the Chairman of the Board of Directors of several companies including Tax Technologies Limited, TaxAide Limited and the Budding Mothers Club (BMC), a Director and Alternate Chairman of the UNILAG Micro Finance Bank, a Trustee of the United States Government Exchange Alumni Association of Nigeria (USGEAAN), a Trustee of the Nigerian Law School Alumni Class of 1989-90, the Coordinator of The Tax Club, a Trustee and President of the 'Tax Academician Association of Nigeria' (TaxAAN).",
+      initials: "AS",
+      image: professorSanniImage
     },
     {
       name: "HRH Alh. (Dr.) Yahaya Abubakar CFR",
