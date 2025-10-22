@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
 import gmdImage from "@/assets/director-gmd.png";
 import emirImage from "@/assets/director-emir.png";
+import hakeemImage from "@/assets/director-hakeem.png";
 
 const Directors = () => {
   const directors = [
@@ -22,11 +23,11 @@ const Directors = () => {
       image: emirImage
     },
     {
-      name: "Mr. Adewale Johnson",
-      role: "Executive Director, Operations",
+      name: "Engr. Hakeem Ademola Adeoye",
+      role: "Non-Executive Director",
       bio: "With over 25 years in operational management, Mr. Johnson drives excellence across all divisions and ensures seamless service delivery.",
-      initials: "AJ",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+      initials: "HA",
+      image: hakeemImage
     },
     {
       name: "Mrs. Folake Adeyemi",
