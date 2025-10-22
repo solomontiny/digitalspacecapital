@@ -57,7 +57,7 @@ const Directors = () => {
     {
       name: "Mr. Oluwagbemileke Joseph Ogunbanwo",
       role: "Non-Executive Director",
-      bio: "A distinguished legal expert specializing in corporate law and governance, ensuring compliance and best practices.",
+      bio: "Babs is a fellow of the Institute of Chartered Accountants of Nigeria and Accountants of the Association of Chartered and Certified Accountants of the United Kingdom. He was experienced banking professional for twenty years before yielding to his passion for helping individuals and organisations be at their best through coaching, mentoring, writing, speaking, and consulting on business continuity, legacy creation, finance, and institutional development. He is the author of the five highly motivating books: Transform Yourself (the secrets for unleashing and maximising your potential), The Students' Fortress (ten practical rules for passing your exams), The Teachers' Fortress (a simple guide to becoming a teacher of influence and impact), Take the Lead (how to live, energise, activate and develop your strength zone) and The Value Chain Banking.",
       initials: "OO",
       image: oluwagbemilekeImage
     }
