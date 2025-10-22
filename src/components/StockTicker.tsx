@@ -1,8 +1,8 @@
 const StockTicker = () => {
   const tickerData = [
-    "Daily FIDF - Bid Price: $114.78; Offer Price: $114.78",
-    "FINF- Bid Price: N1,237.36; Offer Price: N1,237.36", 
-    "MMF Bid Price: N1.00; Offer Price: N1.00"
+    "NFEM USD/NGN Rate: ₦1,535.50 | Nigeria's GDP Growth Q2 2025: 4.23%",
+    "CBN Treasury Bills: 91-Day: 18.50% | 182-Day: 19.75% | 364-Day: 21.25%", 
+    "Inflation Rate (YoY): 32.15% | Foreign Reserves: $34.2B | Crude Oil: $82.45/barrel"
   ];
 
   const tickerText = tickerData.join("   |   ");
