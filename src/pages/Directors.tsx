@@ -52,27 +52,6 @@ const Directors = () => {
       bio: "A distinguished legal expert specializing in corporate law and governance, ensuring compliance and best practices.",
       initials: "OO",
       image: oluwagbemilekeImage
-    },
-    {
-      name: "Mr. Olumide Adebayo",
-      role: "Independent Director",
-      bio: "Mr. Adebayo brings independent oversight with decades of experience in risk management and corporate strategy.",
-      initials: "OA",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
-    },
-    {
-      name: "Mrs. Zainab Mohammed",
-      role: "Independent Director",
-      bio: "With expertise in fintech innovation and digital transformation, Mrs. Mohammed guides our technological advancement.",
-      initials: "ZM",
-      image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop"
-    },
-    {
-      name: "Dr. Kenneth Eze",
-      role: "Non-Executive Director",
-      bio: "Dr. Eze provides valuable insights with his background in economics, policy development, and international finance.",
-      initials: "KE",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
     }
   ];
 
