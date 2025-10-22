@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Footer from "@/components/Footer";
 import gmdImage from "@/assets/team-gmd.png";
 import edImage from "@/assets/team-ed.jpg";
+import gabrielImage from "@/assets/team-gabriel.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -22,11 +23,11 @@ const Team = () => {
       image: edImage
     },
     {
-      name: "Team Member 3",
-      role: "Position Title",
+      name: "Egwuatu Gabriel",
+      role: "Associate Director",
       bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
+      initials: "EG",
+      image: gabrielImage
     },
     {
       name: "Team Member 4",
