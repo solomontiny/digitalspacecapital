@@ -1,4 +1,5 @@
 import digikoloBanner from "@/assets/digikolo-banner.jpg";
+import digikoloPromo from "@/assets/digikolo-promo.mp4";
 
 const AppDownload = () => {
   return (
@@ -40,15 +41,25 @@ const AppDownload = () => {
           </div>
         </div>
 
-        {/* Digikolo Banner Section */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <img 
-              src={digikoloBanner} 
-              alt="Digikolo Fintech Savings App - Service, Support, Experience, and Management"
+        {/* Digikolo Video Advert Section */}
+        <div className="mt-12 max-w-3xl mx-auto">
+          <div className="rounded-xl overflow-hidden shadow-xl bg-card">
+            <video 
+              src={digikoloPromo}
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
               className="w-full h-auto"
-            />
+              style={{ maxHeight: '500px', objectFit: 'cover' }}
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Digikolo - Your trusted fintech savings partner
+          </p>
         </div>
       </div>
     </section>
