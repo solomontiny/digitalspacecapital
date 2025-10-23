@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import logo from "@/assets/digital-space-capital-logo.png";
+import logo from "@/assets/digital-space-capital-logo-new.png";
 
 // Declare Zoho types
 declare global {
@@ -52,7 +52,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-primary via-primary/95 to-primary/90 border-t border-primary-foreground/20">
       <div className="container mx-auto px-4 py-12">
         {/* Logo Section */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-start mb-8">
           <img 
             src={logo} 
             alt="Digital Space Capital Group Logo" 
