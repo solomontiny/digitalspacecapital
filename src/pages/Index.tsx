@@ -5,7 +5,6 @@ import ServicesGrid from "@/components/ServicesGrid";
 import Statistics from "@/components/Statistics";
 import NewsSection from "@/components/NewsSection";
 import AppDownload from "@/components/AppDownload";
-import ChatWidget from "@/components/ChatWidget";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,7 +17,6 @@ const Index = () => {
       <Statistics />
       <NewsSection />
       <AppDownload />
-      <ChatWidget />
       <Footer />
     </div>
   );
