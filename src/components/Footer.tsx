@@ -1,8 +1,21 @@
 import { useState } from "react";
-import { MapPin, Mail, Phone, Send } from "lucide-react";
+import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+
+// Declare Zoho types
+declare global {
+  interface Window {
+    $zoho?: {
+      salesiq?: {
+        floatbutton?: {
+          click: () => void;
+        };
+      };
+    };
+  }
+}
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -44,6 +57,18 @@ const Footer = () => {
             <p className="text-primary-foreground/80">
               Our support team is here to help you with any questions or concerns.
             </p>
+            <Button 
+              onClick={() => {
+                // Trigger Zoho chat widget
+                if (window.$zoho && window.$zoho.salesiq) {
+                  window.$zoho.salesiq.floatbutton.click();
+                }
+              }}
+              className="bg-[hsl(var(--warning))] hover:bg-[hsl(var(--warning))]/90 text-[hsl(var(--warning-foreground))] gap-2"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Chat with Support
+            </Button>
           </div>
 
           {/* Contact Details Section */}
