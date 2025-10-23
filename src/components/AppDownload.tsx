@@ -6,7 +6,7 @@ const AppDownload = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-primary mb-8">
-            Download digikolo app today
+            Download Our Digikolo Mobile app
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Experience seamless fintech savings and investment management with Digikolo - your trusted financial companion.
