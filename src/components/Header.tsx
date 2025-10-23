@@ -83,8 +83,8 @@ const Header = () => {
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-3 lg:hidden">
-            <Button size="sm">
-              CONTACT US
+            <Button size="sm" asChild>
+              <a href="/contact">CONTACT US</a>
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -138,8 +138,8 @@ const Header = () => {
 
           {/* Desktop Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button>
-              CONTACT US
+            <Button asChild>
+              <a href="/contact">CONTACT US</a>
             </Button>
           </div>
         </div>
