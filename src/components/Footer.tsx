@@ -52,11 +52,11 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-primary via-primary/95 to-primary/90 border-t border-primary-foreground/20">
       <div className="container mx-auto px-4 py-12">
         {/* Logo Section */}
-        <div className="flex justify-start mb-12">
+        <div className="flex justify-start mb-8">
           <img 
             src={logo} 
             alt="Digital Space Capital Group Logo" 
-            className="h-20 w-auto"
+            className="h-16 w-auto"
           />
         </div>
 
