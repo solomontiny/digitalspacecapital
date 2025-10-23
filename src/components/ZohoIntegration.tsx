@@ -1,14 +1,38 @@
 import { useEffect } from "react";
 
+// ============================================
+// ZOHO CONFIGURATION
+// ============================================
+// Replace these with your actual Zoho credentials:
+// 
+// 1. Get SalesIQ Widget Code:
+//    - Go to https://www.zoho.com/salesiq/
+//    - Settings → Brands → Installation
+//    - Copy your widget code (looks like: siq1234567890abcdef...)
+//
+// 2. Get Zoho Desk Key:
+//    - Go to https://www.zoho.com/desk/
+//    - Setup → Channels → Web Widget
+//    - Copy your snippet key
+//
+const ZOHO_SALESIQ_WIDGET_CODE = "YOUR_SALESIQ_WIDGET_CODE_HERE"; // Replace this
+const ZOHO_DESK_KEY = "YOUR_DESK_KEY_HERE"; // Replace this
+
 const ZohoIntegration = () => {
   useEffect(() => {
+    // Only load if valid credentials are provided
+    if (!ZOHO_SALESIQ_WIDGET_CODE || ZOHO_SALESIQ_WIDGET_CODE === "YOUR_SALESIQ_WIDGET_CODE_HERE") {
+      console.warn("⚠️ Zoho SalesIQ widget code not configured. Please add your widget code in src/components/ZohoIntegration.tsx");
+      return;
+    }
+
     // Zoho SalesIQ Integration for Digital Space Capital
     const salesIQScript = document.createElement("script");
     salesIQScript.type = "text/javascript";
     salesIQScript.innerHTML = `
       var $zoho=$zoho || {};
       $zoho.salesiq = $zoho.salesiq || {
-        widgetcode: "siqe8a44c3e8a88f4e157cdbd86a0a5b4e8d4b4c0e1e0e8a9c1a5e0e8e8e8e8e8e",
+        widgetcode: "${ZOHO_SALESIQ_WIDGET_CODE}",
         values:{
           "Company Name": "Digital Space Capital",
           "Industry": "Financial Services"
@@ -28,50 +52,55 @@ const ZohoIntegration = () => {
     `;
     document.head.appendChild(salesIQScript);
 
-    // Zoho Desk Integration for Digital Space Capital
-    const deskScript = document.createElement("script");
-    deskScript.type = "text/javascript";
-    deskScript.innerHTML = `
-      window.zESettings = {
-        webWidget: {
-          chat: {
-            departments: {
-              enabled: ['Support', 'Sales', 'Investment Services']
+    let deskScript: HTMLScriptElement | null = null;
+    let deskWidgetScript: HTMLScriptElement | null = null;
+
+    // Zoho Desk Integration (Optional - only if you have Zoho Desk)
+    if (ZOHO_DESK_KEY && ZOHO_DESK_KEY !== "YOUR_DESK_KEY_HERE") {
+      deskScript = document.createElement("script");
+      deskScript.type = "text/javascript";
+      deskScript.innerHTML = `
+        window.zESettings = {
+          webWidget: {
+            chat: {
+              departments: {
+                enabled: ['Support', 'Sales', 'Investment Services']
+              },
+              title: {
+                '*': 'Digital Space Capital Support'
+              },
+              prechatForm: {
+                greeting: {
+                  '*': 'Welcome to Digital Space Capital! How can we help you today?'
+                }
+              }
             },
-            title: {
-              '*': 'Digital Space Capital Support'
-            },
-            prechatForm: {
-              greeting: {
-                '*': 'Welcome to Digital Space Capital! How can we help you today?'
+            contactForm: {
+              title: {
+                '*': 'Contact Digital Space Capital'
               }
             }
-          },
-          contactForm: {
-            title: {
-              '*': 'Contact Digital Space Capital'
-            }
           }
-        }
-      };
-    `;
-    document.head.appendChild(deskScript);
+        };
+      `;
+      document.head.appendChild(deskScript);
 
-    const deskWidgetScript = document.createElement("script");
-    deskWidgetScript.id = "ze-snippet";
-    deskWidgetScript.src = "https://static.zdassets.com/ekr/snippet.js?key=digitalspacecapital_zoho_desk";
-    deskWidgetScript.async = true;
-    document.head.appendChild(deskWidgetScript);
+      deskWidgetScript = document.createElement("script");
+      deskWidgetScript.id = "ze-snippet";
+      deskWidgetScript.src = `https://static.zdassets.com/ekr/snippet.js?key=${ZOHO_DESK_KEY}`;
+      deskWidgetScript.async = true;
+      document.head.appendChild(deskWidgetScript);
+    }
 
     return () => {
       // Cleanup scripts on unmount
       if (salesIQScript.parentNode) {
         salesIQScript.parentNode.removeChild(salesIQScript);
       }
-      if (deskScript.parentNode) {
+      if (deskScript?.parentNode) {
         deskScript.parentNode.removeChild(deskScript);
       }
-      if (deskWidgetScript.parentNode) {
+      if (deskWidgetScript?.parentNode) {
         deskWidgetScript.parentNode.removeChild(deskWidgetScript);
       }
     };
