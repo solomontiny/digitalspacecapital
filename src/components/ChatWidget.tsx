@@ -58,7 +58,8 @@ const ChatWidget = () => {
       
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground shadow-lg chat-bubble"
+        size="icon"
+        className="w-14 h-14 rounded-full shadow-lg chat-bubble"
       >
         <MessageCircle className="h-6 w-6" />
       </Button>

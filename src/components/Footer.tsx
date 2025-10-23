@@ -75,7 +75,8 @@ const Footer = () => {
                   window.$zoho.salesiq.floatbutton.click();
                 }
               }}
-              className="bg-[hsl(var(--warning))] hover:bg-[hsl(var(--warning))]/90 text-[hsl(var(--warning-foreground))] gap-2"
+              variant="secondary"
+              className="gap-2"
             >
               <MessageCircle className="w-4 h-4" />
               Chat with Support
@@ -133,7 +134,7 @@ const Footer = () => {
                   type="submit" 
                   size="icon"
                   disabled={isLoading}
-                  className="flex-shrink-0 bg-[hsl(var(--warning))] hover:bg-[hsl(var(--warning))]/90 text-[hsl(var(--warning-foreground))]"
+                  variant="secondary"
                 >
                   <Send className="w-4 h-4" />
                 </Button>

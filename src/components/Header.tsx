@@ -83,7 +83,7 @@ const Header = () => {
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-3 lg:hidden">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-4 text-xs">
+            <Button size="sm">
               CONTACT US
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -138,7 +138,7 @@ const Header = () => {
 
           {/* Desktop Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-6">
+            <Button>
               CONTACT US
             </Button>
           </div>
