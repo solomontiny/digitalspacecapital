@@ -56,7 +56,8 @@ const Footer = () => {
           <img 
             src={logo} 
             alt="Digital Space Capital Group Logo" 
-            className="h-16 w-auto"
+            className="h-24 w-auto brightness-0 invert"
+            style={{ imageRendering: 'crisp-edges' }}
           />
         </div>
 
