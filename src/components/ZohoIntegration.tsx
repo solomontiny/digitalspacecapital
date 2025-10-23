@@ -21,7 +21,7 @@ const ZohoIntegration = () => {
     // Load Zoho SalesIQ Widget
     const widgetScript = document.createElement("script");
     widgetScript.id = "zsiqscript";
-    widgetScript.src = `https://salesiq.zohopublic.com/widget?wc=${ZOHO_SALESIQ_WIDGET_CODE}`;
+    widgetScript.src = `https://salesiq.zoho.com/widget?wc=${ZOHO_SALESIQ_WIDGET_CODE}`;
     widgetScript.defer = true;
     document.head.appendChild(widgetScript);
 
