@@ -15,7 +15,7 @@ const AppDownload = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
-              href="https://play.google.com/store" 
+              href="https://play.google.com/store/apps/details?id=com.digitalspacecapital.digikolo&hl=en" 
               target="_blank" 
               rel="noopener noreferrer"
               className="transition-smooth hover:scale-105"
@@ -27,7 +27,7 @@ const AppDownload = () => {
               />
             </a>
             <a 
-              href="https://apps.apple.com/app" 
+              href="https://apps.apple.com/ng/app/digikolo/id1546389680" 
               target="_blank" 
               rel="noopener noreferrer"
               className="transition-smooth hover:scale-105"
