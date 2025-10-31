@@ -6,6 +6,7 @@ import Statistics from "@/components/Statistics";
 import NewsSection from "@/components/NewsSection";
 import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <NewsSection />
       <AppDownload />
       <Footer />
+      <CookieConsent />
     </div>
   );
 };
