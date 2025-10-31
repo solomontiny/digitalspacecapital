@@ -22,10 +22,10 @@ const Hero = () => {
           
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white/90 mb-6">
-              Finance at is finest
+              Finance at its finest
             </h2>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              We help people, businesses and institutions nurture and manage wealth so they can pursue their financial goals. We do this by providing a robust suite of well researched and tested financial solutions to our diverse client base.
+              We help people, businesses, and institutions nurture and manage wealth so they can pursue their financial goals. We do this by providing a robust suite of well-researched and tested financial solutions to our diverse client base.
             </p>
           </div>
           

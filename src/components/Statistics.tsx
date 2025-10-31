@@ -8,25 +8,25 @@ import testimonial3 from "@/assets/testimonial-3.jpg";
 const Statistics = () => {
   const testimonials = [
     {
-      quote: "Digital Space Capital transformed our investment strategy.",
-      author: "Sarah Johnson",
-      role: "CEO, Tech Innovations Ltd",
+      quote: "Digital Space Capital's asset management services have consistently delivered exceptional returns. Their deep market knowledge and strategic approach have been instrumental in growing our portfolio.",
+      author: "Oluwaseun Adebayo",
+      role: "Managing Director, Apex Holdings",
       image: testimonial1,
-      initials: "SJ",
+      initials: "OA",
     },
     {
-      quote: "The team's professionalism and market insights are unparalleled.",
-      author: "Michael Chen",
-      role: "CFO, Global Ventures",
+      quote: "Working with DSC on our corporate finance needs has been transformative. Their team provides invaluable insights and seamless execution that has accelerated our business growth.",
+      author: "Chiamaka Okonkwo",
+      role: "CFO, NextGen Technologies",
       image: testimonial2,
-      initials: "MC",
+      initials: "CO",
     },
     {
-      quote: "Outstanding service and results. Strategic guidance has been key to our success.",
-      author: "Aisha Mohammed",
-      role: "Investment Director",
+      quote: "The professionalism and expertise at Digital Space Capital are unmatched. Their tailored financial solutions have enabled us to achieve our investment objectives efficiently.",
+      author: "Ibrahim Musa",
+      role: "Investment Director, Heritage Capital",
       image: testimonial3,
-      initials: "AM",
+      initials: "IM",
     }
   ];
 
