@@ -85,13 +85,6 @@ const Team = () => {
       bio: "Brief description of team member's background, experience, and expertise in their field.",
       initials: "JF",
       image: josephImage
-    },
-    {
-      name: "Team Member 11",
-      role: "Position Title",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
-      initials: "TM",
-      image: ""
     }
   ];
 

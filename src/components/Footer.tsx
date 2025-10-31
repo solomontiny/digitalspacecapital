@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Mail, Phone, Send } from "lucide-react";
+import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -61,7 +61,28 @@ const Footer = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-8">
+          {/* Help Desk Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-primary-foreground">Help Desk</h3>
+            <p className="text-primary-foreground/80">
+              Our support team is here to help you with any questions or concerns.
+            </p>
+            <Button 
+              onClick={() => {
+                // Trigger Zoho chat widget
+                if (window.$zoho && window.$zoho.salesiq) {
+                  window.$zoho.salesiq.floatbutton.click();
+                }
+              }}
+              variant="secondary"
+              className="gap-2"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Chat with Support
+            </Button>
+          </div>
+
           {/* Contact Details Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-primary-foreground">Contact Details</h3>
