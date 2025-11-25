@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, TrendingUp, Shield, Landmark, ArrowRight, CheckCircle2 } from "lucide-react";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -10,42 +11,48 @@ const Subsidiaries = () => {
       icon: Building2,
       description: "The parent company providing strategic oversight and financial services coordination across all subsidiaries.",
       services: ["Corporate Strategy", "Financial Planning", "Business Development", "Regulatory Compliance"],
-      gradient: "from-primary/10 to-primary/5"
+      gradient: "from-primary/10 to-primary/5",
+      link: "/subsidiaries/digital-space-capital"
     },
     {
       name: "DSC Asset Management",
       icon: TrendingUp,
       description: "Specializing in portfolio management and investment advisory services for institutional and high-net-worth clients.",
       services: ["Portfolio Management", "Investment Advisory", "Wealth Planning", "Risk Management"],
-      gradient: "from-blue-500/10 to-blue-600/5"
+      gradient: "from-blue-500/10 to-blue-600/5",
+      link: "/subsidiaries/dsc-asset-management"
     },
     {
       name: "DSC Microfinance Bank",
       icon: Landmark,
       description: "Providing accessible financial services to underserved communities and supporting micro-enterprises.",
       services: ["Micro Loans", "Savings Accounts", "Business Advisory", "Financial Literacy"],
-      gradient: "from-blue-400/10 to-blue-500/5"
+      gradient: "from-blue-400/10 to-blue-500/5",
+      link: "/subsidiaries/dsc-microfinance-bank"
     },
     {
       name: "Naingate Insurance Brokers",
       icon: Shield,
       description: "Expert insurance brokerage services offering comprehensive coverage solutions for individuals and businesses.",
       services: ["Life Insurance", "Property Insurance", "Health Coverage", "Risk Assessment"],
-      gradient: "from-primary/15 to-primary/5"
+      gradient: "from-primary/15 to-primary/5",
+      link: "/subsidiaries/naingate-insurance"
     },
     {
       name: "Emison Real Estate",
       icon: Building2,
       description: "Full-service real estate solutions including property development, sales, and property management services.",
       services: ["Property Development", "Real Estate Sales", "Property Management", "Investment Advisory"],
-      gradient: "from-blue-500/10 to-blue-600/5"
+      gradient: "from-blue-500/10 to-blue-600/5",
+      link: "/subsidiaries/emison-real-estate"
     },
     {
       name: "Easy Pay",
       icon: TrendingUp,
       description: "Modern payment solutions platform enabling seamless digital transactions and financial services.",
       services: ["Digital Payments", "Money Transfer", "Bill Payments", "Mobile Wallet"],
-      gradient: "from-primary/10 to-primary/5"
+      gradient: "from-primary/10 to-primary/5",
+      link: "/subsidiaries/easy-pay"
     }
   ];
 
@@ -78,10 +85,10 @@ const Subsidiaries = () => {
       <main className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {subsidiaries.map((subsidiary, index) => (
-            <Card 
-              key={index} 
-              className="group relative overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
-            >
+            <Link key={index} to={subsidiary.link}>
+              <Card 
+                className="group relative overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer h-full"
+              >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${subsidiary.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               
@@ -132,6 +139,7 @@ const Subsidiaries = () => {
                 </div>
               </CardContent>
             </Card>
+            </Link>
           ))}
         </div>
       </main>

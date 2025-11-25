@@ -12,6 +12,12 @@ import Team from "./pages/Team";
 import Subsidiaries from "./pages/Subsidiaries";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import DigitalSpaceCapital from "./pages/subsidiaries/DigitalSpaceCapital";
+import DSCAssetManagement from "./pages/subsidiaries/DSCAssetManagement";
+import DSCMicrofinanceBank from "./pages/subsidiaries/DSCMicrofinanceBank";
+import NaingateInsurance from "./pages/subsidiaries/NaingateInsurance";
+import EmisonRealEstate from "./pages/subsidiaries/EmisonRealEstate";
+import EasyPay from "./pages/subsidiaries/EasyPay";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +35,12 @@ const App = () => (
           <Route path="/directors" element={<Directors />} />
           <Route path="/team" element={<Team />} />
           <Route path="/subsidiaries" element={<Subsidiaries />} />
+          <Route path="/subsidiaries/digital-space-capital" element={<DigitalSpaceCapital />} />
+          <Route path="/subsidiaries/dsc-asset-management" element={<DSCAssetManagement />} />
+          <Route path="/subsidiaries/dsc-microfinance-bank" element={<DSCMicrofinanceBank />} />
+          <Route path="/subsidiaries/naingate-insurance" element={<NaingateInsurance />} />
+          <Route path="/subsidiaries/emison-real-estate" element={<EmisonRealEstate />} />
+          <Route path="/subsidiaries/easy-pay" element={<EasyPay />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
