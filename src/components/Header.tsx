@@ -26,7 +26,8 @@ const Header = () => {
     { label: "ABOUT US", href: "/about" },
     { label: "WHAT WE DO", href: "/what-we-do" },
     { label: "DIRECTORS", href: "/directors" },
-    { label: "JOIN OUR TEAM", href: "/team" }
+    { label: "JOIN OUR TEAM", href: "/team" },
+    { label: "CAREERS", href: "/careers" }
   ];
 
   const subsidiaries = [
