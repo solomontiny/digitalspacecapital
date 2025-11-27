@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import dscLogo from "@/assets/digital-space-capital-icon.png";
+import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 
 const DigitalSpaceCapital = () => {
   return (
@@ -20,18 +21,30 @@ const DigitalSpaceCapital = () => {
               Back to Subsidiaries
             </Button>
           </Link>
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="p-4 bg-background rounded-2xl shadow-lg">
-                <img src={dscLogo} alt="Digital Space Capital" className="h-16 w-16 object-contain" />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-4 bg-background rounded-2xl shadow-lg">
+                    <img src={dscLogo} alt="Digital Space Capital" className="h-16 w-16 object-contain" />
+                  </div>
+                  <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                    Digital Space Capital
+                  </h1>
+                </div>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  The parent company providing strategic oversight and financial services coordination across all subsidiaries.
+                </p>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                Digital Space Capital
-              </h1>
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl" />
+                <img 
+                  src={investmentBankingImg} 
+                  alt="Digital Space Capital" 
+                  className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover border-4 border-background"
+                />
+              </div>
             </div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              The parent company providing strategic oversight and financial services coordination across all subsidiaries.
-            </p>
           </div>
         </div>
       </section>

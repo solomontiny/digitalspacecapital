@@ -4,6 +4,8 @@ import { TrendingUp, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
+import assetManagementImg from "@/assets/asset-management.jpg";
 
 const DSCAssetManagement = () => {
   return (
@@ -19,18 +21,28 @@ const DSCAssetManagement = () => {
               Back to Subsidiaries
             </Button>
           </Link>
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg">
-                <TrendingUp className="h-10 w-10 text-white" />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <img src={dscAssetMgtLogo} alt="DSC Asset Management" className="h-20 w-20 object-contain" />
+                  <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                    DSC Asset Management
+                  </h1>
+                </div>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Specializing in portfolio management and investment advisory services for institutional and high-net-worth clients.
+                </p>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                DSC Asset Management
-              </h1>
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-2xl" />
+                <img 
+                  src={assetManagementImg} 
+                  alt="Asset Management" 
+                  className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover border-4 border-background"
+                />
+              </div>
             </div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Specializing in portfolio management and investment advisory services for institutional and high-net-worth clients.
-            </p>
           </div>
         </div>
       </section>

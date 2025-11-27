@@ -4,6 +4,8 @@ import { Shield, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
+import insuranceBankingImg from "@/assets/insurance-banking.jpg";
 
 const NaingateInsurance = () => {
   return (
@@ -19,18 +21,28 @@ const NaingateInsurance = () => {
               Back to Subsidiaries
             </Button>
           </Link>
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="p-4 bg-gradient-to-br from-primary to-primary/80 rounded-2xl shadow-lg">
-                <Shield className="h-10 w-10 text-primary-foreground" />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <img src={naingateInsuranceLogo} alt="Naingate Insurance Brokers" className="h-20 w-20 object-contain" />
+                  <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                    Naingate Insurance Brokers
+                  </h1>
+                </div>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Expert insurance brokerage services offering comprehensive coverage solutions for individuals and businesses.
+                </p>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                Naingate Insurance Brokers
-              </h1>
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl" />
+                <img 
+                  src={insuranceBankingImg} 
+                  alt="Insurance Services" 
+                  className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover border-4 border-background"
+                />
+              </div>
             </div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Expert insurance brokerage services offering comprehensive coverage solutions for individuals and businesses.
-            </p>
           </div>
         </div>
       </section>
