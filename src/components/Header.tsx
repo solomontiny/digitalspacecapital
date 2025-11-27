@@ -14,6 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
@@ -64,20 +65,22 @@ const Header = () => {
                     THE GROUP
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="z-50">
-                    <ul className="grid w-[280px] gap-1 p-3 bg-background/98 backdrop-blur-md border border-border/50 shadow-lg rounded-lg">
-                      {subsidiaries.map((subsidiary) => (
-                        <li key={subsidiary.name}>
-                          <NavigationMenuLink asChild>
-                            <a
-                              href={subsidiary.href}
-                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary text-sm font-medium"
-                            >
-                              {subsidiary.name}
-                            </a>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
+                    <ScrollArea className="h-[300px] w-[280px] bg-background/98 backdrop-blur-md border border-border/50 shadow-lg rounded-lg">
+                      <ul className="grid gap-1 p-3">
+                        {subsidiaries.map((subsidiary) => (
+                          <li key={subsidiary.name}>
+                            <NavigationMenuLink asChild>
+                              <a
+                                href={subsidiary.href}
+                                className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary text-sm font-medium"
+                              >
+                                {subsidiary.name}
+                              </a>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </ScrollArea>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
