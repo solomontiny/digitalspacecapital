@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
 import dscLogo from "@/assets/digital-space-capital-icon.png";
+import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -29,6 +30,7 @@ const Subsidiaries = () => {
     {
       name: "DSC Microfinance Bank",
       icon: Landmark,
+      logo: dscMfbLogo,
       description: "Providing accessible financial services to underserved communities and supporting micro-enterprises.",
       services: ["Micro Loans", "Savings Accounts", "Business Advisory", "Financial Literacy"],
       gradient: "from-blue-400/10 to-blue-500/5",
