@@ -28,6 +28,7 @@ const Header = () => {
     { label: "WHAT WE DO", href: "/what-we-do" },
     { label: "DIRECTORS", href: "/directors" },
     { label: "JOIN OUR TEAM", href: "/team" },
+    { label: "TESTIMONIALS", href: "/testimonials" },
     { label: "NEWS", href: "/blog" },
     { label: "INVESTORS", href: "/investor-relations" },
     { label: "CAREERS", href: "/careers" }

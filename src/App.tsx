@@ -10,6 +10,7 @@ import WhatWeDo from "./pages/WhatWeDo";
 import Directors from "./pages/Directors";
 import Team from "./pages/Team";
 import Subsidiaries from "./pages/Subsidiaries";
+import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/directors" element={<Directors />} />
           <Route path="/team" element={<Team />} />
           <Route path="/subsidiaries" element={<Subsidiaries />} />
+          <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/subsidiaries/digital-space-capital" element={<DigitalSpaceCapital />} />
           <Route path="/subsidiaries/dsc-asset-management" element={<DSCAssetManagement />} />
           <Route path="/subsidiaries/dsc-microfinance-bank" element={<DSCMicrofinanceBank />} />
