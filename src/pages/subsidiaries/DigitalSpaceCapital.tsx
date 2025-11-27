@@ -4,8 +4,12 @@ import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectGallery from "@/components/ProjectGallery";
 import dscLogo from "@/assets/digital-space-capital-icon.png";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
+import assetManagementImg from "@/assets/asset-management.jpg";
+import securitiesTradingImg from "@/assets/securities-trading.jpg";
+import trusteeshipImg from "@/assets/trusteeship.jpg";
 
 const DigitalSpaceCapital = () => {
   return (
@@ -101,6 +105,50 @@ const DigitalSpaceCapital = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Gallery Section */}
+          <ProjectGallery 
+            title="Success Stories"
+            subtitle="Showcasing our strategic achievements and successful partnerships"
+            images={[
+              {
+                src: investmentBankingImg,
+                alt: "Investment Strategy",
+                title: "Strategic Investment Planning",
+                description: "Comprehensive portfolio optimization for institutional clients"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Asset Management",
+                title: "Asset Management Excellence",
+                description: "Delivering superior returns through disciplined management"
+              },
+              {
+                src: securitiesTradingImg,
+                alt: "Securities Trading",
+                title: "Trading Operations",
+                description: "Advanced trading solutions for market efficiency"
+              },
+              {
+                src: trusteeshipImg,
+                alt: "Trusteeship Services",
+                title: "Corporate Governance",
+                description: "Ensuring compliance and fiduciary responsibility"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Corporate Strategy",
+                title: "Business Development",
+                description: "Strategic growth initiatives across subsidiaries"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Financial Planning",
+                title: "Financial Advisory",
+                description: "Expert guidance for long-term value creation"
+              }
+            ]}
+          />
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">

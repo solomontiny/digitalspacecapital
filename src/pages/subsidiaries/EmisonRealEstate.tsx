@@ -4,8 +4,11 @@ import { Building2, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectGallery from "@/components/ProjectGallery";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
+import infrastructureOldImg from "@/assets/infrastructure.jpg";
+import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 
 const EmisonRealEstate = () => {
   return (
@@ -99,6 +102,50 @@ const EmisonRealEstate = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Gallery Section */}
+          <ProjectGallery 
+            title="Featured Projects"
+            subtitle="Showcasing our landmark developments and successful transactions"
+            images={[
+              {
+                src: infrastructureOldImg,
+                alt: "Commercial Development",
+                title: "Premium Office Complex",
+                description: "50,000 sq ft commercial development in prime location"
+              },
+              {
+                src: infrastructureImg,
+                alt: "Residential Project",
+                title: "Luxury Residential Towers",
+                description: "200-unit luxury apartment complex with modern amenities"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Property Management",
+                title: "Portfolio Management Success",
+                description: "Managing $100M+ in commercial properties"
+              },
+              {
+                src: infrastructureOldImg,
+                alt: "Mixed-Use Development",
+                title: "Urban Mixed-Use Hub",
+                description: "Integrated retail, office, and residential development"
+              },
+              {
+                src: infrastructureImg,
+                alt: "Real Estate Investment",
+                title: "Strategic Acquisitions",
+                description: "High-value property acquisitions generating 20% ROI"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Property Advisory",
+                title: "Investment Advisory",
+                description: "Expert guidance on $500M+ real estate transactions"
+              }
+            ]}
+          />
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border-blue-500/20">

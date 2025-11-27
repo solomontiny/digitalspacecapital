@@ -4,8 +4,12 @@ import { TrendingUp, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectGallery from "@/components/ProjectGallery";
 import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
 import assetManagementImg from "@/assets/asset-management.jpg";
+import moneyMarketImg from "@/assets/money-market-new.jpg";
+import investmentBankingImg from "@/assets/investment-banking-new.jpg";
+import infrastructureFundImg from "@/assets/infrastructure-fund-new.jpg";
 
 const DSCAssetManagement = () => {
   return (
@@ -99,6 +103,50 @@ const DSCAssetManagement = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Gallery Section */}
+          <ProjectGallery 
+            title="Portfolio Success Stories"
+            subtitle="Proven track record of wealth creation and preservation"
+            images={[
+              {
+                src: assetManagementImg,
+                alt: "Portfolio Management",
+                title: "Diversified Portfolio Growth",
+                description: "Achieving 15% annual returns for high-net-worth clients"
+              },
+              {
+                src: moneyMarketImg,
+                alt: "Money Market Fund",
+                title: "Money Market Excellence",
+                description: "Conservative strategy with consistent returns"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Investment Strategy",
+                title: "Strategic Asset Allocation",
+                description: "Optimized portfolio balancing for institutional investors"
+              },
+              {
+                src: infrastructureFundImg,
+                alt: "Infrastructure Fund",
+                title: "Infrastructure Investments",
+                description: "Long-term value creation through infrastructure assets"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Wealth Management",
+                title: "Wealth Preservation",
+                description: "Multi-generational wealth planning and management"
+              },
+              {
+                src: moneyMarketImg,
+                alt: "Risk Management",
+                title: "Risk-Adjusted Returns",
+                description: "Sophisticated risk management across market cycles"
+              }
+            ]}
+          />
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border-blue-500/20">

@@ -4,8 +4,11 @@ import { Landmark, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectGallery from "@/components/ProjectGallery";
 import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
 import creditImg from "@/assets/credit.jpg";
+import assetManagementImg from "@/assets/asset-management.jpg";
+import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 
 const DSCMicrofinanceBank = () => {
   return (
@@ -99,6 +102,50 @@ const DSCMicrofinanceBank = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Gallery Section */}
+          <ProjectGallery 
+            title="Community Impact Stories"
+            subtitle="Empowering entrepreneurs and transforming communities"
+            images={[
+              {
+                src: creditImg,
+                alt: "Micro Loan Success",
+                title: "Small Business Growth",
+                description: "Supporting 500+ entrepreneurs with micro-loans in 2024"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Financial Inclusion",
+                title: "Financial Literacy Program",
+                description: "Training 1000+ community members in financial management"
+              },
+              {
+                src: creditImg,
+                alt: "Community Banking",
+                title: "Rural Banking Expansion",
+                description: "Bringing banking services to underserved communities"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Business Development",
+                title: "Entrepreneur Support",
+                description: "Advisory services helping businesses scale operations"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Savings Initiative",
+                title: "Community Savings Groups",
+                description: "Building financial security for families"
+              },
+              {
+                src: creditImg,
+                alt: "Loan Portfolio",
+                title: "Women Empowerment",
+                description: "Dedicated lending programs for women entrepreneurs"
+              }
+            ]}
+          />
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-blue-400/10 to-blue-500/5 border-blue-400/20">

@@ -4,8 +4,11 @@ import { TrendingUp, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectGallery from "@/components/ProjectGallery";
 import easyPayLogo from "@/assets/easy-pay-logo.png";
 import securitiesTradingImg from "@/assets/securities-trading.jpg";
+import assetManagementImg from "@/assets/asset-management.jpg";
+import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 
 const EasyPay = () => {
   return (
@@ -99,6 +102,50 @@ const EasyPay = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Gallery Section */}
+          <ProjectGallery 
+            title="Platform Success Stories"
+            subtitle="Revolutionizing digital payments and mobile transactions"
+            images={[
+              {
+                src: securitiesTradingImg,
+                alt: "Mobile Payment",
+                title: "Seamless Mobile Transactions",
+                description: "Processing 1M+ transactions monthly with 99.9% uptime"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Digital Wallet",
+                title: "Digital Wallet Innovation",
+                description: "500K+ active users managing their finances digitally"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Payment Gateway",
+                title: "Secure Payment Gateway",
+                description: "Powering e-commerce for 10,000+ businesses"
+              },
+              {
+                src: securitiesTradingImg,
+                alt: "Bill Payment",
+                title: "Multi-Service Bill Payment",
+                description: "Convenient payment options for utilities and services"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Money Transfer",
+                title: "Instant Money Transfer",
+                description: "Fast, secure peer-to-peer and cross-border transfers"
+              },
+              {
+                src: investmentBankingImg,
+                alt: "Merchant Solutions",
+                title: "Merchant Payment Solutions",
+                description: "Enabling businesses to accept digital payments easily"
+              }
+            ]}
+          />
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
