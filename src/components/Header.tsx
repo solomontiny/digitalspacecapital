@@ -40,7 +40,8 @@ const Header = () => {
     { name: "DSC MICROFINANCE BANK", href: "/subsidiaries" },
     { name: "NAINGATE INSURANCE BROKERS", href: "/subsidiaries" },
     { name: "EMISON REAL ESTATE", href: "/subsidiaries" },
-    { name: "EASY PAY", href: "/subsidiaries" }
+    { name: "EASY PAY", href: "/subsidiaries" },
+    { name: "DIGIKOLO", href: "/subsidiaries" }
   ];
 
   return <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 shadow-sm">
