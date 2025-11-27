@@ -12,6 +12,8 @@ import Team from "./pages/Team";
 import Subsidiaries from "./pages/Subsidiaries";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import Blog from "./pages/Blog";
+import InvestorRelations from "./pages/InvestorRelations";
 import NotFound from "./pages/NotFound";
 import DigitalSpaceCapital from "./pages/subsidiaries/DigitalSpaceCapital";
 import DSCAssetManagement from "./pages/subsidiaries/DSCAssetManagement";
@@ -44,6 +46,8 @@ const App = () => (
           <Route path="/subsidiaries/easy-pay" element={<EasyPay />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/investor-relations" element={<InvestorRelations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
