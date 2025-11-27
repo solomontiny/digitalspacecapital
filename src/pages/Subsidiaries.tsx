@@ -8,6 +8,7 @@ import dscLogo from "@/assets/digital-space-capital-icon.png";
 import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
 import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
+import easyPayLogo from "@/assets/easy-pay-logo.png";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -59,6 +60,7 @@ const Subsidiaries = () => {
     {
       name: "Easy Pay",
       icon: TrendingUp,
+      logo: easyPayLogo,
       description: "Modern payment solutions platform enabling seamless digital transactions and financial services.",
       services: ["Digital Payments", "Money Transfer", "Bill Payments", "Mobile Wallet"],
       gradient: "from-primary/10 to-primary/5",
