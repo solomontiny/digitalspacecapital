@@ -9,6 +9,7 @@ import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
 import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import easyPayLogo from "@/assets/easy-pay-logo.png";
+import digikoloBanner from "@/assets/digikolo-banner.jpg";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -65,6 +66,15 @@ const Subsidiaries = () => {
       services: ["Digital Payments", "Money Transfer", "Bill Payments", "Mobile Wallet"],
       gradient: "from-primary/10 to-primary/5",
       link: "/subsidiaries/easy-pay"
+    },
+    {
+      name: "Digikolo",
+      icon: TrendingUp,
+      logo: digikoloBanner,
+      description: "Experience seamless fintech savings and investment management with Digikolo - your trusted financial companion.",
+      services: ["Savings Management", "Investment Solutions", "Financial Planning", "Digital Banking"],
+      gradient: "from-blue-600/10 to-blue-500/5",
+      link: "/subsidiaries/digikolo"
     }
   ];
 

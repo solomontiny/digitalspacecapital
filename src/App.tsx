@@ -23,6 +23,7 @@ import DSCMicrofinanceBank from "./pages/subsidiaries/DSCMicrofinanceBank";
 import NaingateInsurance from "./pages/subsidiaries/NaingateInsurance";
 import EmisonRealEstate from "./pages/subsidiaries/EmisonRealEstate";
 import EasyPay from "./pages/subsidiaries/EasyPay";
+import Digikolo from "./pages/subsidiaries/Digikolo";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/subsidiaries/naingate-insurance" element={<NaingateInsurance />} />
           <Route path="/subsidiaries/emison-real-estate" element={<EmisonRealEstate />} />
           <Route path="/subsidiaries/easy-pay" element={<EasyPay />} />
+          <Route path="/subsidiaries/digikolo" element={<Digikolo />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
