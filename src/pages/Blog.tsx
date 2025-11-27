@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Newsletter from "@/components/Newsletter";
+import StockWidget from "@/components/StockWidget";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -144,9 +147,11 @@ const Blog = () => {
                   </CardHeader>
                   <CardContent className="p-6">
                     <Badge className="mb-3">{post.category}</Badge>
-                    <CardTitle className="text-xl mb-3 hover:text-primary transition-colors">
-                      <a href={`/blog/${post.slug}`}>{post.title}</a>
-                    </CardTitle>
+                    <Link to={`/blog/${post.slug}`}>
+                      <CardTitle className="text-xl mb-3 hover:text-primary transition-colors">
+                        {post.title}
+                      </CardTitle>
+                    </Link>
                     <CardDescription className="mb-4 line-clamp-3">
                       {post.excerpt}
                     </CardDescription>
@@ -171,6 +176,12 @@ const Blog = () => {
           )}
         </div>
       </section>
+
+      {/* Stock Widget */}
+      <StockWidget />
+
+      {/* Newsletter Subscription */}
+      <Newsletter />
 
       <Footer />
     </div>
