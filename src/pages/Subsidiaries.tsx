@@ -7,6 +7,7 @@ import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
 import dscLogo from "@/assets/digital-space-capital-icon.png";
 import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
 import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
+import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -49,6 +50,7 @@ const Subsidiaries = () => {
     {
       name: "Emison Real Estate",
       icon: Building2,
+      logo: emisonRealEstateLogo,
       description: "Full-service real estate solutions including property development, sales, and property management services.",
       services: ["Property Development", "Real Estate Sales", "Property Management", "Investment Advisory"],
       gradient: "from-blue-500/10 to-blue-600/5",
