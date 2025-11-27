@@ -4,8 +4,11 @@ import { Shield, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectGallery from "@/components/ProjectGallery";
 import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 import insuranceBankingImg from "@/assets/insurance-banking.jpg";
+import assetManagementImg from "@/assets/asset-management.jpg";
+import infrastructureImg from "@/assets/infrastructure.jpg";
 
 const NaingateInsurance = () => {
   return (
@@ -99,6 +102,50 @@ const NaingateInsurance = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Gallery Section */}
+          <ProjectGallery 
+            title="Client Success Stories"
+            subtitle="Protecting what matters most for our valued clients"
+            images={[
+              {
+                src: insuranceBankingImg,
+                alt: "Insurance Coverage",
+                title: "Comprehensive Business Protection",
+                description: "Secured $50M coverage for major corporate client"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Property Insurance",
+                title: "Property Portfolio Coverage",
+                description: "Multi-site property insurance for real estate group"
+              },
+              {
+                src: infrastructureImg,
+                alt: "Infrastructure Insurance",
+                title: "Infrastructure Project Insurance",
+                description: "Complete coverage for major infrastructure development"
+              },
+              {
+                src: insuranceBankingImg,
+                alt: "Life Insurance",
+                title: "Family Protection Plans",
+                description: "Helping 10,000+ families secure their financial future"
+              },
+              {
+                src: assetManagementImg,
+                alt: "Health Insurance",
+                title: "Corporate Health Programs",
+                description: "Group health insurance for 200+ companies"
+              },
+              {
+                src: infrastructureImg,
+                alt: "Risk Assessment",
+                title: "Risk Management Solutions",
+                description: "Custom risk assessment for high-value assets"
+              }
+            ]}
+          />
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
