@@ -3,12 +3,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Building2, TrendingUp, Shield, Landmark, ArrowRight, CheckCircle2 } from "lucide-react";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
+import dscLogo from "@/assets/digital-space-capital-icon.png";
 
 const Subsidiaries = () => {
   const subsidiaries = [
     {
       name: "Digital Space Capital",
       icon: Building2,
+      logo: dscLogo,
       description: "The parent company providing strategic oversight and financial services coordination across all subsidiaries.",
       services: ["Corporate Strategy", "Financial Planning", "Business Development", "Regulatory Compliance"],
       gradient: "from-primary/10 to-primary/5",
@@ -17,6 +20,7 @@ const Subsidiaries = () => {
     {
       name: "DSC Asset Management",
       icon: TrendingUp,
+      logo: dscAssetMgtLogo,
       description: "Specializing in portfolio management and investment advisory services for institutional and high-net-worth clients.",
       services: ["Portfolio Management", "Investment Advisory", "Wealth Planning", "Risk Management"],
       gradient: "from-blue-500/10 to-blue-600/5",
@@ -98,8 +102,12 @@ const Subsidiaries = () => {
                   <div className="flex items-center gap-4">
                     <div className="relative">
                       <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-                      <div className="relative p-4 bg-gradient-to-br from-primary to-primary/80 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <subsidiary.icon className="h-8 w-8 text-primary-foreground" />
+                      <div className="relative p-4 bg-background rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        {subsidiary.logo ? (
+                          <img src={subsidiary.logo} alt={subsidiary.name} className="h-12 w-12 object-contain" />
+                        ) : (
+                          <subsidiary.icon className="h-8 w-8 text-primary" />
+                        )}
                       </div>
                     </div>
                     <div>
