@@ -1,9 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Building2, CheckCircle2, ArrowLeft } from "lucide-react";
+import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import dscLogo from "@/assets/digital-space-capital-icon.png";
 
 const DigitalSpaceCapital = () => {
   return (
@@ -21,8 +22,8 @@ const DigitalSpaceCapital = () => {
           </Link>
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="flex items-center gap-4">
-              <div className="p-4 bg-gradient-to-br from-primary to-primary/80 rounded-2xl shadow-lg">
-                <Building2 className="h-10 w-10 text-primary-foreground" />
+              <div className="p-4 bg-background rounded-2xl shadow-lg">
+                <img src={dscLogo} alt="Digital Space Capital" className="h-16 w-16 object-contain" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Digital Space Capital
