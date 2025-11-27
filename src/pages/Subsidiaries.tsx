@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
 import dscLogo from "@/assets/digital-space-capital-icon.png";
 import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
+import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -39,6 +40,7 @@ const Subsidiaries = () => {
     {
       name: "Naingate Insurance Brokers",
       icon: Shield,
+      logo: naingateInsuranceLogo,
       description: "Expert insurance brokerage services offering comprehensive coverage solutions for individuals and businesses.",
       services: ["Life Insurance", "Property Insurance", "Health Coverage", "Risk Assessment"],
       gradient: "from-primary/15 to-primary/5",
