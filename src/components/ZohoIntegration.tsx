@@ -5,6 +5,9 @@ const ZOHO_SALESIQ_WIDGET_CODE = "siqbd92bdf5df7b68cbaad546cd2ac0d24baf31e1ac4c5
 
 const ZohoIntegration = () => {
   useEffect(() => {
+    // Check if mobile device
+    const isMobile = window.innerWidth < 768;
+    
     // Initialize Zoho SalesIQ
     const initScript = document.createElement("script");
     initScript.type = "text/javascript";
@@ -13,6 +16,7 @@ const ZohoIntegration = () => {
       $zoho.salesiq = $zoho.salesiq || {
         ready: function() {
           console.log("Zoho SalesIQ loaded successfully");
+          ${isMobile ? '$zoho.salesiq.floatbutton.visible("hide");' : ''}
         }
       };
     `;

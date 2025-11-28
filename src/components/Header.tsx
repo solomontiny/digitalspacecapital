@@ -48,9 +48,9 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
+          <a href="/" className="flex items-center">
             <img src="/digital-space-capital-logo.png" alt="Digital Space Capital" className="h-20 w-auto transition-transform hover:scale-105" />
-          </div>
+          </a>
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-10">
