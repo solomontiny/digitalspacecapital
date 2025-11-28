@@ -1,13 +1,5 @@
 import { Button } from "@/components/ui/button";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import {
   Sheet,
   SheetContent,
   SheetHeader,
@@ -52,60 +44,23 @@ const Header = () => {
             <img src="/digital-space-capital-logo.png" alt="Digital Space Capital" className="h-20 w-auto transition-transform hover:scale-105" />
           </a>
 
-          {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-10">
-            {navItems.map(item => (
-              <a key={item.label} href={item.href} className="text-sm font-semibold text-foreground/80 hover:text-primary transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
-                {item.label}
-              </a>
-            ))}
-            
-            <NavigationMenu className="z-50">
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-semibold bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-foreground/80 hover:text-primary transition-all duration-300">
-                    THE GROUP
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="z-50">
-                    <ScrollArea className="h-[300px] w-[280px] bg-background/98 backdrop-blur-md border border-border/50 shadow-lg rounded-lg">
-                      <ul className="grid gap-1 p-3">
-                        {subsidiaries.map((subsidiary) => (
-                          <li key={subsidiary.name}>
-                            <NavigationMenuLink asChild>
-                              <a
-                                href={subsidiary.href}
-                                className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary text-sm font-medium"
-                              >
-                                {subsidiary.name}
-                              </a>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </ScrollArea>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </nav>
-
-          {/* Mobile Menu */}
-          <div className="flex items-center gap-3 lg:hidden">
-            <Button size="sm" asChild>
+          {/* Desktop and Mobile Menu */}
+          <div className="flex items-center gap-3">
+            <Button size="sm" asChild className="hidden sm:flex">
               <a href="/contact">CONTACT US</a>
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden">
+                <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[350px] flex flex-col">
+              <SheetContent side="right" className="w-[280px] sm:w-[400px] flex flex-col">
                 <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
+                  <SheetTitle className="text-lg font-bold">Navigation Menu</SheetTitle>
                 </SheetHeader>
                 <ScrollArea className="flex-1 -mx-6 px-6">
-                  <nav className="flex flex-col gap-1 mt-8 pb-8">
+                  <nav className="flex flex-col gap-1 mt-6 pb-8">
                     {navItems.map((item, index) => (
                       <a
                         key={item.label}
@@ -146,13 +101,6 @@ const Header = () => {
                 </ScrollArea>
               </SheetContent>
             </Sheet>
-          </div>
-
-          {/* Desktop Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button asChild>
-              <a href="/contact">CONTACT US</a>
-            </Button>
           </div>
         </div>
       </div>
