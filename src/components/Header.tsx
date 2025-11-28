@@ -100,46 +100,50 @@ const Header = () => {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+              <SheetContent side="right" className="w-[280px] sm:w-[350px] flex flex-col">
                 <SheetHeader>
                   <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
-                <nav className="flex flex-col gap-4 mt-8">
-                  {navItems.map(item => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors py-2"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                  
-                  <div className="border-t pt-4">
-                    <button
-                      onClick={() => setShowSubsidiaries(!showSubsidiaries)}
-                      className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-colors py-2"
-                    >
-                      THE GROUP
-                      <ChevronDown className={`h-4 w-4 transition-transform ${showSubsidiaries ? 'rotate-180' : ''}`} />
-                    </button>
-                    {showSubsidiaries && (
-                      <div className="flex flex-col gap-2 mt-2 ml-4">
-                        {subsidiaries.map((subsidiary) => (
-                          <a
-                            key={subsidiary.name}
-                            href={subsidiary.href}
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors py-1.5"
-                          >
-                            {subsidiary.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </nav>
+                <ScrollArea className="flex-1 -mx-6 px-6">
+                  <nav className="flex flex-col gap-1 mt-8 pb-8">
+                    {navItems.map((item, index) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                    
+                    <div className="border-t mt-2 pt-4">
+                      <button
+                        onClick={() => setShowSubsidiaries(!showSubsidiaries)}
+                        className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95"
+                      >
+                        THE GROUP
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showSubsidiaries ? 'rotate-180' : ''}`} />
+                      </button>
+                      {showSubsidiaries && (
+                        <div className="flex flex-col gap-1 mt-2 ml-2">
+                          {subsidiaries.map((subsidiary, index) => (
+                            <a
+                              key={subsidiary.name}
+                              href={subsidiary.href}
+                              onClick={() => setIsOpen(false)}
+                              className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
+                              style={{ animationDelay: `${(navItems.length + index) * 50}ms` }}
+                            >
+                              {subsidiary.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </nav>
+                </ScrollArea>
               </SheetContent>
             </Sheet>
           </div>
