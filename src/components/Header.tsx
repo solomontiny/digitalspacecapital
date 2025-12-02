@@ -97,6 +97,50 @@ const Header = () => {
                         </div>
                       )}
                     </div>
+
+                    {/* Quick Links Section */}
+                    <div className="border-t mt-4 pt-4">
+                      <h3 className="text-xs font-bold text-foreground/60 uppercase tracking-wider px-3 mb-3">Quick Links</h3>
+                      <div className="flex flex-col gap-1">
+                        <a href="/" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
+                          🏠 Home
+                        </a>
+                        <a href="/about" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
+                          ℹ️ About Us
+                        </a>
+                        <a href="/what-we-do" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
+                          💼 What We Do
+                        </a>
+                        <a href="/contact" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
+                          📧 Contact Us
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Contact Information */}
+                    <div className="border-t mt-4 pt-4">
+                      <h3 className="text-xs font-bold text-foreground/60 uppercase tracking-wider px-3 mb-3">Contact Info</h3>
+                      <div className="flex flex-col gap-3 px-3">
+                        <div className="text-sm">
+                          <p className="font-semibold text-foreground/80 mb-1">Email</p>
+                          <a href="mailto:info@digitalspacecapital.com" className="text-foreground/60 hover:text-primary transition-colors">
+                            info@digitalspacecapital.com
+                          </a>
+                        </div>
+                        <div className="text-sm">
+                          <p className="font-semibold text-foreground/80 mb-1">Phone</p>
+                          <a href="tel:+2348012345678" className="text-foreground/60 hover:text-primary transition-colors">
+                            +234 801 234 5678
+                          </a>
+                        </div>
+                        <div className="text-sm">
+                          <p className="font-semibold text-foreground/80 mb-1">Office</p>
+                          <p className="text-foreground/60 text-xs leading-relaxed">
+                            Lagos, Nigeria
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </nav>
                 </ScrollArea>
               </SheetContent>
