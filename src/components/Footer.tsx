@@ -154,7 +154,7 @@ const Footer = () => {
                 Powered by Digikolo
               </p>
             </div>
-            <div className="flex gap-6 text-sm text-primary-foreground/80">
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-sm text-primary-foreground/80">
               <a href="/about" className="hover:text-primary-foreground transition-colors">
                 About
               </a>
@@ -163,6 +163,9 @@ const Footer = () => {
               </a>
               <a href="/subsidiaries" className="hover:text-primary-foreground transition-colors">
                 Subsidiaries
+              </a>
+              <a href="/privacy-policy" className="hover:text-primary-foreground transition-colors">
+                Privacy Policy
               </a>
               <button 
                 onClick={() => window.dispatchEvent(new Event("manage-cookies"))}
