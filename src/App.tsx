@@ -16,6 +16,7 @@ import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import InvestorRelations from "./pages/InvestorRelations";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import DigitalSpaceCapital from "./pages/subsidiaries/DigitalSpaceCapital";
 import DSCAssetManagement from "./pages/subsidiaries/DSCAssetManagement";
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/investor-relations" element={<InvestorRelations />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
