@@ -155,6 +155,9 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-sm text-primary-foreground/80">
+              <a href="/faq" className="hover:text-primary-foreground transition-colors">
+                FAQ
+              </a>
               <a href="/about" className="hover:text-primary-foreground transition-colors">
                 About
               </a>
