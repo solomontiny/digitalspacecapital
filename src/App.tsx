@@ -18,6 +18,7 @@ import BlogPost from "./pages/BlogPost";
 import InvestorRelations from "./pages/InvestorRelations";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import LegalHub from "./pages/LegalHub";
 import NotFound from "./pages/NotFound";
 import DigitalSpaceCapital from "./pages/subsidiaries/DigitalSpaceCapital";
 import DSCAssetManagement from "./pages/subsidiaries/DSCAssetManagement";
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/investor-relations" element={<InvestorRelations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/legal" element={<LegalHub />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

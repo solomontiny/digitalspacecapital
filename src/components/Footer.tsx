@@ -164,6 +164,9 @@ const Footer = () => {
               <a href="/subsidiaries" className="hover:text-primary-foreground transition-colors">
                 Subsidiaries
               </a>
+              <a href="/legal" className="hover:text-primary-foreground transition-colors font-medium">
+                Legal Hub
+              </a>
               <a href="/privacy-policy" className="hover:text-primary-foreground transition-colors">
                 Privacy Policy
               </a>
