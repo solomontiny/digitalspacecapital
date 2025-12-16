@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import CookiePreferenceCenter from "@/components/CookiePreferenceCenter";
 import { Helmet } from "react-helmet";
 
 const PrivacyPolicy = () => {
@@ -231,6 +232,7 @@ const PrivacyPolicy = () => {
 
       <Footer />
       <CookieConsent />
+      <CookiePreferenceCenter />
     </div>
   );
 };

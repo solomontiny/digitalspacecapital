@@ -9,6 +9,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import xmasLogo from "@/assets/digital-space-capital-xmas-logo.jpeg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <img src="/digital-space-capital-logo.png" alt="Digital Space Capital" className="h-20 w-auto transition-transform hover:scale-105" />
+            <img src={xmasLogo} alt="Digital Space Capital" className="h-24 md:h-28 w-auto transition-transform hover:scale-105" />
           </a>
 
           {/* Desktop and Mobile Menu */}

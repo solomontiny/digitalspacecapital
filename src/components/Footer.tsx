@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import logo from "@/assets/digital-space-capital-logo-new.png";
+import logo from "@/assets/digital-space-capital-xmas-logo.jpeg";
 
 // Declare Zoho types
 declare global {
@@ -56,7 +56,7 @@ const Footer = () => {
           <img 
             src={logo} 
             alt="Digital Space Capital Group Logo" 
-            className="h-24 w-auto brightness-0 invert"
+            className="h-28 w-auto rounded-lg bg-white p-2"
             style={{ imageRendering: 'crisp-edges' }}
           />
         </div>
@@ -166,6 +166,9 @@ const Footer = () => {
               </a>
               <a href="/privacy-policy" className="hover:text-primary-foreground transition-colors">
                 Privacy Policy
+              </a>
+              <a href="/terms-of-service" className="hover:text-primary-foreground transition-colors">
+                Terms of Service
               </a>
               <button 
                 onClick={() => window.dispatchEvent(new Event("manage-cookies"))}
