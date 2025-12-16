@@ -10,6 +10,11 @@ const CookieConsent = () => {
     if (!consent) {
       setShowBanner(true);
     }
+
+    // Listen for manage cookies event
+    const handleManageCookies = () => setShowBanner(true);
+    window.addEventListener("manage-cookies", handleManageCookies);
+    return () => window.removeEventListener("manage-cookies", handleManageCookies);
   }, []);
 
   const handleAccept = () => {

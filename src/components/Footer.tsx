@@ -164,6 +164,12 @@ const Footer = () => {
               <a href="/subsidiaries" className="hover:text-primary-foreground transition-colors">
                 Subsidiaries
               </a>
+              <button 
+                onClick={() => window.dispatchEvent(new Event("manage-cookies"))}
+                className="hover:text-primary-foreground transition-colors"
+              >
+                Manage Cookies
+              </button>
             </div>
           </div>
         </div>
