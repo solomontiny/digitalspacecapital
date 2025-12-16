@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { X, Settings } from "lucide-react";
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -14,16 +14,33 @@ const CookieConsent = () => {
     // Listen for manage cookies event
     const handleManageCookies = () => setShowBanner(true);
     window.addEventListener("manage-cookies", handleManageCookies);
-    return () => window.removeEventListener("manage-cookies", handleManageCookies);
+    
+    // Listen for preferences saved
+    const handleSaved = () => setShowBanner(false);
+    window.addEventListener("cookie-preferences-saved", handleSaved);
+    
+    return () => {
+      window.removeEventListener("manage-cookies", handleManageCookies);
+      window.removeEventListener("cookie-preferences-saved", handleSaved);
+    };
   }, []);
 
   const handleAccept = () => {
+    const allAccepted = { essential: true, analytics: true, marketing: true };
+    localStorage.setItem("dsc-cookie-preferences", JSON.stringify(allAccepted));
     localStorage.setItem("dsc-cookie-consent", "accepted");
     setShowBanner(false);
   };
 
   const handleDecline = () => {
+    const essentialOnly = { essential: true, analytics: false, marketing: false };
+    localStorage.setItem("dsc-cookie-preferences", JSON.stringify(essentialOnly));
     localStorage.setItem("dsc-cookie-consent", "declined");
+    setShowBanner(false);
+  };
+
+  const openPreferences = () => {
+    window.dispatchEvent(new Event("open-cookie-preferences"));
     setShowBanner(false);
   };
 
@@ -36,23 +53,35 @@ const CookieConsent = () => {
           <div className="flex-1">
             <h3 className="font-semibold text-lg mb-2">Cookie Policy</h3>
             <p className="text-sm text-primary-foreground/90">
-              Digital Space Capital uses cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept", you consent to our use of cookies in accordance with our privacy policy.
+              Digital Space Capital uses cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
+              By clicking "Accept All", you consent to our use of cookies in accordance with our privacy policy.
             </p>
           </div>
           
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <Button
+              onClick={openPreferences}
+              variant="ghost"
+              size="sm"
+              className="flex-1 sm:flex-none text-primary-foreground hover:bg-primary-foreground/20 gap-1"
+            >
+              <Settings className="h-4 w-4" />
+              Preferences
+            </Button>
             <Button
               onClick={handleDecline}
               variant="outline"
+              size="sm"
               className="flex-1 sm:flex-none border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
             >
               Decline
             </Button>
             <Button
               onClick={handleAccept}
+              size="sm"
               className="flex-1 sm:flex-none bg-primary-foreground text-primary hover:bg-primary-foreground/90"
             >
-              Accept
+              Accept All
             </Button>
             <Button
               onClick={handleDecline}

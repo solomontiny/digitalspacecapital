@@ -9,6 +9,8 @@ import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageLoader from "@/components/PageLoader";
+import CookieConsent from "@/components/CookieConsent";
+import CookiePreferenceCenter from "@/components/CookiePreferenceCenter";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +50,8 @@ const Index = () => {
       </AnimatedSection>
       
       <Footer />
+      <CookieConsent />
+      <CookiePreferenceCenter />
     </div>
   );
 };
