@@ -174,10 +174,10 @@ const AppDownload = () => {
         </div>
 
         {/* Digikolo Video Advert Section */}
-        <div className="mt-8 max-w-2xl mx-auto">
+        <div className="mt-8 max-w-xl mx-auto">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 rounded-2xl blur-md group-hover:blur-lg transition-all duration-300" />
-            <div className="relative rounded-xl overflow-hidden border-2 border-border/50 bg-black shadow-2xl">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-300" />
+            <div className="relative rounded-xl overflow-hidden border border-border/50 bg-card shadow-lg">
               <video 
                 src={digikoloPromo}
                 controls
@@ -185,21 +185,12 @@ const AppDownload = () => {
                 muted
                 loop
                 playsInline
-                className="w-full aspect-video"
-                style={{ 
-                  objectFit: 'contain',
-                  imageRendering: 'auto',
-                  backfaceVisibility: 'hidden',
-                  transform: 'translateZ(0)'
-                }}
+                className="w-full aspect-video object-cover"
               >
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            Watch how Digikolo transforms your financial journey
-          </p>
         </div>
       </div>
     </section>
