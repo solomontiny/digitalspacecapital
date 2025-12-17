@@ -42,24 +42,23 @@ const AppDownload = () => {
         </div>
 
         {/* Digikolo Video Advert Section */}
-        <div className="mt-12 max-w-3xl mx-auto">
-          <div className="rounded-xl overflow-hidden shadow-xl bg-card">
-            <video 
-              src={digikoloPromo}
-              controls
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-auto"
-              style={{ maxHeight: '500px', objectFit: 'cover' }}
-            >
-              Your browser does not support the video tag.
-            </video>
+        <div className="mt-8 max-w-xl mx-auto">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-300" />
+            <div className="relative rounded-xl overflow-hidden border border-border/50 bg-card shadow-lg">
+              <video 
+                src={digikoloPromo}
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            Digikolo - Your trusted fintech savings partner
-          </p>
         </div>
       </div>
     </section>
