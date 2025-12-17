@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { PiggyBank, TrendingUp, Shield, Smartphone } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { PiggyBank, TrendingUp, Shield, Smartphone, Users, Wallet, Download, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import digikoloPromo from "@/assets/digikolo-promo.mp4";
 
@@ -10,7 +11,83 @@ const features = [
   { icon: Smartphone, title: "Easy Access", description: "Manage on the go" },
 ];
 
+const stats = [
+  { icon: Users, value: 50000, label: "Active Users", prefix: "", suffix: "+" },
+  { icon: Wallet, value: 2.5, label: "Total Savings", prefix: "₦", suffix: "B+" },
+  { icon: Download, value: 100000, label: "App Downloads", prefix: "", suffix: "+" },
+  { icon: Star, value: 4.8, label: "App Rating", prefix: "", suffix: "/5" },
+];
+
+const useCountUp = (end: number, duration: number = 2000, startCounting: boolean = false) => {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    if (!startCounting) return;
+    
+    let startTime: number | null = null;
+    const isDecimal = end % 1 !== 0;
+    
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const current = easeOut * end;
+      
+      setCount(isDecimal ? Math.round(current * 10) / 10 : Math.floor(current));
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [end, duration, startCounting]);
+  
+  return count;
+};
+
+const StatCounter = ({ stat, isVisible }: { stat: typeof stats[0]; isVisible: boolean }) => {
+  const count = useCountUp(stat.value, 2000, isVisible);
+  
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+    if (num >= 1000) return (num / 1000).toFixed(0) + "K";
+    return num.toString();
+  };
+  
+  return (
+    <div className="text-center p-4">
+      <stat.icon className="w-8 h-8 text-primary mx-auto mb-2" />
+      <div className="text-2xl md:text-3xl font-bold text-foreground">
+        {stat.prefix}{stat.value >= 1000 ? formatNumber(count) : count}{stat.suffix}
+      </div>
+      <p className="text-sm text-muted-foreground">{stat.label}</p>
+    </div>
+  );
+};
+
 const AppDownload = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">
@@ -21,6 +98,16 @@ const AppDownload = () => {
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Experience seamless fintech savings and investment management with Digikolo - your trusted financial companion. A fintech arm powered by Digital Space Capital.
           </p>
+
+          {/* Animated Stats */}
+          <div 
+            ref={statsRef}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8 bg-background/80 rounded-xl p-4 border border-border/30"
+          >
+            {stats.map((stat) => (
+              <StatCounter key={stat.label} stat={stat} isVisible={isVisible} />
+            ))}
+          </div>
           
           {/* Feature Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
