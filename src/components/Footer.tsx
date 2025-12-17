@@ -146,14 +146,9 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <p className="text-sm text-primary-foreground/80 text-center md:text-left">
-                © {new Date().getFullYear()} Digital Space Capital. All rights reserved.
-              </p>
-              <p className="text-xs text-primary-foreground/60">
-                Powered by Digikolo
-              </p>
-            </div>
+            <p className="text-sm text-primary-foreground/80 text-center md:text-left">
+              © {new Date().getFullYear()} Digital Space Capital. All rights reserved.
+            </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-sm text-primary-foreground/80">
               <a href="/faq" className="hover:text-primary-foreground transition-colors">
                 FAQ
