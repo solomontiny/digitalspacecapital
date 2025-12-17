@@ -10,7 +10,7 @@ const AppDownload = () => {
             Download Our Digikolo Mobile app
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Experience seamless fintech savings and investment management with Digikolo - your trusted financial companion.
+            Experience seamless fintech savings and investment management with Digikolo - your trusted financial companion. A fintech arm powered by Digital Space Capital.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
