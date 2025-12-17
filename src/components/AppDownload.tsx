@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { PiggyBank, TrendingUp, Shield, Smartphone, Users, Wallet, Download, Star } from "lucide-react";
+import { PiggyBank, TrendingUp, Shield, Smartphone, Users, Wallet, Download, Star, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import digikoloPromo from "@/assets/digikolo-promo.mp4";
 
@@ -123,7 +123,7 @@ const AppDownload = () => {
             ))}
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <a 
               href="https://play.google.com/store/apps/details?id=com.digitalspacecapital.digikolo&hl=en" 
               target="_blank" 
@@ -152,13 +152,32 @@ const AppDownload = () => {
               <Link to="/subsidiaries/digikolo">Learn More</Link>
             </Button>
           </div>
+
+          {/* QR Code Section */}
+          <div className="flex flex-col items-center gap-3 p-6 bg-background rounded-xl border border-border/30 max-w-xs mx-auto">
+            <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+              <QrCode className="w-4 h-4 text-primary" />
+              Scan to Download
+            </div>
+            <div className="bg-white p-3 rounded-lg shadow-sm">
+              <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://play.google.com/store/apps/details?id=com.digitalspacecapital.digikolo"
+                alt="QR Code to download Digikolo app"
+                className="w-28 h-28"
+                style={{ imageRendering: 'crisp-edges' }}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground text-center">
+              Point your camera at the QR code
+            </p>
+          </div>
         </div>
 
         {/* Digikolo Video Advert Section */}
-        <div className="mt-6 max-w-xl mx-auto">
+        <div className="mt-8 max-w-2xl mx-auto">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-300" />
-            <div className="relative rounded-xl overflow-hidden border border-border/50 bg-card shadow-lg">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 rounded-2xl blur-md group-hover:blur-lg transition-all duration-300" />
+            <div className="relative rounded-xl overflow-hidden border-2 border-border/50 bg-black shadow-2xl">
               <video 
                 src={digikoloPromo}
                 controls
@@ -166,12 +185,21 @@ const AppDownload = () => {
                 muted
                 loop
                 playsInline
-                className="w-full aspect-video object-cover"
+                className="w-full aspect-video"
+                style={{ 
+                  objectFit: 'contain',
+                  imageRendering: 'auto',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
+                }}
               >
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Watch how Digikolo transforms your financial journey
+          </p>
         </div>
       </div>
     </section>
