@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   ArrowLeft, TrendingUp, Shield, Wallet, PieChart, Users, Star, 
-  Download, Target, Vault, Coins, Gift
+  Download, Target, Vault, Coins, Gift, Smartphone, UserPlus, 
+  CreditCard, Sparkles, CheckCircle2
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectGallery from "@/components/ProjectGallery";
@@ -78,6 +79,38 @@ const savingsPlans = [
     description: "Fixed-term deposits with the highest interest rates. Lock your savings and watch your wealth grow faster.",
     color: "from-orange-400 to-orange-500",
     iconBg: "bg-white/20",
+  },
+];
+
+// How it works steps
+const howItWorksSteps = [
+  {
+    step: 1,
+    icon: Smartphone,
+    title: "Download the App",
+    description: "Get Digikolo from Google Play Store or Apple App Store and install it on your device.",
+    color: "from-blue-500 to-blue-600",
+  },
+  {
+    step: 2,
+    icon: UserPlus,
+    title: "Create Your Account",
+    description: "Sign up with your phone number and complete a quick verification process.",
+    color: "from-indigo-500 to-purple-600",
+  },
+  {
+    step: 3,
+    icon: CreditCard,
+    title: "Fund Your Wallet",
+    description: "Add money to your Digikolo wallet using bank transfer, card, or USSD.",
+    color: "from-green-500 to-emerald-600",
+  },
+  {
+    step: 4,
+    icon: Sparkles,
+    title: "Start Earning",
+    description: "Choose a savings plan and watch your money grow with competitive interest rates.",
+    color: "from-orange-500 to-amber-500",
   },
 ];
 
@@ -346,34 +379,47 @@ const Digikolo = () => {
             {savingsPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${plan.color} p-8 text-white shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]`}
+                className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${plan.color} p-8 text-white shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-[1.03] cursor-pointer`}
+                style={{
+                  animationDelay: `${index * 150}ms`,
+                }}
               >
-                {/* Decorative background elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12" />
+                {/* Animated background elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 group-hover:bg-white/15 transition-all duration-700" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12 group-hover:scale-150 group-hover:bg-white/10 transition-all duration-700" />
+                <div className="absolute top-1/2 left-1/2 w-0 h-0 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[200%] group-hover:h-[200%] transition-all duration-1000" />
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
                 
                 {/* Content */}
                 <div className="relative z-10 space-y-4">
-                  <h3 className="text-2xl font-bold tracking-tight">{plan.name}</h3>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold tracking-tight group-hover:scale-105 transition-transform duration-300">{plan.name}</h3>
+                    <CheckCircle2 className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
                   
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl md:text-5xl font-extrabold">{plan.rate}</span>
+                    <span className="text-4xl md:text-5xl font-extrabold group-hover:scale-110 transition-transform duration-300 origin-left">{plan.rate}</span>
                     <span className="text-lg font-medium opacity-90">{plan.rateLabel}</span>
                   </div>
                   
-                  <p className="text-lg font-semibold opacity-95">{plan.tagline}</p>
+                  <p className="text-lg font-semibold opacity-95 group-hover:translate-x-1 transition-transform duration-300">{plan.tagline}</p>
                   
-                  <p className="text-sm opacity-80 leading-relaxed pt-2 border-t border-white/20">
+                  <p className="text-sm opacity-80 leading-relaxed pt-2 border-t border-white/20 group-hover:opacity-100 transition-opacity duration-300">
                     {plan.description}
                   </p>
                   
-                  {/* Icon decoration */}
-                  <div className="absolute bottom-6 right-6 opacity-20 group-hover:opacity-30 transition-opacity">
+                  {/* Icon decoration with animation */}
+                  <div className="absolute bottom-6 right-6 opacity-20 group-hover:opacity-40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
                     {index === 0 && <Coins className="w-20 h-20" />}
                     {index === 1 && <Target className="w-20 h-20" />}
                     {index === 2 && <Vault className="w-20 h-20" />}
                   </div>
                 </div>
+                
+                {/* Glowing border effect on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ boxShadow: 'inset 0 0 30px rgba(255,255,255,0.2)' }} />
               </div>
             ))}
           </div>
@@ -396,6 +442,71 @@ const Digikolo = () => {
               </Button>
             </div>
             <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20" />
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="max-w-6xl mx-auto space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold text-foreground">
+              How It <span className="text-primary">Works</span>
+            </h2>
+            <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Start your savings journey in just 4 simple steps
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Connection line */}
+            <div className="hidden lg:block absolute top-24 left-[12%] right-[12%] h-1 bg-gradient-to-r from-blue-500 via-purple-500 via-green-500 to-orange-500 rounded-full" />
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {howItWorksSteps.map((step, index) => (
+                <div 
+                  key={index}
+                  className="group relative flex flex-col items-center text-center"
+                >
+                  {/* Step number with animated ring */}
+                  <div className="relative mb-6">
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:shadow-2xl transition-all duration-500`}>
+                      <step.icon className="w-10 h-10 text-white" />
+                    </div>
+                    {/* Animated ring */}
+                    <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-primary/30 group-hover:scale-125 transition-all duration-500" />
+                    {/* Step number badge */}
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-sm font-bold text-primary shadow-lg">
+                      {step.step}
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">
+                    {step.description}
+                  </p>
+                  
+                  {/* Arrow connector for mobile */}
+                  {index < howItWorksSteps.length - 1 && (
+                    <div className="lg:hidden mt-6 text-primary animate-bounce">
+                      <svg className="w-6 h-6 rotate-90 sm:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center pt-8">
+            <Button size="lg" className="group px-8 py-6 text-lg">
+              Get Started Now
+              <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+            </Button>
           </div>
         </section>
 
