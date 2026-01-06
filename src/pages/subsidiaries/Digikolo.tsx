@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   ArrowLeft, TrendingUp, Shield, Wallet, PieChart, Users, Star, 
-  Download, Smartphone, Bell, Lock, Zap, CreditCard, BarChart3, 
-  Globe, Clock, Fingerprint, RefreshCw, HeadphonesIcon
+  Download, Target, Vault, Coins, Gift
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectGallery from "@/components/ProjectGallery";
@@ -51,68 +50,35 @@ const stats = [
   { icon: Star, value: 4.8, label: "App Rating", prefix: "", suffix: "/5" },
 ];
 
-// App features data
-const appFeatures = [
+// Savings Plans (from the app)
+const savingsPlans = [
   {
-    icon: Smartphone,
-    title: "Intuitive Mobile App",
-    description: "Beautifully designed app with seamless user experience across iOS and Android devices."
+    name: "DigiSave",
+    rate: "18.5%",
+    rateLabel: "p.a.",
+    tagline: "Save on the go!",
+    description: "Flexible savings with instant access. Perfect for everyday savers who want to earn while maintaining liquidity.",
+    color: "from-blue-400 to-blue-600",
+    iconBg: "bg-white/20",
   },
   {
-    icon: Lock,
-    title: "Bank-Grade Security",
-    description: "256-bit encryption and multi-factor authentication to keep your funds safe."
+    name: "DigiTarget",
+    rate: "18.5%",
+    rateLabel: "p.a.",
+    tagline: "Save towards a target!",
+    description: "Goal-based savings to help you achieve your dreams. Set targets and track your progress to financial milestones.",
+    color: "from-blue-500 to-indigo-600",
+    iconBg: "bg-white/20",
   },
   {
-    icon: Zap,
-    title: "Instant Transactions",
-    description: "Lightning-fast transfers and real-time transaction notifications."
+    name: "DigiLock",
+    rate: "Up to 21%",
+    rateLabel: "p.a.",
+    tagline: "Lock your funds for maximum returns!",
+    description: "Fixed-term deposits with the highest interest rates. Lock your savings and watch your wealth grow faster.",
+    color: "from-orange-400 to-orange-500",
+    iconBg: "bg-white/20",
   },
-  {
-    icon: CreditCard,
-    title: "Virtual Cards",
-    description: "Generate virtual cards for secure online shopping and subscriptions."
-  },
-  {
-    icon: BarChart3,
-    title: "Smart Analytics",
-    description: "Track your spending patterns and savings growth with detailed insights."
-  },
-  {
-    icon: Bell,
-    title: "Smart Notifications",
-    description: "Customizable alerts for transactions, savings milestones, and investment updates."
-  },
-  {
-    icon: Globe,
-    title: "Multi-Currency Support",
-    description: "Save and invest in multiple currencies with competitive exchange rates."
-  },
-  {
-    icon: Clock,
-    title: "Auto-Save Features",
-    description: "Set up automatic savings rules to build wealth effortlessly."
-  },
-  {
-    icon: Fingerprint,
-    title: "Biometric Login",
-    description: "Quick and secure access with fingerprint and face recognition."
-  },
-  {
-    icon: RefreshCw,
-    title: "Recurring Investments",
-    description: "Automate your investment strategy with scheduled contributions."
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "24/7 Support",
-    description: "Round-the-clock customer support via chat, email, and phone."
-  },
-  {
-    icon: PieChart,
-    title: "Portfolio Tracking",
-    description: "Monitor all your investments and returns in one unified dashboard."
-  }
 ];
 
 // User reviews data
@@ -364,33 +330,72 @@ const Digikolo = () => {
           </div>
         </section>
 
-        {/* App Features Section */}
+        {/* Savings Plans Section */}
         <section className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold text-foreground">
-              App <span className="text-primary">Features</span>
+              Choose a <span className="text-primary">Savings Plan</span>
             </h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Discover the powerful features that make Digikolo the preferred choice for smart savers and investors
+              Pick the perfect plan that matches your financial goals and start earning competitive returns
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {appFeatures.map((feature, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1"
+          <div className="grid md:grid-cols-3 gap-8">
+            {savingsPlans.map((plan, index) => (
+              <div
+                key={index}
+                className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${plan.color} p-8 text-white shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]`}
               >
-                <CardContent className="p-6 text-center space-y-3">
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                    <feature.icon className="w-6 h-6 text-primary" />
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12" />
+                
+                {/* Content */}
+                <div className="relative z-10 space-y-4">
+                  <h3 className="text-2xl font-bold tracking-tight">{plan.name}</h3>
+                  
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl md:text-5xl font-extrabold">{plan.rate}</span>
+                    <span className="text-lg font-medium opacity-90">{plan.rateLabel}</span>
                   </div>
-                  <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
+                  
+                  <p className="text-lg font-semibold opacity-95">{plan.tagline}</p>
+                  
+                  <p className="text-sm opacity-80 leading-relaxed pt-2 border-t border-white/20">
+                    {plan.description}
+                  </p>
+                  
+                  {/* Icon decoration */}
+                  <div className="absolute bottom-6 right-6 opacity-20 group-hover:opacity-30 transition-opacity">
+                    {index === 0 && <Coins className="w-20 h-20" />}
+                    {index === 1 && <Target className="w-20 h-20" />}
+                    {index === 2 && <Vault className="w-20 h-20" />}
+                  </div>
+                </div>
+              </div>
             ))}
+          </div>
+
+          {/* Refer & Earn Banner */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 p-8 text-white">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-2">
+                <h3 className="text-2xl font-bold flex items-center gap-3">
+                  <Gift className="w-8 h-8" />
+                  Refer & Earn
+                </h3>
+                <p className="text-white/90 max-w-lg">
+                  You get the chance to win lots of prizes by inviting your friends to use Digikolo. 
+                  Share your referral code and earn rewards together!
+                </p>
+              </div>
+              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-white/90 font-semibold shrink-0">
+                Start Referring
+              </Button>
+            </div>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20" />
           </div>
         </section>
 
