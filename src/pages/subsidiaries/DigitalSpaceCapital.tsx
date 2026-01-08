@@ -31,6 +31,9 @@ import easyPayLogo from "@/assets/easy-pay-logo.png";
 import digikoloLogo from "@/assets/digikolo-banner.jpg";
 import hospitalityImg from "@/assets/hospitality-service.jpg";
 import buildingMaterialsImg from "@/assets/building-materials.jpg";
+import loansImg from "@/assets/loans-service.jpg";
+import realEstateImg from "@/assets/real-estate-service.jpg";
+import fundsManagementImg from "@/assets/funds-management.jpg";
 
 const services = [
   {
@@ -52,7 +55,8 @@ const services = [
     description: "Professional portfolio management and investment advisory services through DSC Asset Management.",
     icon: LineChart,
     gradient: "from-purple-500 to-violet-600",
-    link: "/subsidiaries/dsc-asset-management"
+    link: "/subsidiaries/dsc-asset-management",
+    image: fundsManagementImg
   },
   {
     title: "Loans",
@@ -64,14 +68,16 @@ const services = [
       { name: "School Loans", icon: GraduationCap },
       { name: "Business Loans", icon: Briefcase }
     ],
-    link: "/subsidiaries/dsc-microfinance-bank"
+    link: "/subsidiaries/dsc-microfinance-bank",
+    image: loansImg
   },
   {
     title: "Real Estate",
     description: "Property development, sales, and management services through Emison Real Estate.",
     icon: Home,
     gradient: "from-cyan-500 to-teal-600",
-    link: "/subsidiaries/emison-real-estate"
+    link: "/subsidiaries/emison-real-estate",
+    image: realEstateImg
   },
   {
     title: "Hospitality",
