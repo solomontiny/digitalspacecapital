@@ -1,6 +1,19 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle2, ArrowLeft } from "lucide-react";
+import { 
+  ArrowLeft, 
+  Shield, 
+  PiggyBank, 
+  LineChart, 
+  CreditCard, 
+  Home, 
+  Hotel, 
+  Hammer,
+  GraduationCap,
+  Briefcase,
+  Car,
+  ArrowRight
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,6 +23,78 @@ import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
 import securitiesTradingImg from "@/assets/securities-trading.jpg";
 import trusteeshipImg from "@/assets/trusteeship.jpg";
+import dscAssetMgtLogo from "@/assets/dsc-asset-management-logo.png";
+import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
+import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
+import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
+import easyPayLogo from "@/assets/easy-pay-logo.png";
+import digikoloLogo from "@/assets/digikolo-banner.jpg";
+
+const services = [
+  {
+    title: "Insurance Brokerage",
+    description: "Comprehensive insurance solutions for individuals and businesses through our subsidiary Naingate Insurance Brokers.",
+    icon: Shield,
+    gradient: "from-blue-500 to-blue-600",
+    link: "/subsidiaries/naingate-insurance"
+  },
+  {
+    title: "Savings & Investment",
+    description: "Digital savings and investment solutions through Digikolo with competitive interest rates up to 21% p.a.",
+    icon: PiggyBank,
+    gradient: "from-green-500 to-emerald-600",
+    link: "/subsidiaries/digikolo"
+  },
+  {
+    title: "Funds Management",
+    description: "Professional portfolio management and investment advisory services through DSC Asset Management.",
+    icon: LineChart,
+    gradient: "from-purple-500 to-violet-600",
+    link: "/subsidiaries/dsc-asset-management"
+  },
+  {
+    title: "Loans",
+    description: "Flexible lending solutions including Asset Financing, School Loans, and Business Loans through DSC Microfinance Bank.",
+    icon: CreditCard,
+    gradient: "from-orange-500 to-amber-600",
+    subServices: [
+      { name: "Asset Financing", icon: Car },
+      { name: "School Loans", icon: GraduationCap },
+      { name: "Business Loans", icon: Briefcase }
+    ],
+    link: "/subsidiaries/dsc-microfinance-bank"
+  },
+  {
+    title: "Real Estate",
+    description: "Property development, sales, and management services through Emison Real Estate.",
+    icon: Home,
+    gradient: "from-cyan-500 to-teal-600",
+    link: "/subsidiaries/emison-real-estate"
+  },
+  {
+    title: "Hospitality",
+    description: "Premium hospitality services and accommodation solutions for business and leisure travelers.",
+    icon: Hotel,
+    gradient: "from-pink-500 to-rose-600",
+    link: null
+  },
+  {
+    title: "Building Material Supplies",
+    description: "Quality construction materials and supplies for residential and commercial projects.",
+    icon: Hammer,
+    gradient: "from-slate-500 to-gray-600",
+    link: null
+  }
+];
+
+const subsidiaryLinks = [
+  { name: "DSC Asset Management", logo: dscAssetMgtLogo, link: "/subsidiaries/dsc-asset-management" },
+  { name: "DSC Microfinance Bank", logo: dscMfbLogo, link: "/subsidiaries/dsc-microfinance-bank" },
+  { name: "Naingate Insurance", logo: naingateInsuranceLogo, link: "/subsidiaries/naingate-insurance" },
+  { name: "Emison Real Estate", logo: emisonRealEstateLogo, link: "/subsidiaries/emison-real-estate" },
+  { name: "Easy Pay", logo: easyPayLogo, link: "/subsidiaries/easy-pay" },
+  { name: "Digikolo", logo: digikoloLogo, link: "/subsidiaries/digikolo" }
+];
 
 const DigitalSpaceCapital = () => {
   return (
@@ -70,41 +155,113 @@ const DigitalSpaceCapital = () => {
           </Card>
 
           {/* Services Section */}
-          <Card>
-            <CardContent className="p-8 space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">Our Services</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  {
-                    title: "Corporate Strategy",
-                    description: "Comprehensive strategic planning and business development services to drive growth across all subsidiaries."
-                  },
-                  {
-                    title: "Financial Planning",
-                    description: "Expert financial planning and analysis to optimize performance and maximize shareholder value."
-                  },
-                  {
-                    title: "Business Development",
-                    description: "Identifying and pursuing strategic opportunities for expansion and market leadership."
-                  },
-                  {
-                    title: "Regulatory Compliance",
-                    description: "Ensuring adherence to all regulatory requirements and maintaining the highest standards of corporate governance."
-                  }
-                ].map((service, index) => (
-                  <div key={index} className="space-y-3 p-6 rounded-lg bg-gradient-to-br from-primary/5 to-transparent border border-border">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
-                        <p className="text-muted-foreground mt-2">{service.description}</p>
+          <section className="space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Our Services</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Comprehensive financial services and business solutions across multiple sectors
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                const content = (
+                  <Card 
+                    key={index} 
+                    className={`group relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${service.link ? 'cursor-pointer' : ''}`}
+                  >
+                    {/* Gradient Background */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                    
+                    {/* Top Accent Line */}
+                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+                    
+                    <CardContent className="p-6 relative">
+                      {/* Icon */}
+                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="w-7 h-7 text-white" />
                       </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                      
+                      {/* Title */}
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                        {service.description}
+                      </p>
+                      
+                      {/* Sub-services for Loans */}
+                      {service.subServices && (
+                        <div className="space-y-2 mb-4 border-t border-border pt-4">
+                          {service.subServices.map((sub, idx) => {
+                            const SubIcon = sub.icon;
+                            return (
+                              <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                <SubIcon className="w-4 h-4 text-primary" />
+                                <span>{sub.name}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                      
+                      {/* Link indicator */}
+                      {service.link && (
+                        <div className="flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
+                          <span>Learn More</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                );
+
+                return service.link ? (
+                  <Link key={index} to={service.link}>
+                    {content}
+                  </Link>
+                ) : (
+                  content
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Our Subsidiaries Section */}
+          <section className="space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Our Subsidiaries</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Explore our group of companies delivering specialized services across various sectors
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {subsidiaryLinks.map((subsidiary, index) => (
+                <Link 
+                  key={index} 
+                  to={subsidiary.link}
+                  className="group"
+                >
+                  <Card className="h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50">
+                    <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
+                      <div className="w-16 h-16 rounded-xl overflow-hidden bg-background shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <img 
+                          src={subsidiary.logo} 
+                          alt={subsidiary.name}
+                          className="w-full h-full object-contain p-1"
+                        />
+                      </div>
+                      <span className="text-xs font-semibold text-muted-foreground group-hover:text-primary transition-colors line-clamp-2">
+                        {subsidiary.name}
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </section>
 
           {/* Gallery Section */}
           <ProjectGallery 
