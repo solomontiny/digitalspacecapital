@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectGallery from "@/components/ProjectGallery";
+import AppDownload from "@/components/AppDownload";
 import digikoloBanner from "@/assets/digikolo-banner.jpg";
 import moneyMarketImg from "@/assets/money-market-new.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
@@ -598,6 +599,9 @@ const Digikolo = () => {
             subtitle="Explore our innovative solutions designed to transform your financial experience"
           />
         </section>
+
+        {/* App Download Section */}
+        <AppDownload />
 
         {/* CTA Section */}
         <section className="max-w-4xl mx-auto">
