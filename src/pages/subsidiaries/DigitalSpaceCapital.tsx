@@ -29,6 +29,8 @@ import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import easyPayLogo from "@/assets/easy-pay-logo.png";
 import digikoloLogo from "@/assets/digikolo-banner.jpg";
+import hospitalityImg from "@/assets/hospitality-service.jpg";
+import buildingMaterialsImg from "@/assets/building-materials.jpg";
 
 const services = [
   {
@@ -76,14 +78,16 @@ const services = [
     description: "Premium hospitality services and accommodation solutions for business and leisure travelers.",
     icon: Hotel,
     gradient: "from-pink-500 to-rose-600",
-    link: null
+    link: null,
+    image: hospitalityImg
   },
   {
     title: "Building Material Supplies",
     description: "Quality construction materials and supplies for residential and commercial projects.",
     icon: Hammer,
     gradient: "from-slate-500 to-gray-600",
-    link: null
+    link: null,
+    image: buildingMaterialsImg
   }
 ];
 
@@ -165,25 +169,43 @@ const DigitalSpaceCapital = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => {
                 const Icon = service.icon;
+                const hasImage = 'image' in service && service.image;
                 const content = (
                   <Card 
                     key={index} 
                     className={`group relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${service.link ? 'cursor-pointer' : ''}`}
                   >
-                    {/* Gradient Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                    
-                    {/* Top Accent Line */}
-                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
-                    
-                    <CardContent className="p-6 relative">
-                      {/* Icon */}
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <Icon className="w-7 h-7 text-white" />
+                    {/* Image Background for services with images */}
+                    {hasImage && (
+                      <div className="relative h-40 overflow-hidden">
+                        <img 
+                          src={service.image} 
+                          alt={service.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60`} />
+                        <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg`}>
+                          <Icon className={`w-6 h-6 bg-gradient-to-br ${service.gradient} bg-clip-text text-transparent`} style={{ color: service.gradient.includes('pink') ? '#ec4899' : '#64748b' }} />
+                        </div>
                       </div>
+                    )}
+                    
+                    {/* Gradient Background for non-image cards */}
+                    {!hasImage && <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />}
+                    
+                    {/* Top Accent Line for non-image cards */}
+                    {!hasImage && <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />}
+                    
+                    <CardContent className={`${hasImage ? 'p-5' : 'p-6'} relative`}>
+                      {/* Icon for non-image cards */}
+                      {!hasImage && (
+                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon className="w-7 h-7 text-white" />
+                        </div>
+                      )}
                       
                       {/* Title */}
-                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                      <h3 className={`text-xl font-bold text-foreground ${hasImage ? 'mb-2' : 'mb-3'} group-hover:text-primary transition-colors`}>
                         {service.title}
                       </h3>
                       
