@@ -28,13 +28,13 @@ const Header = () => {
   ];
 
   const subsidiaries = [
-    { name: "Digital Space Capital", href: "/subsidiaries" },
-    { name: "DSC Asset Management", href: "/subsidiaries" },
-    { name: "DSC MICROFINANCE BANK", href: "/subsidiaries" },
-    { name: "NAINGATE INSURANCE BROKERS", href: "/subsidiaries" },
-    { name: "EMISON REAL ESTATE", href: "/subsidiaries" },
-    { name: "EASY PAY", href: "/subsidiaries" },
-    { name: "DIGIKOLO", href: "/subsidiaries" }
+    { name: "Digital Space Capital", href: "/subsidiaries/digital-space-capital" },
+    { name: "DSC Asset Management", href: "/subsidiaries/dsc-asset-management" },
+    { name: "DSC Microfinance Bank", href: "/subsidiaries/dsc-microfinance-bank" },
+    { name: "Naingate Insurance Brokers", href: "/subsidiaries/naingate-insurance" },
+    { name: "Emison Real Estate", href: "/subsidiaries/emison-real-estate" },
+    { name: "Easy Pay", href: "/subsidiaries/easy-pay" },
+    { name: "Digikolo", href: "/subsidiaries/digikolo" }
   ];
 
   return <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 shadow-sm">
