@@ -286,39 +286,15 @@ const Digikolo = () => {
             <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <CardContent className="p-8 space-y-4">
                 <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Wallet className="w-7 h-7 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Savings Management</h3>
+                <h3 className="text-2xl font-bold text-foreground">Digital Savings</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Flexible savings plans with competitive interest rates and automated saving features to help you reach your financial goals faster.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
-              <CardContent className="p-8 space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <PieChart className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground">Investment Solutions</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Diversified investment portfolios managed by experts, giving you access to various asset classes and market opportunities.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
-              <CardContent className="p-8 space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-7 h-7 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground">Financial Planning</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Comprehensive financial planning tools and personalized advice to help you make informed decisions about your financial future.
+                  Smart savings solutions with competitive interest rates up to 21% p.a. Choose from DigiSave for flexible savings or DigiLock for maximum returns on fixed deposits.
                 </p>
               </CardContent>
             </Card>
