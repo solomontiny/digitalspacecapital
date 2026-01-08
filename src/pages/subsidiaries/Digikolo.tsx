@@ -64,12 +64,12 @@ const savingsPlans = [
     iconBg: "bg-white/20",
   },
   {
-    name: "DigiTarget",
-    rate: "18.5%",
+    name: "DigiLock",
+    rate: "Up to 21%",
     rateLabel: "p.a.",
-    tagline: "Save towards a target!",
-    description: "Goal-based savings to help you achieve your dreams. Set targets and track your progress to financial milestones.",
-    color: "from-blue-500 to-indigo-600",
+    tagline: "Lock your funds for maximum returns!",
+    description: "Fixed-term deposits with the highest interest rates. Lock your savings and watch your wealth grow faster.",
+    color: "from-orange-400 to-orange-500",
     iconBg: "bg-white/20",
   },
   {
