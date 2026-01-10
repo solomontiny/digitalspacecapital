@@ -22,18 +22,18 @@ const Directors = () => {
       image: gmdImage
     },
     {
-      name: "Professor Abiola Sanni (SAN)",
-      role: "Non-Executive Director",
-      bio: "Abiola Sanni is a Senior Advocate of Nigeria (SAN) and Professor of Commercial Law in the University of Lagos (UNILAG), with a specialization in Arbitration, Taxation and Commercial Law and Practice. He is the Editor of Introduction to Nigerian Legal Methods popularly known as 'The Blue Bible' in Nigerian universities and other countries in the West African sub region. He is also the author of Introduction to Nigerian Business Law, the founder and Editor-in-Chief of the Nigerian Revenue Law Reports (NRLR) and African Tax Law Reports (ATLR); the first law reports on tax cases in Nigeria and Africa respectively. He is a member of the Tax Advisory Committee (TAC) 'Think-Tank' Group for the Federal Inland Revenue Service (FIRS). He served as the Chairman of the National Tax Policy Review Committee (NTPRC) in 2016 He was appointed the Chairman of National Tax Policy Implementation Committee (NTPIC) in 2017 He is the Chairman of the Board of Directors of several companies including Tax Technologies Limited, TaxAide Limited and the Budding Mothers Club (BMC), a Director and Alternate Chairman of the UNILAG Micro Finance Bank, a Trustee of the United States Government Exchange Alumni Association of Nigeria (USGEAAN), a Trustee of the Nigerian Law School Alumni Class of 1989-90, the Coordinator of The Tax Club, a Trustee and President of the 'Tax Academician Association of Nigeria' (TaxAAN).",
-      initials: "AS",
-      image: professorSanniImage
-    },
-    {
       name: "HRH Alh. (Dr.) Yahaya Abubakar CFR",
       role: "Chairman",
       bio: "His Royal Highness was commissioned into the Nigerian Army Armored Corp as a Second Lieutenant on 13th December 1975 where he served at various capacities for 28 years. He rose to the rank of Brigadier General before his majestic exit in 2003 Ascended the Throne as the 13th Etsu Nupe, sworn in and presented with the First-Class Staff of Office in Bida, Niger State on 11th July, 2004. Fellowship of the National Defence College NDC Egypt. National Honour of Commander of the Federal Republic (CFR) in 2004 Chairman Abuja National Mosque Management Committee Chairman Coordinating Committee of Nigeria's National Council of Traditional Rulers Doctor of Philosophy Honoris Causa of Four distinguished Nigerian Universities. Chancellor of two notable Universities in Nigeria. Obafemi Awolowo University Ile-Ife, Osun State South-West Nigeria and Ambrose Alli University, Ekpoma, Edo State, South-South Nigeria. Etsu Yahaya Abubakar is the sole owner of EDU-Soko Farms Limited covering more than 30,000 hectares of both up and low lands with various colonies such as rice, cassava, guinea corn and groundnut, orchards, Fish and livestock e.t.c.",
       initials: "YA",
       image: emirImage
+    },
+    {
+      name: "Professor Abiola Sanni (SAN)",
+      role: "Non-Executive Director",
+      bio: "Abiola Sanni is a Senior Advocate of Nigeria (SAN) and Professor of Commercial Law in the University of Lagos (UNILAG), with a specialization in Arbitration, Taxation and Commercial Law and Practice. He is the Editor of Introduction to Nigerian Legal Methods popularly known as 'The Blue Bible' in Nigerian universities and other countries in the West African sub region. He is also the author of Introduction to Nigerian Business Law, the founder and Editor-in-Chief of the Nigerian Revenue Law Reports (NRLR) and African Tax Law Reports (ATLR); the first law reports on tax cases in Nigeria and Africa respectively. He is a member of the Tax Advisory Committee (TAC) 'Think-Tank' Group for the Federal Inland Revenue Service (FIRS). He served as the Chairman of the National Tax Policy Review Committee (NTPRC) in 2016 He was appointed the Chairman of National Tax Policy Implementation Committee (NTPIC) in 2017 He is the Chairman of the Board of Directors of several companies including Tax Technologies Limited, TaxAide Limited and the Budding Mothers Club (BMC), a Director and Alternate Chairman of the UNILAG Micro Finance Bank, a Trustee of the United States Government Exchange Alumni Association of Nigeria (USGEAAN), a Trustee of the Nigerian Law School Alumni Class of 1989-90, the Coordinator of The Tax Club, a Trustee and President of the 'Tax Academician Association of Nigeria' (TaxAAN).",
+      initials: "AS",
+      image: professorSanniImage
     },
     {
       name: "Engr. Hakeem Ademola Adeoye",
