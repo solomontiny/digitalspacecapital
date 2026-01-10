@@ -26,28 +26,28 @@ const Team = () => {
     {
       name: "LAWRENCE Sunday Ojebode",
       role: "EXECUTIVE DIRECTOR",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "HND Accounting from The Polytechnic Ibadan. Fellow of the Institute of Chartered Accountants of Nigeria (ICAN) with a prize in Management Information System. Trained in 'Developing a Leading Edge in Operation Strategy' at MIT, Boston, USA. Completed Small Enterprise Education Program (SEEP) in Arlington, Virginia, USA. Professional experience in consultancy, telecommunications (Glomobile Nigeria), banking (Allstates Trust Bank, Intercontinental Bank), microfinance, and public sector auditing (Nigerian Press Council).",
       initials: "LO",
       image: edImage
     },
     {
       name: "Egwuatu Gabriel",
       role: "Associate Director",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "B.Sc. in Political Science from Anambra State University (Now Chukwuemeka Odumegwu Ojukwu University). Master's degree in Industrial and Labour Relations from the University of Lagos. Associate of the Nigeria Institute of Management. Over 14 years experience in Operations, business development, Sales and real estate.",
       initials: "EG",
       image: gabrielImage
     },
     {
       name: "Abimbola Sofeso",
       role: "Group Head, Credit and Business Growth",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "B.Sc. in Marketing, Covenant University. Associate Member, National Institute of Marketing. Certifications in Project Management and Business Analysis. Over a decade experience in business development and credit analysis.",
       initials: "AS",
       image: abimbolaImage
     },
     {
       name: "Olabode Ezekiel",
       role: "Group Head, Internal Control and Audit",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "HND in Accountancy, Polytechnic Ibadan. Master of Business Administration (MBA), Obafemi Awolowo University, Ile Ife. Associate, Institute of Chartered Accountants of Nigeria (ICAN). Associate, Chartered Institute of Stockbrokers of Nigeria. Associate, Chartered Institute of Taxation of Nigeria. Dealing Clerk, Nigeria Stock Exchange.",
       initials: "OE",
       image: ezekielImage
     },
@@ -61,28 +61,28 @@ const Team = () => {
     {
       name: "ERINKITOLA Hammdalat Okikiayo",
       role: "GROUP, FINANCIAL CONTROLLER",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "B.Sc. in Psychology from Obafemi Awolowo University, Ile-Ife, Osun State. MBA from the University of Lagos. Member of the Institute of Chartered Accountants of Nigeria. Over a decade experience across financial institutions in various roles.",
       initials: "EO",
       image: okikiayoImage
     },
     {
       name: "DR. TOYIN Olufolahan",
       role: "DSC MFB MANAGING DIRECTOR",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "Dr. Olufolahan holds a PhD, MSc, and BSc (Hons) in Economics from Obafemi Awolowo University. An MBA focused on Financial Institution Management from the University of Ado Ekiti. A Fellow of the Microfinance Association in the UK. Fellow the Chartered Institute of Bankers of Nigeria. Fellow Nigerian Economic Society. Over 25 years experience in banking with institutions like Olon Microfinance Bank Plc, Sterling Bank Plc, Afribank Nig Plc, and Intercontinental Bank Plc.",
       initials: "TO",
       image: toyinImage
     },
     {
       name: "ADEOYE, Kayode Olugbemiga",
       role: "NAINGATE INSURANCE BROKERS MANAGING DIRECTOR",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "HND Insurance. Fellow of the Chartered Insurance Institute of Nigeria (FIIN). Fellow of the Chartered Institute of Insurance Brokers (FCIB). Over 28 years of experience in insurance, including marketing, technical operations, reinsurance, and claims. Extensive participation in management and leadership courses, seminars, and workshops both in Nigeria and internationally.",
       initials: "AO",
       image: adeoyeImage
     },
     {
       name: "JOSEPH Folarinde",
       role: "COMPANY SECRETARY",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "Bachelor of Laws from Joseph Ayo Babalola University. Nigerian Law School Campus Enugu. Fellow Institute of Management Consultant. Experience in Secretarial Duties, Property Law, Debts recovery and Corporate transactions.",
       initials: "JF",
       image: josephImage
     }
