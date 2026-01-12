@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import logo from "@/assets/dsc-logo-new.png";
+import logo from "@/assets/digital-space-capital-xmas-logo.jpeg";
 
 // Declare Zoho types
 declare global {
