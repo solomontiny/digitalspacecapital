@@ -7,9 +7,18 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import xmasLogo from "@/assets/digital-space-capital-xmas-logo.jpeg";
+import { Link } from "react-router-dom";
+import newLogo from "@/assets/dsc-logo-new.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,13 +33,15 @@ const Header = () => {
   ];
 
   const directorsSubmenu = [
-    { label: "JOIN OUR TEAM", href: "/team" },
+    { label: "Board of Directors", href: "/directors" },
+    { label: "Join Our Team", href: "/team" },
   ];
 
   const testimonialsSubmenu = [
-    { label: "NEWS", href: "/blog" },
-    { label: "INVESTORS", href: "/investor-relations" },
-    { label: "CAREERS", href: "/careers" },
+    { label: "All Testimonials", href: "/testimonials" },
+    { label: "News", href: "/blog" },
+    { label: "Investors", href: "/investor-relations" },
+    { label: "Careers", href: "/careers" },
   ];
 
   const subsidiaries = [
@@ -43,19 +54,115 @@ const Header = () => {
     { name: "Digikolo", href: "/subsidiaries/digikolo" }
   ];
 
-  return <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-6 py-4">
+  return (
+    <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center">
-            <img src={xmasLogo} alt="Digital Space Capital" className="h-24 md:h-28 w-auto transition-transform hover:scale-105" />
-          </a>
+          <Link to="/" className="flex items-center">
+            <img src={newLogo} alt="Digital Space Capital" className="h-16 md:h-20 w-auto transition-transform hover:scale-105" />
+          </Link>
 
-          {/* Desktop and Mobile Menu */}
-          <div className="flex items-center gap-3">
-            <Button size="sm" asChild className="hidden sm:flex">
-              <a href="/contact">CONTACT US</a>
-            </Button>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {/* Main Nav Items */}
+                {mainNavItems.map((item) => (
+                  <NavigationMenuItem key={item.label}>
+                    <Link
+                      to={item.href}
+                      className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                    >
+                      {item.label}
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
+
+                {/* Directors Dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm font-medium">
+                    DIRECTORS
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[200px] gap-1 p-2">
+                      {directorsSubmenu.map((item) => (
+                        <li key={item.label}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">{item.label}</div>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Testimonials Dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm font-medium">
+                    TESTIMONIALS
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[200px] gap-1 p-2">
+                      {testimonialsSubmenu.map((item) => (
+                        <li key={item.label}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">{item.label}</div>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* The Group Dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm font-medium">
+                    THE GROUP
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[250px] gap-1 p-2">
+                      {subsidiaries.map((item) => (
+                        <li key={item.name}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">{item.name}</div>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Contact Us as nav link */}
+                <NavigationMenuItem>
+                  <Link
+                    to="/contact"
+                    className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    CONTACT US
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
+
+          {/* Mobile Menu */}
+          <div className="lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -70,15 +177,15 @@ const Header = () => {
                   <nav className="flex flex-col gap-1 mt-6 pb-8">
                     {/* First 3 main nav items */}
                     {mainNavItems.map((item, index) => (
-                      <a
+                      <Link
                         key={item.label}
-                        href={item.href}
+                        to={item.href}
                         onClick={() => setIsOpen(false)}
                         className="text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
                         style={{ animationDelay: `${index * 50}ms` }}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ))}
                     
                     {/* Directors with submenu */}
@@ -92,23 +199,16 @@ const Header = () => {
                       </button>
                       {showDirectorsSubmenu && (
                         <div className="flex flex-col gap-1 mt-2 ml-2">
-                          <a
-                            href="/directors"
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
-                          >
-                            Board of Directors
-                          </a>
                           {directorsSubmenu.map((item, index) => (
-                            <a
+                            <Link
                               key={item.label}
-                              href={item.href}
+                              to={item.href}
                               onClick={() => setIsOpen(false)}
                               className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
                               style={{ animationDelay: `${index * 30}ms` }}
                             >
                               {item.label}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -125,23 +225,16 @@ const Header = () => {
                       </button>
                       {showTestimonialsSubmenu && (
                         <div className="flex flex-col gap-1 mt-2 ml-2">
-                          <a
-                            href="/testimonials"
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
-                          >
-                            All Testimonials
-                          </a>
                           {testimonialsSubmenu.map((item, index) => (
-                            <a
+                            <Link
                               key={item.label}
-                              href={item.href}
+                              to={item.href}
                               onClick={() => setIsOpen(false)}
                               className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
                               style={{ animationDelay: `${index * 30}ms` }}
                             >
                               {item.label}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -159,37 +252,29 @@ const Header = () => {
                       {showSubsidiaries && (
                         <div className="flex flex-col gap-1 mt-2 ml-2">
                           {subsidiaries.map((subsidiary, index) => (
-                            <a
+                            <Link
                               key={subsidiary.name}
-                              href={subsidiary.href}
+                              to={subsidiary.href}
                               onClick={() => setIsOpen(false)}
                               className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
                               style={{ animationDelay: `${(mainNavItems.length + index) * 50}ms` }}
                             >
                               {subsidiary.name}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       )}
                     </div>
 
-                    {/* Quick Links Section */}
+                    {/* Contact Us */}
                     <div className="border-t mt-4 pt-4">
-                      <h3 className="text-xs font-bold text-foreground/60 uppercase tracking-wider px-3 mb-3">Quick Links</h3>
-                      <div className="flex flex-col gap-1">
-                        <a href="/" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
-                          🏠 Home
-                        </a>
-                        <a href="/about" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
-                          ℹ️ About Us
-                        </a>
-                        <a href="/what-we-do" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
-                          💼 What We Do
-                        </a>
-                        <a href="/contact" onClick={() => setIsOpen(false)} className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95">
-                          📧 Contact Us
-                        </a>
-                      </div>
+                      <Link
+                        to="/contact"
+                        onClick={() => setIsOpen(false)}
+                        className="text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 block"
+                      >
+                        CONTACT US
+                      </Link>
                     </div>
 
                     {/* Contact Information */}
@@ -223,6 +308,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
