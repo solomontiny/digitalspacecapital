@@ -10,29 +10,32 @@ import securitiesTradingImg from "@/assets/securities-trading.jpg";
 const ServicesGrid = () => {
   const services = [
     {
-      title: "Credit",
+      title: "Digital Savings",
+      description: "Smart, secure, and flexible savings solutions designed for modern lifestyles. Our digital savings products help you grow wealth effortlessly while staying in full control.",
+      readMore: "Read more to explore Digilock, Digisave, and Digitarget options tailored to your financial goals.",
+      image: creditImg,
+      href: "/digital-savings"
+    },
+    {
+      title: "Loans",
+      description: "Fast, transparent, and flexible loan solutions built to support personal and business growth. From business expansion to education financing, our loan offerings are structured for convenience and clarity.",
+      readMore: "Read more to discover Commercial, SME, and Educational loan options.",
       image: insuranceBankingImg,
-      href: "/investments"
+      href: "/loans"
     },
     {
-      title: "Seamless Banking",
-      image: infrastructureImg,
-      href: "/infrastructure-fund"
-    },
-    {
-      title: "Insurance Banking",
-      image: moneyMarketImg,
-      href: "/money-market-fund"
-    },
-    {
-      title: "Investment Banking",
+      title: "Financial Advisory",
+      description: "Personalized financial guidance to help you make smarter money decisions. Our experts support clients with investment planning, budgeting, and long-term financial strategies for sustainable success.",
+      readMore: "Read more to learn how our advisory services can help you achieve your financial goals.",
       image: investmentBankingImg,
-      href: "/investment-banking"
+      href: "/financial-advisory"
     },
     {
-      title: "Asset Management",
+      title: "Bonds",
+      description: "Stable and secure investment opportunities through government and corporate bonds. Designed for reliable income and long-term portfolio growth, our bond offerings balance returns with security.",
+      readMore: "Read more to understand how bonds can strengthen your investment portfolio.",
       image: assetManagementImg,
-      href: "/asset-management"
+      href: "/bonds"
     }
   ];
 
@@ -50,13 +53,17 @@ const ServicesGrid = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
               </div>
-              <CardContent className="relative p-8 -mt-16 z-10">
-                <div className="bg-card/95 backdrop-blur-md border border-border/30 rounded-lg p-6 shadow-xl group-hover:shadow-2xl group-hover:border-primary/40 transition-all duration-500">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide">
-                    {service.title}
-                  </h3>
-                  <div className="mt-2 h-1 w-0 group-hover:w-full bg-primary/80 rounded-full transition-all duration-500" />
-                </div>
+              <CardContent className="relative p-6">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                  {service.description}
+                </p>
+                <p className="text-primary text-sm font-medium group-hover:underline">
+                  {service.readMore}
+                </p>
+                <div className="mt-3 h-1 w-0 group-hover:w-full bg-primary/80 rounded-full transition-all duration-500" />
               </CardContent>
             </Card>
           ))}
