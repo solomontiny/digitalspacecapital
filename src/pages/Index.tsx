@@ -5,7 +5,7 @@ import StockTicker from "@/components/StockTicker";
 import ServicesGrid from "@/components/ServicesGrid";
 import Statistics from "@/components/Statistics";
 import NewsSection from "@/components/NewsSection";
-import AppDownload from "@/components/AppDownload";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageLoader from "@/components/PageLoader";
@@ -46,7 +46,7 @@ const Index = () => {
       </AnimatedSection>
       
       <AnimatedSection animation="fade-up" delay={250}>
-        <AppDownload />
+        <TestimonialsSection />
       </AnimatedSection>
       
       <Footer />
