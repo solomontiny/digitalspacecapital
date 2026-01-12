@@ -14,17 +14,23 @@ import xmasLogo from "@/assets/digital-space-capital-xmas-logo.jpeg";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSubsidiaries, setShowSubsidiaries] = useState(false);
+  const [showDirectorsSubmenu, setShowDirectorsSubmenu] = useState(false);
+  const [showTestimonialsSubmenu, setShowTestimonialsSubmenu] = useState(false);
   
-  const navItems = [
+  const mainNavItems = [
     { label: "HOME", href: "/" },
     { label: "ABOUT US", href: "/about" },
     { label: "WHAT WE DO", href: "/what-we-do" },
-    { label: "DIRECTORS", href: "/directors" },
+  ];
+
+  const directorsSubmenu = [
     { label: "JOIN OUR TEAM", href: "/team" },
-    { label: "TESTIMONIALS", href: "/testimonials" },
+  ];
+
+  const testimonialsSubmenu = [
     { label: "NEWS", href: "/blog" },
     { label: "INVESTORS", href: "/investor-relations" },
-    { label: "CAREERS", href: "/careers" }
+    { label: "CAREERS", href: "/careers" },
   ];
 
   const subsidiaries = [
@@ -62,7 +68,8 @@ const Header = () => {
                 </SheetHeader>
                 <ScrollArea className="flex-1 -mx-6 px-6">
                   <nav className="flex flex-col gap-1 mt-6 pb-8">
-                    {navItems.map((item, index) => (
+                    {/* First 3 main nav items */}
+                    {mainNavItems.map((item, index) => (
                       <a
                         key={item.label}
                         href={item.href}
@@ -74,6 +81,73 @@ const Header = () => {
                       </a>
                     ))}
                     
+                    {/* Directors with submenu */}
+                    <div className="border-t mt-2 pt-2">
+                      <button
+                        onClick={() => setShowDirectorsSubmenu(!showDirectorsSubmenu)}
+                        className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95"
+                      >
+                        DIRECTORS
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showDirectorsSubmenu ? 'rotate-180' : ''}`} />
+                      </button>
+                      {showDirectorsSubmenu && (
+                        <div className="flex flex-col gap-1 mt-2 ml-2">
+                          <a
+                            href="/directors"
+                            onClick={() => setIsOpen(false)}
+                            className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
+                          >
+                            Board of Directors
+                          </a>
+                          {directorsSubmenu.map((item, index) => (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              onClick={() => setIsOpen(false)}
+                              className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
+                              style={{ animationDelay: `${index * 30}ms` }}
+                            >
+                              {item.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Testimonials with submenu */}
+                    <div>
+                      <button
+                        onClick={() => setShowTestimonialsSubmenu(!showTestimonialsSubmenu)}
+                        className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95"
+                      >
+                        TESTIMONIALS
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showTestimonialsSubmenu ? 'rotate-180' : ''}`} />
+                      </button>
+                      {showTestimonialsSubmenu && (
+                        <div className="flex flex-col gap-1 mt-2 ml-2">
+                          <a
+                            href="/testimonials"
+                            onClick={() => setIsOpen(false)}
+                            className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
+                          >
+                            All Testimonials
+                          </a>
+                          {testimonialsSubmenu.map((item, index) => (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              onClick={() => setIsOpen(false)}
+                              className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
+                              style={{ animationDelay: `${index * 30}ms` }}
+                            >
+                              {item.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* THE GROUP */}
                     <div className="border-t mt-2 pt-4">
                       <button
                         onClick={() => setShowSubsidiaries(!showSubsidiaries)}
@@ -90,7 +164,7 @@ const Header = () => {
                               href={subsidiary.href}
                               onClick={() => setIsOpen(false)}
                               className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
-                              style={{ animationDelay: `${(navItems.length + index) * 50}ms` }}
+                              style={{ animationDelay: `${(mainNavItems.length + index) * 50}ms` }}
                             >
                               {subsidiary.name}
                             </a>
