@@ -1,12 +1,3 @@
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,16 +6,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import newLogo from "@/assets/dsc-logo-new.png";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showSubsidiaries, setShowSubsidiaries] = useState(false);
-  const [showDirectorsSubmenu, setShowDirectorsSubmenu] = useState(false);
-  const [showTestimonialsSubmenu, setShowTestimonialsSubmenu] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const mainNavItems = [
     { label: "HOME", href: "/" },
@@ -56,23 +44,23 @@ const Header = () => {
 
   return (
     <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-6 py-3">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={newLogo} alt="Digital Space Capital" className="h-16 md:h-20 w-auto transition-transform hover:scale-105" />
+            <img src={newLogo} alt="Digital Space Capital" className="h-14 md:h-16 w-auto transition-transform hover:scale-105" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center">
             <NavigationMenu>
-              <NavigationMenuList>
+              <NavigationMenuList className="gap-0">
                 {/* Main Nav Items */}
                 {mainNavItems.map((item) => (
                   <NavigationMenuItem key={item.label}>
                     <Link
                       to={item.href}
-                      className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       {item.label}
                     </Link>
@@ -81,11 +69,11 @@ const Header = () => {
 
                 {/* Directors Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium">
+                  <NavigationMenuTrigger className="text-sm font-medium px-3">
                     DIRECTORS
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-1 p-2">
+                    <ul className="grid w-[200px] gap-1 p-2 bg-background border rounded-lg shadow-lg z-50">
                       {directorsSubmenu.map((item) => (
                         <li key={item.label}>
                           <NavigationMenuLink asChild>
@@ -104,11 +92,11 @@ const Header = () => {
 
                 {/* Testimonials Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium">
+                  <NavigationMenuTrigger className="text-sm font-medium px-3">
                     TESTIMONIALS
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-1 p-2">
+                    <ul className="grid w-[200px] gap-1 p-2 bg-background border rounded-lg shadow-lg z-50">
                       {testimonialsSubmenu.map((item) => (
                         <li key={item.label}>
                           <NavigationMenuLink asChild>
@@ -127,11 +115,11 @@ const Header = () => {
 
                 {/* The Group Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium">
+                  <NavigationMenuTrigger className="text-sm font-medium px-3">
                     THE GROUP
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[250px] gap-1 p-2">
+                    <ul className="grid w-[250px] gap-1 p-2 bg-background border rounded-lg shadow-lg z-50">
                       {subsidiaries.map((item) => (
                         <li key={item.name}>
                           <NavigationMenuLink asChild>
@@ -148,11 +136,11 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Contact Us as nav link */}
+                {/* Contact Us */}
                 <NavigationMenuItem>
                   <Link
                     to="/contact"
-                    className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                    className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     CONTACT US
                   </Link>
@@ -161,152 +149,91 @@ const Header = () => {
             </NavigationMenu>
           </nav>
 
-          {/* Mobile Menu */}
-          <div className="lg:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[400px] flex flex-col">
-                <SheetHeader>
-                  <SheetTitle className="text-lg font-bold">Navigation Menu</SheetTitle>
-                </SheetHeader>
-                <ScrollArea className="flex-1 -mx-6 px-6">
-                  <nav className="flex flex-col gap-1 mt-6 pb-8">
-                    {/* First 3 main nav items */}
-                    {mainNavItems.map((item, index) => (
-                      <Link
-                        key={item.label}
-                        to={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
-                        style={{ animationDelay: `${index * 50}ms` }}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                    
-                    {/* Directors with submenu */}
-                    <div className="border-t mt-2 pt-2">
-                      <button
-                        onClick={() => setShowDirectorsSubmenu(!showDirectorsSubmenu)}
-                        className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95"
-                      >
-                        DIRECTORS
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showDirectorsSubmenu ? 'rotate-180' : ''}`} />
-                      </button>
-                      {showDirectorsSubmenu && (
-                        <div className="flex flex-col gap-1 mt-2 ml-2">
-                          {directorsSubmenu.map((item, index) => (
-                            <Link
-                              key={item.label}
-                              to={item.href}
-                              onClick={() => setIsOpen(false)}
-                              className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
-                              style={{ animationDelay: `${index * 30}ms` }}
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Testimonials with submenu */}
-                    <div>
-                      <button
-                        onClick={() => setShowTestimonialsSubmenu(!showTestimonialsSubmenu)}
-                        className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95"
-                      >
-                        TESTIMONIALS
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showTestimonialsSubmenu ? 'rotate-180' : ''}`} />
-                      </button>
-                      {showTestimonialsSubmenu && (
-                        <div className="flex flex-col gap-1 mt-2 ml-2">
-                          {testimonialsSubmenu.map((item, index) => (
-                            <Link
-                              key={item.label}
-                              to={item.href}
-                              onClick={() => setIsOpen(false)}
-                              className="text-sm text-foreground/70 hover:text-primary transition-all duration-300 py-2 px-4 rounded-md hover:bg-primary/5 animate-fade-in hover:translate-x-1"
-                              style={{ animationDelay: `${index * 30}ms` }}
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    
-                    {/* THE GROUP */}
-                    <div className="border-t mt-2 pt-4">
-                      <button
-                        onClick={() => setShowSubsidiaries(!showSubsidiaries)}
-                        className="flex items-center justify-between w-full text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 hover:scale-105 active:scale-95"
-                      >
-                        THE GROUP
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showSubsidiaries ? 'rotate-180' : ''}`} />
-                      </button>
-                      {showSubsidiaries && (
-                        <div className="flex flex-col gap-1 mt-2 ml-2">
-                          {subsidiaries.map((subsidiary, index) => (
-                            <Link
-                              key={subsidiary.name}
-                              to={subsidiary.href}
-                              onClick={() => setIsOpen(false)}
-                              className="text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 py-2.5 px-3 rounded-lg hover:bg-primary/5 animate-fade-in hover:scale-105 active:scale-95"
-                              style={{ animationDelay: `${(mainNavItems.length + index) * 50}ms` }}
-                            >
-                              {subsidiary.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Contact Us */}
-                    <div className="border-t mt-4 pt-4">
-                      <Link
-                        to="/contact"
-                        onClick={() => setIsOpen(false)}
-                        className="text-base font-semibold text-foreground/80 hover:text-primary transition-all duration-300 py-3 px-3 rounded-lg hover:bg-primary/5 block"
-                      >
-                        CONTACT US
-                      </Link>
-                    </div>
-
-                    {/* Contact Information */}
-                    <div className="border-t mt-4 pt-4">
-                      <h3 className="text-xs font-bold text-foreground/60 uppercase tracking-wider px-3 mb-3">Contact Info</h3>
-                      <div className="flex flex-col gap-3 px-3">
-                        <div className="text-sm">
-                          <p className="font-semibold text-foreground/80 mb-1">Email</p>
-                          <a href="mailto:info@digitalspacecapital.com" className="text-foreground/60 hover:text-primary transition-colors">
-                            info@digitalspacecapital.com
-                          </a>
-                        </div>
-                        <div className="text-sm">
-                          <p className="font-semibold text-foreground/80 mb-1">Phone</p>
-                          <a href="tel:+2348012345678" className="text-foreground/60 hover:text-primary transition-colors">
-                            +234 801 234 5678
-                          </a>
-                        </div>
-                        <div className="text-sm">
-                          <p className="font-semibold text-foreground/80 mb-1">Office</p>
-                          <p className="text-foreground/60 text-xs leading-relaxed">
-                            Lagos, Nigeria
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </nav>
-                </ScrollArea>
-              </SheetContent>
-            </Sheet>
-          </div>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="lg:hidden p-2 rounded-md hover:bg-accent"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <nav className="lg:hidden mt-4 pb-4 border-t pt-4">
+            <div className="flex flex-col gap-2">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              {/* Directors */}
+              <div className="px-3 py-2">
+                <p className="text-sm font-medium mb-2">DIRECTORS</p>
+                <div className="ml-3 flex flex-col gap-1">
+                  {directorsSubmenu.map((item) => (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonials */}
+              <div className="px-3 py-2">
+                <p className="text-sm font-medium mb-2">TESTIMONIALS</p>
+                <div className="ml-3 flex flex-col gap-1">
+                  {testimonialsSubmenu.map((item) => (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* The Group */}
+              <div className="px-3 py-2">
+                <p className="text-sm font-medium mb-2">THE GROUP</p>
+                <div className="ml-3 flex flex-col gap-1">
+                  {subsidiaries.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+              >
+                CONTACT US
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );
