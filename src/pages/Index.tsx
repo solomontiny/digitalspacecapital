@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import StockTicker from "@/components/StockTicker";
@@ -13,39 +14,66 @@ import CookiePreferenceCenter from "@/components/CookiePreferenceCenter";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 
+  // Handle scroll-to-section when navigating from other pages
+  useEffect(() => {
+    if (!isLoading && location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      // Clear the state to prevent re-scrolling
+      window.history.replaceState({}, document.title);
+    }
+  }, [isLoading, location.state]);
+
   if (isLoading) {
     return <PageLoader />;
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background scroll-smooth">
       <Header />
-      <Hero />
+      <section id="hero">
+        <Hero />
+      </section>
       
       <AnimatedSection animation="fade-up">
-        <StockTicker />
+        <section id="ticker">
+          <StockTicker />
+        </section>
       </AnimatedSection>
       
       <AnimatedSection animation="fade-up" delay={100}>
-        <ServicesGrid />
+        <section id="services">
+          <ServicesGrid />
+        </section>
       </AnimatedSection>
       
-      
       <AnimatedSection animation="fade-up" delay={200}>
-        <Statistics />
+        <section id="testimonials">
+          <Statistics />
+        </section>
       </AnimatedSection>
       
       <AnimatedSection animation="fade-up" delay={250}>
-        <NewsSection />
+        <section id="news">
+          <NewsSection />
+        </section>
       </AnimatedSection>
       
-      <Footer />
+      <section id="footer">
+        <Footer />
+      </section>
       <CookieConsent />
       <CookiePreferenceCenter />
     </div>

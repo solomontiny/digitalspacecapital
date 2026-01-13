@@ -8,16 +8,32 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import newLogo from "@/assets/dsc-logo-new.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setMobileMenuOpen(false);
+  };
   
   const mainNavItems = [
-    { label: "HOME", href: "/" },
+    { label: "HOME", href: "/", scrollTo: "hero" },
     { label: "ABOUT US", href: "/about" },
     { label: "WHAT WE DO", href: "/what-we-do" },
+    { label: "SERVICES", scrollTo: "services" },
+    { label: "NEWS", scrollTo: "news" },
   ];
 
   const directorsSubmenu = [
@@ -58,12 +74,21 @@ const Header = () => {
                 {/* Main Nav Items */}
                 {mainNavItems.map((item) => (
                   <NavigationMenuItem key={item.label}>
-                    <Link
-                      to={item.href}
-                      className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      {item.label}
-                    </Link>
+                    {item.scrollTo ? (
+                      <button
+                        onClick={() => scrollToSection(item.scrollTo!)}
+                        className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        {item.label}
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.href!}
+                        className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                   </NavigationMenuItem>
                 ))}
 
@@ -163,14 +188,24 @@ const Header = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t pt-4">
             <div className="flex flex-col gap-2">
               {mainNavItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
-                >
-                  {item.label}
-                </Link>
+                item.scrollTo ? (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.scrollTo!)}
+                    className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent text-left"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.href!}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
               
               {/* Directors */}
