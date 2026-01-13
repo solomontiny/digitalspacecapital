@@ -157,10 +157,10 @@ const DigitalSpaceCapital = () => {
             <CardContent className="p-8 space-y-6">
               <h2 className="text-3xl font-bold text-foreground">About Digital Space Capital</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Digital Space Capital serves as the cornerstone of our financial services group, providing strategic direction and comprehensive oversight across all our subsidiary companies. With a commitment to excellence and innovation, we coordinate financial services to deliver exceptional value to our clients and stakeholders.
+                Digital Space Capital Group ("DSC") is a licensed revolutionary innovator in the digital finance industry providing a bouquet of services which include asset management, corporate finance and business advisory, micro and macro lending (DSC MFB), Forex and Utility payment services (EasyPay), Insurance brokerage etc. We operate on key licences from the Securities and Exchange Commission, Central Bank of Nigeria (MFB), NAICOM and a host of other regulators. Our services cut across key areas in finance and business management within and outside the Sub-Saharan Africa.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Our experienced leadership team brings decades of combined expertise in financial markets, corporate strategy, and regulatory compliance, ensuring that each subsidiary operates at the highest standards of professionalism and service delivery.
+                At DSC, our team collective expertise and experience of the team highlights our ability to provide excellent services as at when due hence, surpassing our client expectations.
               </p>
             </CardContent>
           </Card>
