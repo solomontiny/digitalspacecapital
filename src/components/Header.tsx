@@ -70,21 +70,21 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center">
             <NavigationMenu>
-              <NavigationMenuList className="gap-0">
+              <NavigationMenuList className="gap-1">
                 {/* Main Nav Items */}
                 {mainNavItems.map((item) => (
                   <NavigationMenuItem key={item.label}>
                     {item.scrollTo ? (
                       <button
                         onClick={() => scrollToSection(item.scrollTo!)}
-                        className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         {item.label}
                       </button>
                     ) : (
                       <Link
                         to={item.href!}
-                        className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         {item.label}
                       </Link>
@@ -93,18 +93,18 @@ const Header = () => {
                 ))}
 
                 {/* Directors Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium px-3">
+                <NavigationMenuItem className="relative">
+                  <NavigationMenuTrigger className="text-sm font-medium px-4">
                     DIRECTORS
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-1 p-2 bg-background border rounded-lg shadow-lg z-50">
+                    <ul className="w-[220px] p-2 bg-background border border-border rounded-lg shadow-xl">
                       {directorsSubmenu.map((item) => (
                         <li key={item.label}>
                           <NavigationMenuLink asChild>
                             <Link
                               to={item.href}
-                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               <div className="text-sm font-medium leading-none">{item.label}</div>
                             </Link>
@@ -116,18 +116,18 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 {/* Testimonials Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium px-3">
+                <NavigationMenuItem className="relative">
+                  <NavigationMenuTrigger className="text-sm font-medium px-4">
                     TESTIMONIALS
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-1 p-2 bg-background border rounded-lg shadow-lg z-50">
+                    <ul className="w-[220px] p-2 bg-background border border-border rounded-lg shadow-xl">
                       {testimonialsSubmenu.map((item) => (
                         <li key={item.label}>
                           <NavigationMenuLink asChild>
                             <Link
                               to={item.href}
-                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               <div className="text-sm font-medium leading-none">{item.label}</div>
                             </Link>
@@ -139,18 +139,18 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 {/* The Group Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium px-3">
+                <NavigationMenuItem className="relative">
+                  <NavigationMenuTrigger className="text-sm font-medium px-4">
                     THE GROUP
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[250px] gap-1 p-2 bg-background border rounded-lg shadow-lg z-50">
+                    <ul className="w-[260px] p-2 bg-background border border-border rounded-lg shadow-xl">
                       {subsidiaries.map((item) => (
                         <li key={item.name}>
                           <NavigationMenuLink asChild>
                             <Link
                               to={item.href}
-                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               <div className="text-sm font-medium leading-none">{item.name}</div>
                             </Link>
@@ -165,7 +165,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/contact"
-                    className="inline-flex h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                    className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     CONTACT US
                   </Link>
