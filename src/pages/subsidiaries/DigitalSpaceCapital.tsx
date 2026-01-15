@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
 import AppDownload from "@/components/AppDownload";
+import SponsorsSlider from "@/components/SponsorsSlider";
 import dscLogo from "@/assets/digital-space-capital-icon.png";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
@@ -291,6 +292,9 @@ const DigitalSpaceCapital = () => {
               ))}
             </div>
           </section>
+
+          {/* Sponsors/Partners Slider */}
+          <SponsorsSlider />
 
           {/* Digikolo App Download Section */}
           <AppDownload />
