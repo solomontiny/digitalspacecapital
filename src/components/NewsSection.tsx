@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import newsVideo from "@/assets/news-video.mp4";
 import newsVideo2 from "@/assets/news-video-2.mp4";
 import newsVideo3 from "@/assets/news-video-3.mp4";
@@ -68,19 +67,11 @@ const NewsSection = () => {
                   <span className="text-primary font-medium">{item.category}</span>
                   <span>{item.date}</span>
                 </div>
-                <Button variant="outline" size="sm">
-                  Read More
-                </Button>
               </CardContent>
             </Card>
           ))}
         </div>
         
-        <div className="text-center">
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Read More →
-          </Button>
-        </div>
       </div>
     </section>
   );
