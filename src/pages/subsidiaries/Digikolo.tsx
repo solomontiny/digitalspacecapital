@@ -227,15 +227,6 @@ const Digikolo = () => {
                 A finance subsidiary company leveraging Digikolo's license.
               </p>
               
-              <div className="flex flex-wrap gap-4 pt-4">
-                <Button size="lg" className="group">
-                  Get Started
-                  <TrendingUp className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
-              </div>
             </div>
 
             {/* Right Column - Image */}
@@ -414,9 +405,6 @@ const Digikolo = () => {
                   Share your referral code and earn rewards together!
                 </p>
               </div>
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-white/90 font-semibold shrink-0">
-                Start Referring
-              </Button>
             </div>
             <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20" />
           </div>
@@ -478,13 +466,6 @@ const Digikolo = () => {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="text-center pt-8">
-            <Button size="lg" className="group px-8 py-6 text-lg">
-              Get Started Now
-              <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
-            </Button>
-          </div>
         </section>
 
         {/* App Rating & Reviews Section */}
@@ -579,28 +560,6 @@ const Digikolo = () => {
         {/* App Download Section */}
         <AppDownload />
 
-        {/* CTA Section */}
-        <section className="max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-br from-primary/10 to-blue-600/10 border-2 border-primary/20">
-            <CardContent className="p-12 text-center space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">
-                Ready to Start Your Financial Journey?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Join thousands of satisfied users who trust Digikolo for their savings and investment needs.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center pt-4">
-                <Button size="lg" className="group">
-                  Open an Account
-                  <TrendingUp className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button size="lg" variant="outline">
-                  Contact Us
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
       </main>
 
       <Footer />
