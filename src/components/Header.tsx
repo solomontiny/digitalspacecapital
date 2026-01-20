@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import newLogo from "@/assets/dsc-logo-new.png";
 
-// Mobile dropdown component with smooth animation
+// Mobile dropdown component with ultra-smooth animation
 const MobileDropdown = ({ 
   title, 
   icon: Icon, 
@@ -26,65 +26,82 @@ const MobileDropdown = ({
   onItemClick: () => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
   
   return (
-    <div className="rounded-2xl overflow-hidden bg-muted/20 border border-border/30">
+    <div className="rounded-2xl overflow-hidden bg-muted/20 border border-border/30 will-change-transform">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           "w-full flex items-center justify-between px-5 py-4",
           "text-base font-medium text-foreground",
-          "transition-all duration-300 ease-out",
-          "hover:bg-primary/10 active:scale-[0.99]",
+          "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "hover:bg-primary/10 active:scale-[0.995]",
           isOpen && "bg-primary/5"
         )}
       >
         <span className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Icon className="w-5 h-5 text-primary" />
+          <div className={cn(
+            "w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center",
+            "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+            isOpen && "bg-primary/20 scale-105"
+          )}>
+            <Icon className={cn(
+              "w-5 h-5 text-primary transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              isOpen && "scale-110"
+            )} />
           </div>
           {title}
         </span>
         <div className={cn(
           "w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center",
-          "transition-all duration-300 ease-out",
-          isOpen && "bg-primary/10"
+          "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          isOpen && "bg-primary/10 rotate-0"
         )}>
           <ChevronDown 
             className={cn(
-              "w-4 h-4 text-muted-foreground transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              "w-4 h-4 text-muted-foreground transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
               isOpen && "rotate-180 text-primary"
             )} 
           />
         </div>
       </button>
       <div 
-        className={cn(
-          "overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        )}
+        className="grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        style={{
+          gridTemplateRows: isOpen ? '1fr' : '0fr',
+          opacity: isOpen ? 1 : 0,
+        }}
       >
-        <div className="bg-background/50 py-2 px-3 space-y-1">
-          {items.map((item, index) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              onClick={onItemClick}
-              className={cn(
-                "flex items-center gap-3 px-4 py-3 rounded-xl",
-                "text-sm font-medium text-muted-foreground",
-                "hover:text-primary hover:bg-primary/10",
-                "transition-all duration-300 ease-out",
-                "hover:translate-x-1 active:scale-[0.98]"
-              )}
-              style={{ 
-                transitionDelay: isOpen ? `${index * 30}ms` : '0ms'
-              }}
-            >
-              <span className="w-2 h-2 rounded-full bg-primary/40" />
-              {item.label}
-            </Link>
-          ))}
+        <div className="overflow-hidden">
+          <div className="bg-background/50 py-2 px-3 space-y-1">
+            {items.map((item, index) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                onClick={onItemClick}
+                className={cn(
+                  "flex items-center gap-3 px-4 py-3 rounded-xl",
+                  "text-sm font-medium text-muted-foreground",
+                  "hover:text-primary hover:bg-primary/10",
+                  "transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  "hover:translate-x-2 active:scale-[0.98]",
+                  "will-change-transform"
+                )}
+                style={{ 
+                  transitionDelay: isOpen ? `${index * 40}ms` : '0ms',
+                  opacity: isOpen ? 1 : 0,
+                  transform: isOpen ? 'translateX(0)' : 'translateX(-8px)'
+                }}
+              >
+                <span className={cn(
+                  "w-2 h-2 rounded-full bg-primary/40 transition-all duration-300",
+                  "group-hover:bg-primary"
+                )} />
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -331,8 +348,9 @@ const Header = () => {
       <div
         className={cn(
           "fixed inset-x-0 bottom-0 bg-background/98 backdrop-blur-xl z-40 lg:hidden",
-          "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
           "border-t border-border/50 shadow-2xl",
+          "will-change-transform",
           mobileMenuOpen 
             ? "opacity-100 pointer-events-auto translate-y-0" 
             : "opacity-0 pointer-events-none translate-y-full"
@@ -340,15 +358,16 @@ const Header = () => {
         style={{ top: scrolled ? '60px' : '68px' }}
       >
         <div 
-          className="h-full overflow-y-auto overscroll-contain"
+          className="h-full overflow-y-auto overscroll-contain scroll-smooth"
           style={{ 
-            scrollBehavior: 'smooth',
-            WebkitOverflowScrolling: 'touch'
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'hsl(var(--primary) / 0.3) transparent'
           }}
         >
           <nav className="py-6 pb-safe">
             {/* Main Nav Items */}
-            <div className="px-4 space-y-1">
+            <div className="px-4 space-y-1.5">
               {mainNavItems.map((item, index) => (
                 item.scrollTo ? (
                   <button
@@ -357,17 +376,17 @@ const Header = () => {
                     className={cn(
                       "w-full flex items-center gap-4 px-5 py-4 text-base font-medium text-foreground",
                       "bg-muted/30 hover:bg-primary/10 rounded-2xl",
-                      "transition-all duration-300 ease-out",
-                      "hover:translate-x-2 hover:shadow-md active:scale-[0.98]",
-                      "transform"
+                      "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                      "hover:translate-x-3 hover:shadow-lg active:scale-[0.98]",
+                      "will-change-transform backface-hidden"
                     )}
                     style={{ 
-                      transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms',
+                      transitionDelay: mobileMenuOpen ? `${80 + index * 60}ms` : '0ms',
                       opacity: mobileMenuOpen ? 1 : 0,
-                      transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-20px)'
+                      transform: mobileMenuOpen ? 'translateX(0) scale(1)' : 'translateX(-24px) scale(0.96)'
                     }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     {item.label}
@@ -380,11 +399,14 @@ const Header = () => {
                     className={cn(
                       "flex items-center gap-4 px-5 py-4 text-base font-medium text-foreground",
                       "bg-muted/30 hover:bg-primary/10 rounded-2xl",
-                      "transition-all duration-300 ease-out",
-                      "hover:translate-x-2 hover:shadow-md active:scale-[0.98]"
+                      "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                      "hover:translate-x-3 hover:shadow-lg active:scale-[0.98]",
+                      "will-change-transform backface-hidden"
                     )}
                     style={{ 
-                      transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms'
+                      transitionDelay: mobileMenuOpen ? `${80 + index * 60}ms` : '0ms',
+                      opacity: mobileMenuOpen ? 1 : 0,
+                      transform: mobileMenuOpen ? 'translateX(0) scale(1)' : 'translateX(-24px) scale(0.96)'
                     }}
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
