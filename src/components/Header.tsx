@@ -350,7 +350,7 @@ const Header = () => {
           "fixed inset-x-0 bottom-0 bg-background/98 backdrop-blur-xl z-40 lg:hidden",
           "transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
           "border-t border-border/50 shadow-2xl",
-          "will-change-transform",
+          "will-change-transform overflow-hidden",
           mobileMenuOpen 
             ? "opacity-100 pointer-events-auto translate-y-0" 
             : "opacity-0 pointer-events-none translate-y-full"
@@ -358,14 +358,19 @@ const Header = () => {
         style={{ top: scrolled ? '60px' : '68px' }}
       >
         <div 
-          className="h-full overflow-y-auto overscroll-contain scroll-smooth"
+          className={cn(
+            "h-full overflow-y-scroll overscroll-y-contain",
+            "touch-pan-y"
+          )}
           style={{ 
             WebkitOverflowScrolling: 'touch',
+            scrollBehavior: 'smooth',
             scrollbarWidth: 'thin',
-            scrollbarColor: 'hsl(var(--primary) / 0.3) transparent'
+            scrollbarColor: 'hsl(var(--primary) / 0.3) transparent',
+            msOverflowStyle: 'auto',
           }}
         >
-          <nav className="py-6 pb-safe">
+          <nav className="py-6 pb-32 min-h-full">
             {/* Main Nav Items */}
             <div className="px-4 space-y-1.5">
               {mainNavItems.map((item, index) => (
@@ -378,7 +383,7 @@ const Header = () => {
                       "bg-muted/30 hover:bg-primary/10 rounded-2xl",
                       "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                       "hover:translate-x-3 hover:shadow-lg active:scale-[0.98]",
-                      "will-change-transform backface-hidden"
+                      "will-change-transform"
                     )}
                     style={{ 
                       transitionDelay: mobileMenuOpen ? `${80 + index * 60}ms` : '0ms',
@@ -386,7 +391,7 @@ const Header = () => {
                       transform: mobileMenuOpen ? 'translateX(0) scale(1)' : 'translateX(-24px) scale(0.96)'
                     }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     {item.label}
@@ -397,11 +402,11 @@ const Header = () => {
                     to={item.href!}
                     onClick={closeMobileMenu}
                     className={cn(
-                      "flex items-center gap-4 px-5 py-4 text-base font-medium text-foreground",
+                      "w-full flex items-center gap-4 px-5 py-4 text-base font-medium text-foreground",
                       "bg-muted/30 hover:bg-primary/10 rounded-2xl",
                       "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                       "hover:translate-x-3 hover:shadow-lg active:scale-[0.98]",
-                      "will-change-transform backface-hidden"
+                      "will-change-transform"
                     )}
                     style={{ 
                       transitionDelay: mobileMenuOpen ? `${80 + index * 60}ms` : '0ms',
