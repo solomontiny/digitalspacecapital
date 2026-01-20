@@ -6,8 +6,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, X, ChevronDown, Home, Info, Briefcase, Users, Newspaper, Phone, Building2, Award, UserCircle } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown, Home, Info, Briefcase, Users, Newspaper, Phone, Building2, Award, UserCircle, RefreshCw } from "lucide-react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
@@ -111,6 +111,10 @@ const MobileDropdown = ({
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pullDistance, setPullDistance] = useState(0);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const startY = useRef(0);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -139,6 +143,36 @@ const Header = () => {
       document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
+
+  // Pull to refresh handlers
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (scrollContainerRef.current && scrollContainerRef.current.scrollTop <= 0) {
+      startY.current = e.touches[0].clientY;
+    }
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!scrollContainerRef.current || isRefreshing) return;
+    
+    const currentY = e.touches[0].clientY;
+    const diff = currentY - startY.current;
+    
+    if (diff > 0 && scrollContainerRef.current.scrollTop <= 0) {
+      const resistance = 1 - Math.min(diff / 240, 0.6);
+      const adjustedDiff = Math.min(diff * resistance, 120);
+      setPullDistance(adjustedDiff);
+    }
+  }, [isRefreshing]);
+
+  const handleTouchEnd = useCallback(async () => {
+    if (pullDistance >= 80) {
+      setIsRefreshing(true);
+      // Simulate refresh
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsRefreshing(false);
+    }
+    setPullDistance(0);
+  }, [pullDistance]);
   
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== "/") {
@@ -357,17 +391,64 @@ const Header = () => {
         )}
         style={{ top: scrolled ? '60px' : '68px' }}
       >
+        {/* Pull to refresh indicator */}
         <div 
           className={cn(
-            "h-full overflow-y-scroll overscroll-y-contain",
-            "touch-pan-y"
+            "absolute top-0 left-0 right-0 flex items-center justify-center overflow-hidden",
+            "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+            "bg-gradient-to-b from-primary/5 to-transparent"
+          )}
+          style={{ 
+            height: pullDistance,
+            opacity: pullDistance > 0 ? 1 : 0,
+          }}
+        >
+          <div 
+            className={cn(
+              "flex items-center gap-2 text-sm font-medium text-primary",
+              "transition-all duration-300"
+            )}
+            style={{
+              transform: `scale(${Math.min(pullDistance / 80, 1)})`,
+              opacity: Math.min(pullDistance / 40, 1),
+            }}
+          >
+            <RefreshCw 
+              className={cn(
+                "w-5 h-5 transition-transform duration-300",
+                isRefreshing && "animate-spin",
+                pullDistance >= 80 && !isRefreshing && "text-primary"
+              )}
+              style={{
+                transform: `rotate(${pullDistance * 3}deg)`,
+              }}
+            />
+            <span>{isRefreshing ? 'Refreshing...' : pullDistance >= 80 ? 'Release to refresh' : 'Pull to refresh'}</span>
+          </div>
+        </div>
+
+        <div 
+          ref={scrollContainerRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className={cn(
+            "h-full overscroll-y-auto",
+            "touch-pan-y",
+            // Elastic bounce effect via CSS
+            "[&::-webkit-scrollbar]:w-1.5",
+            "[&::-webkit-scrollbar-track]:bg-transparent",
+            "[&::-webkit-scrollbar-thumb]:bg-primary/20",
+            "[&::-webkit-scrollbar-thumb]:rounded-full",
+            "[&::-webkit-scrollbar-thumb:hover]:bg-primary/30"
           )}
           style={{ 
             WebkitOverflowScrolling: 'touch',
             scrollBehavior: 'smooth',
-            scrollbarWidth: 'thin',
-            scrollbarColor: 'hsl(var(--primary) / 0.3) transparent',
-            msOverflowStyle: 'auto',
+            overflowY: 'auto',
+            overscrollBehavior: 'contain',
+            transform: `translateY(${pullDistance}px)`,
+            transition: pullDistance === 0 ? 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)' : 'none',
           }}
         >
           <nav className="py-6 pb-32 min-h-full">
