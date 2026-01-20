@@ -92,19 +92,12 @@ const Header = () => {
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-    }
+    // iOS Safari can break nested scrolling when body is set to position: fixed.
+    // Keeping it simple: disable body scroll via overflow only, and let the overlay handle scrolling.
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
   
@@ -312,9 +305,11 @@ const Header = () => {
         }}
       >
         <div 
-          className="h-full w-full overflow-y-auto overscroll-contain pb-20"
+          className="h-full w-full overflow-y-auto overscroll-contain scroll-smooth touch-pan-y pb-20"
           style={{ 
-            WebkitOverflowScrolling: 'touch',
+            WebkitOverflowScrolling: "touch",
+            scrollBehavior: "smooth",
+            willChange: "scroll-position",
           }}
         >
           <nav className="py-4 px-2 space-y-6">
