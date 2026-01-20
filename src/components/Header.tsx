@@ -28,37 +28,60 @@ const MobileDropdown = ({
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <div className="border-b border-border/50 last:border-b-0">
+    <div className="rounded-2xl overflow-hidden bg-muted/20 border border-border/30">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-foreground hover:bg-accent/50 transition-colors duration-200"
+        className={cn(
+          "w-full flex items-center justify-between px-5 py-4",
+          "text-base font-medium text-foreground",
+          "transition-all duration-300 ease-out",
+          "hover:bg-primary/10 active:scale-[0.99]",
+          isOpen && "bg-primary/5"
+        )}
       >
-        <span className="flex items-center gap-3">
-          <Icon className="w-4 h-4 text-primary" />
+        <span className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Icon className="w-5 h-5 text-primary" />
+          </div>
           {title}
         </span>
-        <ChevronDown 
-          className={cn(
-            "w-4 h-4 text-muted-foreground transition-transform duration-300 ease-out",
-            isOpen && "rotate-180"
-          )} 
-        />
+        <div className={cn(
+          "w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center",
+          "transition-all duration-300 ease-out",
+          isOpen && "bg-primary/10"
+        )}>
+          <ChevronDown 
+            className={cn(
+              "w-4 h-4 text-muted-foreground transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              isOpen && "rotate-180 text-primary"
+            )} 
+          />
+        </div>
       </button>
       <div 
         className={cn(
-          "overflow-hidden transition-all duration-300 ease-out",
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          "overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <div className="bg-muted/30 py-1">
-          {items.map((item) => (
+        <div className="bg-background/50 py-2 px-3 space-y-1">
+          {items.map((item, index) => (
             <Link
               key={item.label}
               to={item.href}
               onClick={onItemClick}
-              className="flex items-center gap-3 px-8 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-all duration-200"
+              className={cn(
+                "flex items-center gap-3 px-4 py-3 rounded-xl",
+                "text-sm font-medium text-muted-foreground",
+                "hover:text-primary hover:bg-primary/10",
+                "transition-all duration-300 ease-out",
+                "hover:translate-x-1 active:scale-[0.98]"
+              )}
+              style={{ 
+                transitionDelay: isOpen ? `${index * 30}ms` : '0ms'
+              }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+              <span className="w-2 h-2 rounded-full bg-primary/40" />
               {item.label}
             </Link>
           ))}
@@ -307,25 +330,46 @@ const Header = () => {
       {/* Mobile Navigation Overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-md z-40 lg:hidden transition-all duration-300 ease-out",
+          "fixed inset-x-0 bottom-0 bg-background/98 backdrop-blur-xl z-40 lg:hidden",
+          "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "border-t border-border/50 shadow-2xl",
           mobileMenuOpen 
-            ? "opacity-100 pointer-events-auto" 
-            : "opacity-0 pointer-events-none"
+            ? "opacity-100 pointer-events-auto translate-y-0" 
+            : "opacity-0 pointer-events-none translate-y-full"
         )}
         style={{ top: scrolled ? '60px' : '68px' }}
       >
-        <ScrollArea className="h-[calc(100vh-68px)]">
-          <nav className="py-4">
+        <div 
+          className="h-full overflow-y-auto overscroll-contain"
+          style={{ 
+            scrollBehavior: 'smooth',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          <nav className="py-6 pb-safe">
             {/* Main Nav Items */}
-            <div className="px-2">
-              {mainNavItems.map((item) => (
+            <div className="px-4 space-y-1">
+              {mainNavItems.map((item, index) => (
                 item.scrollTo ? (
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.scrollTo!)}
-                    className="w-full flex items-center gap-3 px-4 py-3.5 text-sm font-semibold text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200 hover:translate-x-1"
+                    className={cn(
+                      "w-full flex items-center gap-4 px-5 py-4 text-base font-medium text-foreground",
+                      "bg-muted/30 hover:bg-primary/10 rounded-2xl",
+                      "transition-all duration-300 ease-out",
+                      "hover:translate-x-2 hover:shadow-md active:scale-[0.98]",
+                      "transform"
+                    )}
+                    style={{ 
+                      transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms',
+                      opacity: mobileMenuOpen ? 1 : 0,
+                      transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-20px)'
+                    }}
                   >
-                    <item.icon className="w-4 h-4 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
                     {item.label}
                   </button>
                 ) : (
@@ -333,19 +377,29 @@ const Header = () => {
                     key={item.label}
                     to={item.href!}
                     onClick={closeMobileMenu}
-                    className="flex items-center gap-3 px-4 py-3.5 text-sm font-semibold text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200 hover:translate-x-1"
+                    className={cn(
+                      "flex items-center gap-4 px-5 py-4 text-base font-medium text-foreground",
+                      "bg-muted/30 hover:bg-primary/10 rounded-2xl",
+                      "transition-all duration-300 ease-out",
+                      "hover:translate-x-2 hover:shadow-md active:scale-[0.98]"
+                    )}
+                    style={{ 
+                      transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms'
+                    }}
                   >
-                    <item.icon className="w-4 h-4 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
                     {item.label}
                   </Link>
                 )
               ))}
             </div>
 
-            <div className="h-px bg-border/50 my-3 mx-4" />
+            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-5 mx-6" />
 
             {/* Dropdown Sections */}
-            <div className="px-2">
+            <div className="px-4 space-y-2">
               <MobileDropdown
                 title="DIRECTORS"
                 icon={UserCircle}
@@ -366,21 +420,27 @@ const Header = () => {
               />
             </div>
 
-            <div className="h-px bg-border/50 my-3 mx-4" />
+            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-5 mx-6" />
 
             {/* Contact Button */}
-            <div className="px-4 pt-2">
+            <div className="px-4 pt-2 pb-6">
               <Link
                 to="/contact"
                 onClick={closeMobileMenu}
-                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold text-primary-foreground bg-primary rounded-xl transition-all duration-200 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                className={cn(
+                  "flex items-center justify-center gap-3 w-full px-6 py-4",
+                  "text-base font-semibold text-primary-foreground bg-primary rounded-2xl",
+                  "transition-all duration-300 ease-out",
+                  "hover:bg-primary/90 hover:scale-[1.02] hover:shadow-xl",
+                  "active:scale-[0.98] shadow-lg"
+                )}
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 CONTACT US
               </Link>
             </div>
           </nav>
-        </ScrollArea>
+        </div>
       </div>
     </>
   );
