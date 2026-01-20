@@ -20,7 +20,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
 import AppDownload from "@/components/AppDownload";
 import SponsorsSlider from "@/components/SponsorsSlider";
-import dscLogo from "@/assets/digital-space-capital-icon.png";
+import dscLogo from "@/assets/dsc-group-logo.png";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
 import securitiesTradingImg from "@/assets/securities-trading.jpg";
@@ -127,10 +127,10 @@ const DigitalSpaceCapital = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="p-4 bg-background rounded-2xl shadow-lg">
-                    <img src={dscLogo} alt="Digital Space Capital" className="h-16 w-16 object-contain" />
+                    <img src={dscLogo} alt="Digital Space Capital Group" className="h-20 w-auto object-contain" />
                   </div>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                    Digital Space Capital
+                    Digital Space Capital Group
                   </h1>
                 </div>
                 <p className="text-xl text-muted-foreground leading-relaxed">
