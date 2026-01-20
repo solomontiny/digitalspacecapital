@@ -6,7 +6,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, X, ChevronDown, Home, Info, Briefcase, Users, Newspaper, Phone, Building2, Award, UserCircle, RefreshCw } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, ChevronDown, Home, Info, Briefcase, Newspaper, Building2, Award, UserCircle, RefreshCw, Phone } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -273,71 +279,74 @@ const Header = () => {
 
                   {/* Directors Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="h-9 px-3 text-sm font-semibold text-foreground/80 hover:bg-primary/10 hover:text-primary data-[state=open]:bg-primary/10 data-[state=open]:text-primary">
-                      DIRECTORS
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-[200px] p-2 bg-background border border-border rounded-xl shadow-2xl">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button className="group inline-flex h-9 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary">
+                          DIRECTORS
+                          <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start" side="bottom" sideOffset={10} className="min-w-[220px] rounded-xl border border-border bg-background p-2 shadow-2xl">
                         {directorsSubmenu.map((item) => (
-                          <li key={item.label}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to={item.href}
-                                className="block select-none rounded-lg p-3 text-sm font-medium leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary"
-                              >
-                                {item.label}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
+                          <DropdownMenuItem key={item.label} asChild className="rounded-lg">
+                            <Link
+                              to={item.href}
+                              className="block w-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
+                            >
+                              {item.label}
+                            </Link>
+                          </DropdownMenuItem>
                         ))}
-                      </ul>
-                    </NavigationMenuContent>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </NavigationMenuItem>
 
                   {/* Testimonials Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="h-9 px-3 text-sm font-semibold text-foreground/80 hover:bg-primary/10 hover:text-primary data-[state=open]:bg-primary/10 data-[state=open]:text-primary">
-                      TESTIMONIALS
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-[200px] p-2 bg-background border border-border rounded-xl shadow-2xl">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button className="group inline-flex h-9 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary">
+                          TESTIMONIALS
+                          <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start" side="bottom" sideOffset={10} className="min-w-[220px] rounded-xl border border-border bg-background p-2 shadow-2xl">
                         {testimonialsSubmenu.map((item) => (
-                          <li key={item.label}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to={item.href}
-                                className="block select-none rounded-lg p-3 text-sm font-medium leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary"
-                              >
-                                {item.label}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
+                          <DropdownMenuItem key={item.label} asChild className="rounded-lg">
+                            <Link
+                              to={item.href}
+                              className="block w-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
+                            >
+                              {item.label}
+                            </Link>
+                          </DropdownMenuItem>
                         ))}
-                      </ul>
-                    </NavigationMenuContent>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </NavigationMenuItem>
 
                   {/* The Group Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="h-9 px-3 text-sm font-semibold text-foreground/80 hover:bg-primary/10 hover:text-primary data-[state=open]:bg-primary/10 data-[state=open]:text-primary">
-                      THE GROUP
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-[240px] p-2 bg-background border border-border rounded-xl shadow-2xl">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button className="group inline-flex h-9 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary">
+                          THE GROUP
+                          <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start" side="bottom" sideOffset={10} className="min-w-[260px] rounded-xl border border-border bg-background p-2 shadow-2xl">
                         {subsidiaries.map((item) => (
-                          <li key={item.label}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to={item.href}
-                                className="block select-none rounded-lg p-3 text-sm font-medium leading-none no-underline outline-none transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary"
-                              >
-                                {item.label}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
+                          <DropdownMenuItem key={item.label} asChild className="rounded-lg">
+                            <Link
+                              to={item.href}
+                              className="block w-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
+                            >
+                              {item.label}
+                            </Link>
+                          </DropdownMenuItem>
                         ))}
-                      </ul>
-                    </NavigationMenuContent>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </NavigationMenuItem>
 
                   {/* Contact Us */}
@@ -389,14 +398,18 @@ const Header = () => {
             ? "opacity-100 pointer-events-auto translate-y-0" 
             : "opacity-0 pointer-events-none translate-y-full"
         )}
-        style={{ top: scrolled ? '60px' : '68px' }}
+        style={{
+          top: scrolled ? 60 : 68,
+          height: `calc(100dvh - ${scrolled ? 60 : 68}px)`,
+        }}
       >
         {/* Pull to refresh indicator */}
         <div 
           className={cn(
             "absolute top-0 left-0 right-0 flex items-center justify-center overflow-hidden",
             "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-            "bg-gradient-to-b from-primary/5 to-transparent"
+            "bg-gradient-to-b from-primary/5 to-transparent",
+            "pointer-events-none"
           )}
           style={{ 
             height: pullDistance,
@@ -416,8 +429,7 @@ const Header = () => {
             <RefreshCw 
               className={cn(
                 "w-5 h-5 transition-transform duration-300",
-                isRefreshing && "animate-spin",
-                pullDistance >= 80 && !isRefreshing && "text-primary"
+                isRefreshing && "animate-spin"
               )}
               style={{
                 transform: `rotate(${pullDistance * 3}deg)`,
@@ -433,9 +445,9 @@ const Header = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           className={cn(
-            "h-full overscroll-y-auto",
+            "h-full w-full",
+            "overflow-y-scroll",
             "touch-pan-y",
-            // Elastic bounce effect via CSS
             "[&::-webkit-scrollbar]:w-1.5",
             "[&::-webkit-scrollbar-track]:bg-transparent",
             "[&::-webkit-scrollbar-thumb]:bg-primary/20",
@@ -445,8 +457,7 @@ const Header = () => {
           style={{ 
             WebkitOverflowScrolling: 'touch',
             scrollBehavior: 'smooth',
-            overflowY: 'auto',
-            overscrollBehavior: 'contain',
+            overscrollBehaviorY: 'auto',
             transform: `translateY(${pullDistance}px)`,
             transition: pullDistance === 0 ? 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)' : 'none',
           }}
