@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Import all sponsor logos
 import sponsor1 from "@/assets/sponsors/sponsor-1.jpg";
@@ -67,6 +67,7 @@ const sponsors = [
 
 const SponsorsSlider = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const scroll = scrollRef.current;
@@ -76,45 +77,73 @@ const SponsorsSlider = () => {
     let scrollPosition = 0;
 
     const animate = () => {
-      scrollPosition += 0.5;
-      if (scroll.scrollWidth / 2 <= scrollPosition) {
-        scrollPosition = 0;
+      if (!isPaused) {
+        scrollPosition += 0.8;
+        if (scroll.scrollWidth / 2 <= scrollPosition) {
+          scrollPosition = 0;
+        }
+        scroll.scrollLeft = scrollPosition;
       }
-      scroll.scrollLeft = scrollPosition;
       animationId = requestAnimationFrame(animate);
     };
 
     animationId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [isPaused]);
 
   return (
-    <section className="py-12 bg-muted/30">
+    <section className="py-16 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Our Clients & Partners</h2>
-          <p className="text-muted-foreground">Trusted by leading organizations across industries</p>
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+            Trusted Partners
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            Our Clients & Partners
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Proudly partnering with leading organizations across industries
+          </p>
         </div>
         
-        <div 
-          ref={scrollRef}
-          className="flex overflow-hidden gap-8 py-4"
-          style={{ scrollBehavior: 'auto' }}
-        >
-          {/* Duplicate sponsors for infinite scroll effect */}
-          {[...sponsors, ...sponsors].map((sponsor, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 px-4 py-3 bg-background rounded-lg shadow-md border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 min-w-[140px] h-[80px] flex items-center justify-center"
-            >
-              <img 
-                src={sponsor.logo} 
-                alt={sponsor.name}
-                className="max-h-[60px] max-w-[120px] object-contain"
-              />
-            </div>
-          ))}
+        {/* Gradient fade edges */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          
+          <div 
+            ref={scrollRef}
+            className="flex overflow-hidden gap-6 md:gap-8 py-6"
+            style={{ scrollBehavior: 'auto' }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* Duplicate sponsors for infinite scroll effect */}
+            {[...sponsors, ...sponsors].map((sponsor, index) => (
+              <div
+                key={index}
+                className="group flex-shrink-0 px-6 py-5 bg-background rounded-2xl shadow-lg border border-border/40 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 min-w-[160px] md:min-w-[180px] h-[100px] md:h-[110px] flex items-center justify-center cursor-pointer transform hover:scale-105"
+              >
+                <img 
+                  src={sponsor.logo} 
+                  alt={sponsor.name}
+                  title={sponsor.name}
+                  className="max-h-[70px] md:max-h-[80px] max-w-[130px] md:max-w-[150px] object-contain filter grayscale-[30%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Partner count badge */}
+        <div className="flex justify-center mt-8">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-muted/50 rounded-full border border-border/50">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-sm text-muted-foreground font-medium">
+              {sponsors.length}+ Trusted Partners
+            </span>
+          </div>
         </div>
       </div>
     </section>
