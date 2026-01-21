@@ -47,27 +47,27 @@ const Index = () => {
         <Hero />
       </section>
       
-      <AnimatedSection animation="fade-up">
+      <AnimatedSection animation="float-up">
         <section id="ticker">
           <StockTicker />
         </section>
       </AnimatedSection>
       
-      <AnimatedSection animation="fade-up" delay={100}>
+      <AnimatedSection animation="zoom-blur" delay={100}>
         <section id="services">
           <ServicesGrid />
         </section>
       </AnimatedSection>
       
-      <AnimatedSection animation="fade-up" delay={200}>
-        <section id="testimonials">
-          <Statistics />
+      <AnimatedSection animation="slide-rotate" delay={150}>
+        <section id="news">
+          <NewsSection />
         </section>
       </AnimatedSection>
       
-      <AnimatedSection animation="fade-up" delay={250}>
-        <section id="news">
-          <NewsSection />
+      <AnimatedSection animation="float-up" delay={200}>
+        <section id="testimonials">
+          <Statistics />
         </section>
       </AnimatedSection>
       

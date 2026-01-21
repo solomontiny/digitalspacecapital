@@ -56,7 +56,7 @@ const stats = [
 const savingsPlans = [
   {
     name: "DigiSave",
-    rate: "Up to 21%",
+    rate: "18.0%",
     rateLabel: "p.a.",
     tagline: "Save on the go!",
     description: "Flexible savings with instant access. Perfect for everyday savers who want to earn while maintaining liquidity.",
