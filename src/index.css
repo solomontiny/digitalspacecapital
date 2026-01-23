@@ -114,6 +114,25 @@ html {
     @apply bg-background text-foreground font-sans;
   }
 
+  /* Mobile sidebar bounce animation */
+  @keyframes slideDownBounce {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(8px);
+    }
+    80% {
+      transform: translateY(-4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   /* Custom scrolling ticker animation */
   @keyframes ticker {
     0% { transform: translateX(100%); }
