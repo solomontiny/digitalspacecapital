@@ -291,10 +291,11 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Navigation Overlay - Compact sidebar */}
       <div
         className={cn(
-          "fixed left-0 right-0 bottom-0 bg-background z-50 lg:hidden",
+          "fixed left-0 right-0 bg-background z-50 lg:hidden",
+          "rounded-b-3xl shadow-2xl border-b border-x border-border/50",
           "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
@@ -302,7 +303,7 @@ const Header = () => {
         )}
         style={{
           top: scrolled ? 56 : 64,
-          height: `calc(100dvh - ${scrolled ? 56 : 64}px)`,
+          maxHeight: `calc(75dvh - ${scrolled ? 56 : 64}px)`,
         }}
       >
         <div
