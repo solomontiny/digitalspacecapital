@@ -54,7 +54,7 @@ const Team = () => {
     {
       name: "Ifeoma Isinguzo",
       role: "Group Head, Human Resources & Admin",
-      bio: "Brief description of team member's background, experience, and expertise in their field.",
+      bio: "BSc in Public Administration, University of Nigeria, Nsukka (UNN). MSc in Labour and Industrial Relations, University of Lagos. Certified Member, Chartered Institute of Personnel Management (CIPM). Member, Nigerian Institute of Management (NIM). Experienced in strategic HR leadership and organisational development across technology, telecommunications, and financial services sectors.",
       initials: "II",
       image: ifeomaImage
     },
