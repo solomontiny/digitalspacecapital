@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import BrandedPageLoader from "./BrandedPageLoader";
+import ProgressBar from "./ProgressBar";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -49,6 +50,9 @@ const PageTransition = ({ children }: PageTransitionProps) => {
 
   return (
     <>
+      {/* Progress Bar at top */}
+      <ProgressBar />
+
       {/* Branded Page Loader */}
       <BrandedPageLoader isVisible={isLoading} />
 
