@@ -38,12 +38,16 @@ const ServicesGrid = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-16 bg-background relative overflow-hidden">
+      {/* Soft background glow */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
           {services.map((service, index) => (
             <Link key={index} to={service.href}>
-              <Card className="group relative cursor-pointer overflow-hidden border-2 border-border/50 hover:border-primary/30 bg-card shadow-md hover:shadow-2xl transition-all duration-500 h-full">
+              <Card className="group relative cursor-pointer overflow-hidden border-2 border-border/50 hover:border-primary/30 bg-card shadow-md hover:shadow-2xl transition-all duration-500 h-full tilt-card soft-shadow">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 
                     src={service.image} 
@@ -53,7 +57,7 @@ const ServicesGrid = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                 </div>
                 <CardContent className="relative p-6">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide mb-3">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide mb-3 underline-animate">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">
@@ -62,7 +66,7 @@ const ServicesGrid = () => {
                   <p className="text-primary text-sm font-medium group-hover:underline">
                     {service.readMore}
                   </p>
-                  <div className="mt-3 h-1 w-0 group-hover:w-full bg-primary/80 rounded-full transition-all duration-500" />
+                  <div className="mt-3 h-1 w-0 group-hover:w-full bg-gradient-to-r from-primary to-primary/50 rounded-full transition-all duration-500" />
                 </CardContent>
               </Card>
             </Link>
