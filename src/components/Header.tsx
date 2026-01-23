@@ -291,22 +291,40 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Navigation Overlay - Compact sidebar */}
+      {/* Backdrop overlay - closes menu on click */}
       <div
         className={cn(
-          "fixed left-0 right-0 bg-background z-50 lg:hidden",
-          "rounded-b-3xl shadow-2xl border-b border-x border-border/50",
-          "overflow-hidden",
-          "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden",
+          "transition-all duration-400 ease-out",
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         )}
         style={{
           top: scrolled ? 56 : 64,
+        }}
+        onClick={closeMobileMenu}
+        aria-hidden="true"
+      />
+
+      {/* Mobile Navigation Overlay - Compact sidebar */}
+      <div
+        className={cn(
+          "fixed left-0 right-0 bg-background/95 backdrop-blur-md z-50 lg:hidden",
+          "rounded-b-3xl shadow-2xl border-b border-x border-border/50",
+          "overflow-hidden",
+          mobileMenuOpen
+            ? "opacity-100 pointer-events-auto animate-[slideDownBounce_0.5s_ease-out_forwards]"
+            : "opacity-0 pointer-events-none"
+        )}
+        style={{
+          top: scrolled ? 56 : 64,
           height: `calc(75dvh - ${scrolled ? 56 : 64}px)`,
-          transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(-20px)',
-          willChange: 'transform',
+          transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(-30px)',
+          willChange: 'transform, opacity',
+          transition: mobileMenuOpen 
+            ? 'none' 
+            : 'all 0.3s cubic-bezier(0.4, 0, 1, 1)',
         }}
       >
         <div
