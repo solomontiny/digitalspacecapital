@@ -304,12 +304,15 @@ const Header = () => {
         style={{
           top: scrolled ? 56 : 64,
           maxHeight: `calc(75dvh - ${scrolled ? 56 : 64}px)`,
+          transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(-20px)',
         }}
       >
         <div
-          className="h-full w-full overflow-y-auto overscroll-contain touch-pan-y pb-20"
+          className="h-full w-full overflow-y-auto overscroll-contain touch-pan-y pb-20 scroll-smooth"
           style={{
             WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "thin",
+            scrollbarColor: "hsl(var(--primary) / 0.3) transparent",
           }}
         >
           <nav className="py-4 px-2 space-y-6">
