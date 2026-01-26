@@ -9,6 +9,7 @@ import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
 import infrastructureOldImg from "@/assets/infrastructure.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
+import ongoingProjectVideo from "@/assets/emison-ongoing-project.mp4";
 
 const EmisonRealEstate = () => {
   return (
@@ -99,6 +100,27 @@ const EmisonRealEstate = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Ongoing Projects Section */}
+          <Card>
+            <CardContent className="p-8 space-y-6">
+              <div className="text-center space-y-3">
+                <h2 className="text-3xl font-bold text-foreground">Ongoing Projects</h2>
+                <p className="text-muted-foreground">Discover our current developments transforming communities</p>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden border border-border shadow-lg">
+                <video 
+                  src={ongoingProjectVideo}
+                  className="w-full aspect-video object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </CardContent>
           </Card>
