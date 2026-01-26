@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import creditImg from "@/assets/credit.jpg";
 import insuranceBankingImg from "@/assets/insurance-banking.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
-import assetManagementImg from "@/assets/asset-management.jpg";
+import bondsImg from "@/assets/bonds-new.jpg";
 
 const ServicesGrid = () => {
   const services = [
@@ -32,7 +32,7 @@ const ServicesGrid = () => {
       title: "Bonds",
       description: "Stable and secure investment opportunities through government and corporate bonds. Designed for reliable income and long-term portfolio growth, our bond offerings balance returns with security.",
       readMore: "Read more to understand how bonds can strengthen your investment portfolio.",
-      image: assetManagementImg,
+      image: bondsImg,
       href: "/subsidiaries/dsc-asset-management"
     }
   ];
