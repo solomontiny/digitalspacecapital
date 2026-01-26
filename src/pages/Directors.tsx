@@ -15,18 +15,18 @@ import oluwagbemilekeImage from "@/assets/director-oluwagbemileke.jpg";
 const Directors = () => {
   const directors = [
     {
-      name: "AMB. Dr. Olubukola Abitoye",
-      role: "GROUP MANAGING DIRECTOR",
-      bio: "Amb. Dr. Mrs. Olubukola M. Abitoye hails from Ondo town in Ondo State, Nigeria. A skilled Financial specialist, she holds a bachelor's degree in Management and Accounting from Obafemi Awolowo University and a master's degree in Business Administration from Charisma University in North America. As GMD of Digital Space Capital Group, Amb. Dr. Mrs. Abitoye oversees an all-in-one provider of Financial services, including investment banking, asset management, insurance, micro banking, and Fintech. 20+ years of experience in treasury management, corporate Finance, investment banking, commercial and retail banking, project Finance, interior designs, and real estate. A certified SEC-sponsored individual, she is authorized to provide investment advisory and manage Financial transactions. Amb. Dr. Mrs. Abitoye holds memberships in esteemed organizations such as: - Chartered Institute of Directors, Nigeria (CIOD) - Nigerian Institute of Management (NIM) - Fellow, Chartered Institute of Loan and Risk Management of Nigeria (doctorate holder - Financial Markets Association (ACI) - Doctoral Fellowship, International Certified Risk Management Professionals, United Kingdom She serves as a youth ambassador (ECOWAS Youth Council) and has received the Nelson Mandela Leadership Award of Excellence and Integrity. Amb. Dr. Mrs. Abitoye is a seasoned leader committed to excellence, with remarkable achievements in Finance and philanthropy.",
-      initials: "OA",
-      image: gmdImage
-    },
-    {
       name: "HRH Alh. (Dr.) Yahaya Abubakar CFR",
       role: "Chairman",
       bio: "His Royal Highness was commissioned into the Nigerian Army Armored Corp as a Second Lieutenant on 13th December 1975 where he served at various capacities for 28 years. He rose to the rank of Brigadier General before his majestic exit in 2003 Ascended the Throne as the 13th Etsu Nupe, sworn in and presented with the First-Class Staff of Office in Bida, Niger State on 11th July, 2004. Fellowship of the National Defence College NDC Egypt. National Honour of Commander of the Federal Republic (CFR) in 2004 Chairman Abuja National Mosque Management Committee Chairman Coordinating Committee of Nigeria's National Council of Traditional Rulers Doctor of Philosophy Honoris Causa of Four distinguished Nigerian Universities. Chancellor of two notable Universities in Nigeria. Obafemi Awolowo University Ile-Ife, Osun State South-West Nigeria and Ambrose Alli University, Ekpoma, Edo State, South-South Nigeria. Etsu Yahaya Abubakar is the sole owner of EDU-Soko Farms Limited covering more than 30,000 hectares of both up and low lands with various colonies such as rice, cassava, guinea corn and groundnut, orchards, Fish and livestock e.t.c.",
       initials: "YA",
       image: emirImage
+    },
+    {
+      name: "AMB. Dr. Olubukola Abitoye",
+      role: "GROUP MANAGING DIRECTOR",
+      bio: "Amb. Dr. Mrs. Olubukola M. Abitoye hails from Ondo town in Ondo State, Nigeria. A skilled Financial specialist, she holds a bachelor's degree in Management and Accounting from Obafemi Awolowo University and a master's degree in Business Administration from Charisma University in North America. As GMD of Digital Space Capital Group, Amb. Dr. Mrs. Abitoye oversees an all-in-one provider of Financial services, including investment banking, asset management, insurance, micro banking, and Fintech. 20+ years of experience in treasury management, corporate Finance, investment banking, commercial and retail banking, project Finance, interior designs, and real estate. A certified SEC-sponsored individual, she is authorized to provide investment advisory and manage Financial transactions. Amb. Dr. Mrs. Abitoye holds memberships in esteemed organizations such as: - Chartered Institute of Directors, Nigeria (CIOD) - Nigerian Institute of Management (NIM) - Fellow, Chartered Institute of Loan and Risk Management of Nigeria (doctorate holder - Financial Markets Association (ACI) - Doctoral Fellowship, International Certified Risk Management Professionals, United Kingdom She serves as a youth ambassador (ECOWAS Youth Council) and has received the Nelson Mandela Leadership Award of Excellence and Integrity. Amb. Dr. Mrs. Abitoye is a seasoned leader committed to excellence, with remarkable achievements in Finance and philanthropy.",
+      initials: "OA",
+      image: gmdImage
     },
     {
       name: "Professor Abiola Sanni (SAN)",
