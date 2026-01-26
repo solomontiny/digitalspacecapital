@@ -54,8 +54,10 @@ const ServicesGrid = () => {
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
                     style={{ 
-                      filter: 'contrast(1.1) saturate(1.05) brightness(1.02)',
-                      imageRendering: 'crisp-edges'
+                      filter: 'contrast(1.15) saturate(1.1) brightness(1.03) sharpen(1)',
+                      imageRendering: 'crisp-edges',
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden'
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
