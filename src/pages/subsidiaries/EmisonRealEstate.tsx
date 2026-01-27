@@ -19,7 +19,8 @@ import infrastructureOldImg from "@/assets/infrastructure.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
 import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
-import ongoingProjectVideo4 from "@/assets/emison-project-4.mp4";
+
+const ongoingProjectVideo4 = "/videos/emison-project-4.mp4";
 
 const EmisonRealEstate = () => {
   return (
