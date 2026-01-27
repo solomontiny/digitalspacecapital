@@ -1,14 +1,24 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Building2, CheckCircle2, ArrowLeft } from "lucide-react";
+import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
 import infrastructureOldImg from "@/assets/infrastructure.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
+import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
+import ongoingProjectVideo2 from "@/assets/emison-project-2.mp4";
+import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
 
 const EmisonRealEstate = () => {
   return (
@@ -99,6 +109,57 @@ const EmisonRealEstate = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Ongoing Projects Section */}
+          <Card>
+            <CardContent className="p-8 space-y-6">
+              <div className="text-center space-y-3">
+                <h2 className="text-3xl font-bold text-foreground">Ongoing Projects</h2>
+                <p className="text-muted-foreground">Discover our current developments transforming communities</p>
+              </div>
+              <div className="px-12">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-4">
+                    {[
+                      { src: ongoingProjectVideo1, title: "Emison Estate Phase 1" },
+                      { src: ongoingProjectVideo2, title: "Luxury Villa Development" },
+                      { src: ongoingProjectVideo3, title: "Commercial Complex" },
+                    ].map((video, index) => (
+                      <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                        <div className="space-y-3">
+                          <div className="relative rounded-xl overflow-hidden border border-border shadow-lg aspect-[9/16] max-h-[320px]">
+                            <video
+                              src={video.src}
+                              className="w-full h-full object-cover"
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              preload="metadata"
+                            >
+                              Your browser does not support the video tag.
+                            </video>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <p className="text-white text-sm font-medium truncate">{video.title}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-0" />
+                  <CarouselNext className="right-0" />
+                </Carousel>
               </div>
             </CardContent>
           </Card>

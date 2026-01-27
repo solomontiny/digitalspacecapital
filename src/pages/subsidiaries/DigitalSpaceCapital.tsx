@@ -19,7 +19,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
 import AppDownload from "@/components/AppDownload";
-import dscLogo from "@/assets/digital-space-capital-icon.png";
+import SponsorsSlider from "@/components/SponsorsSlider";
+import dscLogo from "@/assets/dsc-group-logo.png";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
 import securitiesTradingImg from "@/assets/securities-trading.jpg";
@@ -126,10 +127,10 @@ const DigitalSpaceCapital = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="p-4 bg-background rounded-2xl shadow-lg">
-                    <img src={dscLogo} alt="Digital Space Capital" className="h-16 w-16 object-contain" />
+                    <img src={dscLogo} alt="Digital Space Capital Group" className="h-20 w-auto object-contain" />
                   </div>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                    Digital Space Capital
+                    Digital Space Capital Group
                   </h1>
                 </div>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -155,12 +156,12 @@ const DigitalSpaceCapital = () => {
           {/* About Section */}
           <Card>
             <CardContent className="p-8 space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">About Digital Space Capital</h2>
+              <h2 className="text-3xl font-bold text-foreground">About Digital Space Capital Group</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Digital Space Capital serves as the cornerstone of our financial services group, providing strategic direction and comprehensive oversight across all our subsidiary companies. With a commitment to excellence and innovation, we coordinate financial services to deliver exceptional value to our clients and stakeholders.
+                Digital Space Capital Group ("DSC") is a licensed revolutionary innovator in the digital finance industry providing a bouquet of services which include asset management, corporate finance and business advisory, micro and macro lending (DSC MFB), Forex and Utility payment services (EasyPay), Insurance brokerage etc. We operate on key licences from the Securities and Exchange Commission, Central Bank of Nigeria (MFB), NAICOM and a host of other regulators. Our services cut across key areas in finance and business management within and outside the Sub-Saharan Africa.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Our experienced leadership team brings decades of combined expertise in financial markets, corporate strategy, and regulatory compliance, ensuring that each subsidiary operates at the highest standards of professionalism and service delivery.
+                At DSC, our team collective expertise and experience of the team highlights our ability to provide excellent services as at when due hence, surpassing our client expectations.
               </p>
             </CardContent>
           </Card>
@@ -291,6 +292,9 @@ const DigitalSpaceCapital = () => {
               ))}
             </div>
           </section>
+
+          {/* Sponsors/Partners Slider */}
+          <SponsorsSlider />
 
           {/* Digikolo App Download Section */}
           <AppDownload />
