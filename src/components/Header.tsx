@@ -8,7 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import newLogo from "@/assets/dsc-logo-new.png";
+import newLogo from "@/assets/dsc-group-logo-new.png";
 import MobileNavigation from "./MobileNavigation";
 
 // Desktop navigation data
@@ -108,10 +108,10 @@ const Header = () => {
             >
               <img 
                 src={newLogo} 
-                alt="Digital Space Capital" 
+                alt="Digital Space Capital Group" 
                 className={cn(
                   "w-auto transition-all duration-300",
-                  scrolled ? "h-10 sm:h-12 md:h-14" : "h-12 sm:h-14 md:h-16"
+                  scrolled ? "h-14 sm:h-16 md:h-20" : "h-16 sm:h-20 md:h-24"
                 )}
               />
             </Link>
