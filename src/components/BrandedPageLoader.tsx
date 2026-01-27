@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import newLogo from "@/assets/dsc-logo-new.png";
+import newLogo from "@/assets/dsc-group-logo-new.png";
 
 interface BrandedPageLoaderProps {
   isVisible: boolean;

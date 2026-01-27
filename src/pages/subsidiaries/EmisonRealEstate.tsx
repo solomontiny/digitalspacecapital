@@ -17,8 +17,8 @@ import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
 import infrastructureOldImg from "@/assets/infrastructure.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
-import ongoingProjectVideo2 from "@/assets/emison-project-2.mp4";
 import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
+import ongoingProjectVideo4 from "@/assets/emison-project-4.mp4";
 
 const EmisonRealEstate = () => {
   return (
@@ -129,10 +129,10 @@ const EmisonRealEstate = () => {
                   className="w-full"
                 >
                   <CarouselContent className="-ml-4">
-                    {[
+              {[
                       { src: ongoingProjectVideo1, title: "Emison Estate Phase 1" },
-                      { src: ongoingProjectVideo2, title: "Luxury Villa Development" },
                       { src: ongoingProjectVideo3, title: "Commercial Complex" },
+                      { src: ongoingProjectVideo4, title: "Premium Residence" },
                     ].map((video, index) => (
                       <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                         <div className="space-y-3">
@@ -170,40 +170,22 @@ const EmisonRealEstate = () => {
             subtitle="Showcasing our landmark developments and successful transactions"
             images={[
               {
+                src: infrastructureImg,
+                alt: "Luxury Villa Development",
+                title: "Luxury Villa Development",
+                description: "Premium luxury villas with world-class amenities"
+              },
+              {
                 src: infrastructureOldImg,
                 alt: "Commercial Development",
                 title: "Premium Office Complex",
                 description: "50,000 sq ft commercial development in prime location"
               },
               {
-                src: infrastructureImg,
-                alt: "Residential Project",
-                title: "Luxury Residential Towers",
-                description: "200-unit luxury apartment complex with modern amenities"
-              },
-              {
                 src: investmentBankingImg,
                 alt: "Property Management",
                 title: "Portfolio Management Success",
                 description: "Managing $100M+ in commercial properties"
-              },
-              {
-                src: infrastructureOldImg,
-                alt: "Mixed-Use Development",
-                title: "Urban Mixed-Use Hub",
-                description: "Integrated retail, office, and residential development"
-              },
-              {
-                src: infrastructureImg,
-                alt: "Real Estate Investment",
-                title: "Strategic Acquisitions",
-                description: "High-value property acquisitions generating 20% ROI"
-              },
-              {
-                src: investmentBankingImg,
-                alt: "Property Advisory",
-                title: "Investment Advisory",
-                description: "Expert guidance on $500M+ real estate transactions"
               }
             ]}
           />
