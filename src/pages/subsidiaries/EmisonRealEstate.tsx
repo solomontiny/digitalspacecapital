@@ -21,6 +21,7 @@ import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
 import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
 
 const ongoingProjectVideo4 = "/videos/emison-project-4.mp4";
+const ongoingProjectVideo5 = "/videos/emison-project-5.mp4";
 
 const EmisonRealEstate = () => {
   return (
@@ -131,10 +132,11 @@ const EmisonRealEstate = () => {
                   className="w-full"
                 >
                   <CarouselContent className="-ml-4">
-              {[
+                    {[
                       { src: ongoingProjectVideo1, title: "Emison Estate Phase 1" },
                       { src: ongoingProjectVideo3, title: "Commercial Complex" },
                       { src: ongoingProjectVideo4, title: "Premium Residence" },
+                      { src: ongoingProjectVideo5, title: "New Development" },
                     ].map((video, index) => (
                       <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                         <div className="space-y-3">
