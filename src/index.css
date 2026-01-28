@@ -6,6 +6,136 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ============================================
+   GLOBAL SOFT SCROLL & MOTION EFFECTS
+   ============================================ */
+
+/* Smooth scroll with subtle bounce */
+html, body {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+}
+
+/* Scroll bounce effect on body */
+.scroll-bounce {
+  animation: scrollBounce 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes scrollBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* Global sharp rendering for media */
+img, video {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Soft effects wrapper - enables smooth global transitions */
+.soft-effects-wrapper {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Global hover lift for cards */
+.soft-effects-wrapper .hover\:soft-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px hsl(var(--primary) / 0.15);
+}
+
+/* Subtle floating animation for key elements */
+.soft-float {
+  animation: softFloat 8s ease-in-out infinite;
+}
+
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(0.3deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-0.2deg);
+  }
+}
+
+/* Gentle breathing glow */
+.soft-glow {
+  animation: softGlow 4s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.35));
+  }
+}
+
+/* Smooth entrance for all sections */
+.soft-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.soft-reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Subtle parallax movement on scroll */
+.soft-parallax {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* Premium button hover effect */
+button, [role="button"], a {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button:active, [role="button"]:active {
+  transform: scale(0.98);
+}
+
+/* Sharp text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Soft shimmer overlay for images */
+.soft-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.soft-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--background) / 0.1),
+    transparent
+  );
+  animation: softShimmer 3s ease-in-out infinite;
+}
+
+@keyframes softShimmer {
+  0% { left: -100%; }
+  50%, 100% { left: 150%; }
+}
+
 /* Digital Space Capital Design System - Blue and White Brand Theme */
 
 @layer base {
