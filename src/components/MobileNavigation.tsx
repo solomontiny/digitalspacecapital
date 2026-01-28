@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Home, Info, Briefcase, Newspaper, Building2, Award, UserCircle, Phone } from "lucide-react";
+import { ChevronRight, Home, Info, Briefcase, Newspaper, Building2, Award, UserCircle, Phone, Volume2, VolumeX } from "lucide-react";
+import { useSoftEffects } from "./SoftEffectsProvider";
 
 interface NavItem {
   label: string;
@@ -20,6 +21,7 @@ interface MobileMenuSectionProps {
   items: SubMenuItem[];
   onItemClick: () => void;
   isVisible: boolean;
+  onHover: () => void;
 }
 
 const MobileMenuSection = ({ 
@@ -27,7 +29,8 @@ const MobileMenuSection = ({
   icon: Icon, 
   items, 
   onItemClick,
-  isVisible
+  isVisible,
+  onHover
 }: MobileMenuSectionProps) => {
   return (
     <div 
@@ -40,7 +43,7 @@ const MobileMenuSection = ({
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 px-4 py-2">
-        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center animate-soft-pulse">
           <Icon className="w-4 h-4 text-primary" />
         </div>
         <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
@@ -55,12 +58,14 @@ const MobileMenuSection = ({
             key={item.label}
             to={item.href}
             onClick={onItemClick}
+            onMouseEnter={onHover}
+            onTouchStart={onHover}
             className={cn(
               "flex items-center gap-3 mx-2 px-4 py-3 rounded-xl",
               "text-sm font-medium text-foreground",
               "bg-muted/20 hover:bg-primary/10 hover:text-primary",
               "transition-all duration-300 ease-out",
-              "active:scale-[0.98]"
+              "active:scale-[0.98] hover:translate-x-1"
             )}
             style={{
               transitionDelay: `${index * 30}ms`,
@@ -80,6 +85,8 @@ interface MobileNavigationProps {
   scrolled: boolean;
   onClose: () => void;
   onScrollToSection: (sectionId: string) => void;
+  soundEnabled?: boolean;
+  onSoundToggle?: () => void;
 }
 
 // Navigation data
@@ -117,9 +124,16 @@ const MobileNavigation = ({
   isOpen, 
   scrolled, 
   onClose, 
-  onScrollToSection 
+  onScrollToSection,
+  soundEnabled = true,
+  onSoundToggle
 }: MobileNavigationProps) => {
   const headerHeight = scrolled ? 56 : 64;
+  const { playSound } = useSoftEffects();
+
+  const handleHover = () => {
+    playSound('hover');
+  };
 
   return (
     <>
@@ -227,6 +241,7 @@ const MobileNavigation = ({
               items={directorsSubmenu}
               onItemClick={onClose}
               isVisible={isOpen}
+              onHover={handleHover}
             />
 
             <MobileMenuSection
@@ -235,6 +250,7 @@ const MobileNavigation = ({
               items={testimonialsSubmenu}
               onItemClick={onClose}
               isVisible={isOpen}
+              onHover={handleHover}
             />
 
             <MobileMenuSection
@@ -243,20 +259,48 @@ const MobileNavigation = ({
               items={subsidiaries}
               onItemClick={onClose}
               isVisible={isOpen}
+              onHover={handleHover}
             />
 
             <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4" />
 
-            {/* Contact Button */}
-            <div className="px-2">
+            {/* Sound Toggle & Contact */}
+            <div className="px-2 space-y-3">
+              {/* Sound Toggle Button */}
+              {onSoundToggle && (
+                <button
+                  onClick={onSoundToggle}
+                  className={cn(
+                    "flex items-center justify-center gap-3 w-full px-6 py-3",
+                    "text-sm font-medium rounded-xl",
+                    "bg-muted/50 hover:bg-primary/10 transition-all duration-300",
+                    "active:scale-[0.98]"
+                  )}
+                >
+                  {soundEnabled ? (
+                    <>
+                      <Volume2 className="w-5 h-5 text-primary animate-soft-pulse" />
+                      <span className="text-foreground">Sound Effects On</span>
+                    </>
+                  ) : (
+                    <>
+                      <VolumeX className="w-5 h-5 text-muted-foreground" />
+                      <span className="text-muted-foreground">Sound Effects Off</span>
+                    </>
+                  )}
+                </button>
+              )}
+
+              {/* Contact Button */}
               <Link
                 to="/contact"
                 onClick={onClose}
+                onMouseEnter={handleHover}
                 className={cn(
                   "flex items-center justify-center gap-3 w-full px-6 py-4",
                   "text-base font-semibold text-primary-foreground bg-primary rounded-xl",
                   "transition-all duration-300 ease-out",
-                  "hover:bg-primary/90 active:scale-[0.98] shadow-lg"
+                  "hover:bg-primary/90 active:scale-[0.98] shadow-lg animate-soft-glow"
                 )}
               >
                 <Phone className="w-5 h-5" />

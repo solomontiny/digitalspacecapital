@@ -136,7 +136,8 @@ const Header = () => {
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.scrollTo!)}
-                    className="h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary"
+                    onMouseEnter={() => playSound('hover')}
+                    className="h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary hover:scale-105"
                   >
                     {item.label}
                   </button>
@@ -144,7 +145,8 @@ const Header = () => {
                   <Link
                     key={item.label}
                     to={item.href!}
-                    className="h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center"
+                    onMouseEnter={() => playSound('hover')}
+                    className="h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center hover:scale-105"
                   >
                     {item.label}
                   </Link>
@@ -154,15 +156,22 @@ const Header = () => {
               {/* Directors Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="group h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center gap-1">
+                  <button 
+                    onMouseEnter={() => playSound('hover')}
+                    className="group h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center gap-1 hover:scale-105"
+                  >
                     DIRECTORS
                     <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" sideOffset={8} className="min-w-[200px] rounded-xl border bg-background p-2 shadow-xl">
+                <DropdownMenuContent align="start" sideOffset={8} className="min-w-[200px] rounded-xl border bg-background p-2 shadow-xl glass">
                   {directorsSubmenu.map((item) => (
-                    <DropdownMenuItem key={item.label} asChild className="rounded-lg cursor-pointer">
-                      <Link to={item.href} className="w-full px-3 py-2 text-sm font-medium">
+                    <DropdownMenuItem key={item.label} asChild className="rounded-lg cursor-pointer hover:translate-x-1 transition-transform">
+                      <Link 
+                        to={item.href} 
+                        onMouseEnter={() => playSound('hover')}
+                        className="w-full px-3 py-2 text-sm font-medium"
+                      >
                         {item.label}
                       </Link>
                     </DropdownMenuItem>
@@ -173,15 +182,22 @@ const Header = () => {
               {/* Testimonials Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="group h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center gap-1">
+                  <button 
+                    onMouseEnter={() => playSound('hover')}
+                    className="group h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center gap-1 hover:scale-105"
+                  >
                     TESTIMONIALS
                     <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" sideOffset={8} className="min-w-[200px] rounded-xl border bg-background p-2 shadow-xl">
+                <DropdownMenuContent align="start" sideOffset={8} className="min-w-[200px] rounded-xl border bg-background p-2 shadow-xl glass">
                   {testimonialsSubmenu.map((item) => (
-                    <DropdownMenuItem key={item.label} asChild className="rounded-lg cursor-pointer">
-                      <Link to={item.href} className="w-full px-3 py-2 text-sm font-medium">
+                    <DropdownMenuItem key={item.label} asChild className="rounded-lg cursor-pointer hover:translate-x-1 transition-transform">
+                      <Link 
+                        to={item.href} 
+                        onMouseEnter={() => playSound('hover')}
+                        className="w-full px-3 py-2 text-sm font-medium"
+                      >
                         {item.label}
                       </Link>
                     </DropdownMenuItem>
@@ -192,15 +208,22 @@ const Header = () => {
               {/* The Group Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="group h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center gap-1">
+                  <button 
+                    onMouseEnter={() => playSound('hover')}
+                    className="group h-9 px-3 text-sm font-semibold text-foreground/80 rounded-md transition-all duration-200 hover:bg-primary/10 hover:text-primary flex items-center gap-1 hover:scale-105"
+                  >
                     THE GROUP
                     <ChevronDown className="h-3 w-3 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" sideOffset={8} className="min-w-[240px] rounded-xl border bg-background p-2 shadow-xl">
+                <DropdownMenuContent align="start" sideOffset={8} className="min-w-[240px] rounded-xl border bg-background p-2 shadow-xl glass">
                   {subsidiaries.map((item) => (
-                    <DropdownMenuItem key={item.label} asChild className="rounded-lg cursor-pointer">
-                      <Link to={item.href} className="w-full px-3 py-2 text-sm font-medium">
+                    <DropdownMenuItem key={item.label} asChild className="rounded-lg cursor-pointer hover:translate-x-1 transition-transform">
+                      <Link 
+                        to={item.href} 
+                        onMouseEnter={() => playSound('hover')}
+                        className="w-full px-3 py-2 text-sm font-medium"
+                      >
                         {item.label}
                       </Link>
                     </DropdownMenuItem>
@@ -262,6 +285,8 @@ const Header = () => {
         scrolled={scrolled}
         onClose={closeMobileMenu}
         onScrollToSection={scrollToSection}
+        soundEnabled={soundEnabled}
+        onSoundToggle={handleSoundToggle}
       />
     </>
   );

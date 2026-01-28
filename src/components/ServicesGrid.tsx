@@ -1,11 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useSoftEffects } from "./SoftEffectsProvider";
 import creditImg from "@/assets/credit.jpg";
 import insuranceBankingImg from "@/assets/insurance-banking.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import bondsImg from "@/assets/bonds-new.jpg";
 
 const ServicesGrid = () => {
+  const { playSound } = useSoftEffects();
+
   const services = [
     {
       title: "Digital Savings",
@@ -39,28 +42,35 @@ const ServicesGrid = () => {
 
   return (
     <section className="py-16 bg-background relative overflow-hidden">
-      {/* Soft background glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Soft background glow with floating animation */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none soft-float" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none animate-soft-float" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
           {services.map((service, index) => (
-            <Link key={index} to={service.href}>
-              <Card className="group relative cursor-pointer overflow-hidden border-2 border-border/50 hover:border-primary/30 bg-card shadow-md hover:shadow-2xl transition-all duration-500 h-full tilt-card soft-shadow">
+            <Link 
+              key={index} 
+              to={service.href}
+              onMouseEnter={() => playSound('hover')}
+            >
+              <Card className="group relative cursor-pointer overflow-hidden border-2 border-border/50 hover:border-primary/30 bg-card shadow-md hover:shadow-2xl transition-all duration-500 h-full tilt-card soft-shadow glow-border soft-shimmer">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
                     style={{ 
-                      filter: 'contrast(1.15) saturate(1.1) brightness(1.03) sharpen(1)',
+                      filter: 'contrast(1.15) saturate(1.1) brightness(1.03)',
                       imageRendering: 'crisp-edges',
                       WebkitBackfaceVisibility: 'hidden',
                       backfaceVisibility: 'hidden'
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                  
+                  {/* Floating corner accent */}
+                  <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-primary/50 animate-soft-pulse group-hover:bg-primary transition-colors" />
                 </div>
                 <CardContent className="relative p-6">
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide mb-3 underline-animate">
