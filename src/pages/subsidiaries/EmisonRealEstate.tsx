@@ -132,8 +132,7 @@ const EmisonRealEstate = () => {
                   <CarouselContent className="-ml-4">
                     {[
                       { src: ongoingProjectVideo1, title: "Emison Estate Phase 1" },
-                      { src: ongoingProjectVideo3, title: "Commercial Complex" },
-                      { src: chemicalPlazaVideo, title: "Chemical Plaza" },
+                      { src: chemicalPlazaVideo, title: "Chemical Plaza Ojota" },
                     ].map((video, index) => (
                       <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                         <div className="space-y-3">
