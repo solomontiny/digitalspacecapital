@@ -5,7 +5,6 @@ import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import ProjectGallery from "@/components/ProjectGallery";
 import {
   Carousel,
   CarouselContent,
@@ -15,14 +14,12 @@ import {
 } from "@/components/ui/carousel";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
-import infrastructureOldImg from "@/assets/infrastructure.jpg";
-import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
 import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
 
 const ongoingProjectVideo4 = "/videos/emison-project-4.mp4";
-const ongoingProjectVideo5 = "/videos/emison-project-5.mp4";
 const chemicalPlazaVideo = "/videos/chemical-plaza.mp4";
+const featuredProjectVideo = "/videos/featured-project.mp4";
 
 const EmisonRealEstate = () => {
   return (
@@ -137,7 +134,6 @@ const EmisonRealEstate = () => {
                       { src: ongoingProjectVideo1, title: "Emison Estate Phase 1" },
                       { src: ongoingProjectVideo3, title: "Commercial Complex" },
                       { src: ongoingProjectVideo4, title: "Premium Residence" },
-                      { src: ongoingProjectVideo5, title: "New Development" },
                       { src: chemicalPlazaVideo, title: "Chemical Plaza" },
                     ].map((video, index) => (
                       <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
@@ -170,31 +166,35 @@ const EmisonRealEstate = () => {
             </CardContent>
           </Card>
 
-          {/* Gallery Section */}
-          <ProjectGallery 
-            title="Featured Projects"
-            subtitle="Showcasing our landmark developments and successful transactions"
-            images={[
-              {
-                src: infrastructureImg,
-                alt: "Luxury Villa Development",
-                title: "Luxury Villa Development",
-                description: "Premium luxury villas with world-class amenities"
-              },
-              {
-                src: infrastructureOldImg,
-                alt: "Commercial Development",
-                title: "Premium Office Complex",
-                description: "50,000 sq ft commercial development in prime location"
-              },
-              {
-                src: investmentBankingImg,
-                alt: "Property Management",
-                title: "Portfolio Management Success",
-                description: "Managing $100M+ in commercial properties"
-              }
-            ]}
-          />
+          {/* Featured Project Section */}
+          <Card>
+            <CardContent className="p-8 space-y-6">
+              <div className="text-center space-y-3">
+                <h2 className="text-3xl font-bold text-foreground">Featured Project</h2>
+                <p className="text-muted-foreground">Showcasing our landmark development</p>
+              </div>
+              <div className="max-w-3xl mx-auto">
+                <div className="relative rounded-xl overflow-hidden border border-border shadow-lg aspect-video">
+                  <video
+                    src={featuredProjectVideo}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white text-xl font-semibold">Luxury Villa Development</h3>
+                    <p className="text-white/80 text-sm mt-1">Premium luxury villas with world-class amenities</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border-blue-500/20">
