@@ -115,51 +115,68 @@ const EmisonRealEstate = () => {
           </Card>
 
           {/* Ongoing Projects Section */}
-          <Card>
-            <CardContent className="p-8 space-y-6">
-              <div className="text-center space-y-3">
-                <h2 className="text-3xl font-bold text-foreground">Ongoing Projects</h2>
-                <p className="text-muted-foreground">Discover our current developments transforming communities</p>
+          <Card className="overflow-hidden bg-gradient-to-br from-background via-background to-blue-500/5">
+            <CardContent className="p-8 md:p-12 space-y-8">
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+                  Ongoing Projects
+                </h2>
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                  Discover our current developments transforming communities
+                </p>
               </div>
-              <div className="px-12">
-                <Carousel
-                  opts={{
-                    align: "start",
-                    loop: true,
-                  }}
-                  className="w-full"
-                >
-                  <CarouselContent className="-ml-4">
-                    {[
-                      { src: "/videos/odelemo-project.mp4", title: "ODELEMO PROJECT" },
-                      { src: chemicalPlazaVideo, title: "Chemical Plaza Ojota" },
-                    ].map((video, index) => (
-                      <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                        <div className="space-y-3">
-                          <div className="relative rounded-xl overflow-hidden border border-border shadow-lg aspect-[9/16] max-h-[320px]">
-                            <video
-                              src={video.src}
-                              className="w-full h-full object-cover"
-                              autoPlay
-                              muted
-                              loop
-                              playsInline
-                              preload="metadata"
-                            >
-                              Your browser does not support the video tag.
-                            </video>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                            <div className="absolute bottom-3 left-3 right-3">
-                              <p className="text-white text-sm font-medium truncate">{video.title}</p>
-                            </div>
-                          </div>
+              
+              <div className="flex justify-center gap-6 md:gap-8 flex-wrap">
+                {[
+                  { src: "/videos/odelemo-project.mp4", title: "ODELEMO PROJECT" },
+                  { src: chemicalPlazaVideo, title: "Chemical Plaza Ojota" },
+                ].map((video, index) => (
+                  <div 
+                    key={index} 
+                    className="group relative w-[200px] md:w-[240px] transition-all duration-500 hover:scale-[1.02]"
+                  >
+                    {/* Glow effect behind card */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-blue-400/10 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Video Card */}
+                    <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-xl aspect-[9/16] bg-black/5 backdrop-blur-sm">
+                      {/* Sharp video rendering */}
+                      <video
+                        src={video.src}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        style={{
+                          imageRendering: 'crisp-edges',
+                          filter: 'contrast(1.05) saturate(1.1) brightness(1.02)'
+                        }}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      
+                      {/* Elegant overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                      
+                      {/* Soft shimmer effect on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                      
+                      {/* Title with glassmorphism */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/20">
+                          <p className="text-white text-sm font-semibold tracking-wide text-center truncate">
+                            {video.title}
+                          </p>
                         </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="left-0" />
-                  <CarouselNext className="right-0" />
-                </Carousel>
+                      </div>
+                      
+                      {/* Corner accent */}
+                      <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                    </div>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
