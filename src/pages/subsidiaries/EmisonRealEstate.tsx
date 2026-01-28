@@ -133,7 +133,6 @@ const EmisonRealEstate = () => {
                     {[
                       { src: ongoingProjectVideo1, title: "Emison Estate Phase 1" },
                       { src: ongoingProjectVideo3, title: "Commercial Complex" },
-                      { src: ongoingProjectVideo4, title: "Premium Residence" },
                       { src: chemicalPlazaVideo, title: "Chemical Plaza" },
                     ].map((video, index) => (
                       <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
@@ -188,8 +187,8 @@ const EmisonRealEstate = () => {
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white text-xl font-semibold">Luxury Villa Development</h3>
-                    <p className="text-white/80 text-sm mt-1">Premium luxury villas with world-class amenities</p>
+                    <h3 className="text-white text-xl font-semibold">OJAJA MALL</h3>
+                    <p className="text-white/80 text-sm mt-1">A premier mixed-use commercial development featuring retail spaces and modern amenities</p>
                   </div>
                 </div>
               </div>
