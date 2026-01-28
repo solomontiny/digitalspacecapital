@@ -4,12 +4,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Volume2, VolumeX } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import newLogo from "@/assets/dsc-group-logo-new.png";
 import MobileNavigation from "./MobileNavigation";
+import { useSoftEffects } from "./SoftEffectsProvider";
 
 // Desktop navigation data
 const mainNavItems = [
@@ -45,8 +46,10 @@ const subsidiaries = [
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  const { toggleSound, playSound } = useSoftEffects();
 
   // Handle scroll effect
   useEffect(() => {
@@ -84,6 +87,15 @@ const Header = () => {
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
+  const handleSoundToggle = () => {
+    const newState = !soundEnabled;
+    setSoundEnabled(newState);
+    toggleSound(newState);
+    if (newState) {
+      playSound('pop');
+    }
+  };
+
   return (
     <>
       <header 
@@ -97,10 +109,10 @@ const Header = () => {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo with floating animation */}
             <Link 
               to="/" 
-              className="flex items-center relative z-[60] cursor-pointer"
+              className="flex items-center relative z-[60] cursor-pointer group"
               onClick={() => {
                 closeMobileMenu();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -110,7 +122,7 @@ const Header = () => {
                 src={newLogo} 
                 alt="Digital Space Capital Group" 
                 className={cn(
-                  "w-auto transition-all duration-300",
+                  "w-auto transition-all duration-300 soft-float group-hover:animate-soft-bounce",
                   scrolled ? "h-14 sm:h-16 md:h-20" : "h-16 sm:h-20 md:h-24"
                 )}
               />
@@ -195,6 +207,20 @@ const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+
+              {/* Sound Toggle */}
+              <button
+                onClick={handleSoundToggle}
+                className="h-9 w-9 flex items-center justify-center rounded-md transition-all duration-200 hover:bg-primary/10 hover:scale-105 active:scale-95"
+                aria-label={soundEnabled ? "Mute sounds" : "Enable sounds"}
+                title={soundEnabled ? "Mute sounds" : "Enable sounds"}
+              >
+                {soundEnabled ? (
+                  <Volume2 className="h-4 w-4 text-primary animate-soft-pulse" />
+                ) : (
+                  <VolumeX className="h-4 w-4 text-muted-foreground" />
+                )}
+              </button>
 
               {/* Contact Us */}
               <Link

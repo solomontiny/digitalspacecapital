@@ -35,11 +35,11 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content - Left Side */}
           <div className="text-center lg:text-left order-2 lg:order-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight animate-blur-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight animate-blur-in animate-soft-float">
               Financial Solutions That Work
             </h1>
             
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-blue-200 mb-4 md:mb-6 animate-slide-up delay-200">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-blue-200 mb-4 md:mb-6 animate-slide-up delay-200 soft-glow">
               Finance at its finest
             </h2>
             
@@ -51,7 +51,7 @@ const Hero = () => {
               <Link to="/about">
                 <Button 
                   size="lg" 
-                  className="bg-white text-primary hover:bg-white/95 hover:scale-105 shadow-xl transition-all duration-300 px-8 ripple-effect animate-breathe"
+                  className="bg-white text-primary hover:bg-white/95 hover:scale-105 shadow-xl transition-all duration-300 px-8 ripple-effect animate-soft-glow"
                 >
                   Read More
                 </Button>
@@ -60,8 +60,8 @@ const Hero = () => {
           </div>
 
           {/* Image Slider - Right Side */}
-          <div className="order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+          <div className="order-1 lg:order-2 soft-float">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 animate-soft-glow soft-shimmer">
               {/* Slider Images */}
               {slides.map((slide, index) => (
                 <div
@@ -74,6 +74,7 @@ const Hero = () => {
                     src={slide} 
                     alt={`Slide ${index + 1}`} 
                     className="w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover"
+                    style={{ imageRendering: 'crisp-edges', filter: 'contrast(1.05) saturate(1.1)' }}
                   />
                 </div>
               ))}
