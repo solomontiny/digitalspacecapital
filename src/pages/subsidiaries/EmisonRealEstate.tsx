@@ -22,6 +22,7 @@ import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
 
 const ongoingProjectVideo4 = "/videos/emison-project-4.mp4";
 const ongoingProjectVideo5 = "/videos/emison-project-5.mp4";
+const chemicalPlazaVideo = "/videos/chemical-plaza.mp4";
 
 const EmisonRealEstate = () => {
   return (
@@ -137,6 +138,7 @@ const EmisonRealEstate = () => {
                       { src: ongoingProjectVideo3, title: "Commercial Complex" },
                       { src: ongoingProjectVideo4, title: "Premium Residence" },
                       { src: ongoingProjectVideo5, title: "New Development" },
+                      { src: chemicalPlazaVideo, title: "Chemical Plaza" },
                     ].map((video, index) => (
                       <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                         <div className="space-y-3">
