@@ -76,10 +76,10 @@ const ServicesGrid = () => {
                   <h3 className="text-xl font-bold text-foreground group-hover:text-black dark:group-hover:text-white transition-colors duration-300 tracking-wide mb-3 underline-animate drop-shadow-sm">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                  <p className="text-muted-foreground group-hover:text-black dark:group-hover:text-white text-sm leading-relaxed mb-3 transition-colors duration-300">
                     {service.description}
                   </p>
-                  <p className="text-primary text-sm font-medium group-hover:underline">
+                  <p className="text-primary group-hover:text-black dark:group-hover:text-white text-sm font-medium group-hover:underline transition-colors duration-300">
                     {service.readMore}
                   </p>
                   <div className="mt-3 h-1 w-0 group-hover:w-full bg-gradient-to-r from-primary to-primary/50 rounded-full transition-all duration-500" />
