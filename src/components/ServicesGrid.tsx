@@ -73,7 +73,7 @@ const ServicesGrid = () => {
                   <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-primary/50 animate-soft-pulse group-hover:bg-primary transition-colors" />
                 </div>
                 <CardContent className="relative p-6">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide mb-3 underline-animate">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-black dark:group-hover:text-white transition-colors duration-300 tracking-wide mb-3 underline-animate drop-shadow-sm">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">
