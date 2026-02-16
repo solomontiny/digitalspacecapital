@@ -121,7 +121,8 @@ const Team = () => {
                       <AvatarImage 
                         src={member.image} 
                         alt={member.name} 
-                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+                        className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" 
+                        style={{ imageRendering: 'crisp-edges', filter: 'contrast(1.05) saturate(1.1)' }}
                       />
                       <AvatarFallback className="text-xl font-semibold bg-muted">
                         {member.initials}
