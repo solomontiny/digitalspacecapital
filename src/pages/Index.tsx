@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import StockTicker from "@/components/StockTicker";
+import MarketTickerBar from "@/components/MarketTickerBar";
 import ServicesGrid from "@/components/ServicesGrid";
 import Statistics from "@/components/Statistics";
 import NewsSection from "@/components/NewsSection";
@@ -47,11 +47,9 @@ const Index = () => {
         <Hero />
       </section>
       
-      <AnimatedSection animation="float-up">
-        <section id="ticker">
-          <StockTicker />
-        </section>
-      </AnimatedSection>
+      <section id="ticker">
+        <MarketTickerBar />
+      </section>
       
       <AnimatedSection animation="zoom-blur" delay={100}>
         <section id="services">

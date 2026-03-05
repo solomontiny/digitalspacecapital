@@ -1,0 +1,4 @@
+project_id = "wccubiuasnrqfuflgyei"
+
+[functions.market-ticker]
+verify_jwt = false

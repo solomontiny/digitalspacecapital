@@ -799,3 +799,8 @@ button:active, [role="button"]:active {
   .delay-700 { animation-delay: 700ms; }
   .delay-800 { animation-delay: 800ms; }
 }
+
+@keyframes marketScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
