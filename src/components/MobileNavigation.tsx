@@ -156,7 +156,7 @@ const MobileNavigation = ({
       {/* Mobile Navigation Overlay - Compact sidebar */}
       <div
         className={cn(
-          "fixed left-0 right-0 bg-background/95 backdrop-blur-md z-50 lg:hidden",
+          "fixed left-0 right-0 bg-background/95 backdrop-blur-md z-[55] lg:hidden",
           "rounded-b-3xl shadow-2xl border-b border-x border-border/50",
           "overflow-hidden",
           isOpen
@@ -165,7 +165,7 @@ const MobileNavigation = ({
         )}
         style={{
           top: headerHeight,
-          height: `calc(75dvh - ${headerHeight}px)`,
+          maxHeight: `calc(85dvh - ${headerHeight}px)`,
           transform: isOpen ? 'translateY(0)' : 'translateY(-30px)',
           willChange: 'transform, opacity',
           transition: isOpen 
