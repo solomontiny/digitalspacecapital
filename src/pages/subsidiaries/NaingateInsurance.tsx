@@ -9,10 +9,13 @@ import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 import insuranceBankingImg from "@/assets/insurance-banking.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
 import infrastructureImg from "@/assets/infrastructure.jpg";
+import SEO from "@/components/SEO";
 
 const NaingateInsurance = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Naingate Insurance Brokers" description="Naingate Insurance Brokers — comprehensive risk management and insurance brokerage services for individuals and corporations." />
+
       <Header />
       
       {/* Hero Section */}

@@ -11,6 +11,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import PageLoader from "@/components/PageLoader";
 import CookieConsent from "@/components/CookieConsent";
 import CookiePreferenceCenter from "@/components/CookiePreferenceCenter";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +43,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background scroll-smooth">
+      <SEO title="Digital Space Capital Group | Investment & Financial Services" description="Digital Space Capital Group — Nigeria's trusted financial services holding company. Investment, asset management, microfinance, insurance, real estate and digital payments." />
+
       <Header />
       <section id="hero">
         <Hero />

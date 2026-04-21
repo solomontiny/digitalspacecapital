@@ -36,6 +36,7 @@ import buildingMaterialsImg from "@/assets/building-materials.jpg";
 import loansImg from "@/assets/loans-service.jpg";
 import realEstateImg from "@/assets/real-estate-service.jpg";
 import fundsManagementImg from "@/assets/funds-management.jpg";
+import SEO from "@/components/SEO";
 
 const services = [
   {
@@ -111,6 +112,8 @@ const subsidiaryLinks = [
 const DigitalSpaceCapital = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Digital Space Capital" description="Digital Space Capital — the parent holding company providing strategic oversight and financial services coordination across all subsidiaries." />
+
       <Header />
       
       {/* Hero Section */}

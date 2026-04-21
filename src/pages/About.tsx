@@ -1,10 +1,13 @@
 import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="About Us" description="Learn about Digital Space Capital Group — a leading Nigerian financial services holding company driving investment, asset management, banking and insurance excellence." />
+
       <Header />
       
       <main className="container mx-auto px-4 py-16">

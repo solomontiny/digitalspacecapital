@@ -16,6 +16,7 @@ import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
 import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
 import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
+import SEO from "@/components/SEO";
 
 const ongoingProjectVideo4 = "/videos/emison-project-4.mp4";
 const chemicalPlazaVideo = "/videos/chemical-plaza.mp4";
@@ -24,6 +25,8 @@ const featuredProjectVideo = "/videos/featured-project.mp4";
 const EmisonRealEstate = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Emison Real Estate" description="Emison Real Estate — premium property development, sales and management including Ojaja Mall and ongoing landmark projects." />
+
       <Header />
       
       {/* Hero Section */}

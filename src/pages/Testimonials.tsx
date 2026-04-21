@@ -6,6 +6,7 @@ import { Quote, Star } from "lucide-react";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
+import SEO from "@/components/SEO";
 
 const Testimonials = () => {
   const testimonials = [
@@ -73,6 +74,8 @@ const Testimonials = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Client Testimonials" description="Read what our clients say about Digital Space Capital Group — real stories of financial growth, trust and exceptional service across our subsidiaries." />
+
       <Header />
       
       {/* Hero Section */}

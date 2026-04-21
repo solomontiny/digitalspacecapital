@@ -10,6 +10,7 @@ import naingateInsuranceLogo from "@/assets/naingate-insurance-logo.png";
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
 import easyPayLogo from "@/assets/easy-pay-logo.png";
 import digikoloBanner from "@/assets/digikolo-banner.jpg";
+import SEO from "@/components/SEO";
 
 const Subsidiaries = () => {
   const subsidiaries = [
@@ -80,6 +81,8 @@ const Subsidiaries = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Our Subsidiaries" description="Explore the seven subsidiaries of Digital Space Capital Group: Asset Management, Microfinance Bank, Naingate Insurance, Emison Real Estate, Easy Pay and Digikolo." />
+
       <Header />
       
       {/* Hero Section */}

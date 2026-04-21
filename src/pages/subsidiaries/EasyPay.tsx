@@ -9,10 +9,13 @@ import easyPayLogo from "@/assets/easy-pay-logo.png";
 import securitiesTradingImg from "@/assets/securities-trading.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
+import SEO from "@/components/SEO";
 
 const EasyPay = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Easy Pay" description="Easy Pay — fast, secure digital payment solutions for businesses and consumers across Nigeria." />
+
       <Header />
       
       {/* Hero Section */}

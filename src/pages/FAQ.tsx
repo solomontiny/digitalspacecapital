@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 
 interface FeedbackState {
   [key: string]: "helpful" | "not-helpful" | null;
@@ -185,6 +186,8 @@ const FAQ = () => {
     
     return (
       <div className="mt-4 pt-4 border-t border-border/50">
+      <SEO title="Frequently Asked Questions" description="Answers to common questions about Digital Space Capital Group's investment, banking, insurance and digital payment services." />
+
         <div className="flex items-center justify-between">
           <span className="text-sm text-muted-foreground">Was this helpful?</span>
           <div className="flex items-center gap-2">
