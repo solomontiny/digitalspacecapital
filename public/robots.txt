@@ -1,4 +1,10 @@
+# https://digitalspacecapital.com — robots.txt
+# Allow all reputable crawlers full access.
+
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
@@ -10,7 +16,22 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Default: allow everything else
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*?*utm_
+Disallow: /*?*fbclid
+Disallow: /*?*gclid
+
+# Sitemap
 Sitemap: https://digitalspacecapital.com/sitemap.xml
