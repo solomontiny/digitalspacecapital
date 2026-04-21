@@ -129,8 +129,25 @@ const MobileNavigation = ({
   soundEnabled = true,
   onSoundToggle
 }: MobileNavigationProps) => {
-  const headerHeight = scrolled ? 56 : 64;
+  // Measure the real header height so the sidebar always docks under it
+  const [headerHeight, setHeaderHeight] = useState<number>(scrolled ? 80 : 96);
   const { playSound } = useSoftEffects();
+
+  useEffect(() => {
+    const measure = () => {
+      const headerEl = document.querySelector("header");
+      if (headerEl) {
+        setHeaderHeight(headerEl.getBoundingClientRect().height);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+    };
+  }, [scrolled, isOpen]);
 
   const handleHover = () => {
     playSound('hover');
@@ -154,19 +171,19 @@ const MobileNavigation = ({
         aria-hidden="true"
       />
 
-      {/* Mobile Navigation Overlay - Compact sidebar */}
+      {/* Mobile Navigation Overlay - Full-height sheet under header */}
       <div
         className={cn(
-          "fixed left-0 right-0 bg-background/95 backdrop-blur-md z-[55] lg:hidden",
+          "fixed left-0 right-0 bg-background/98 backdrop-blur-xl z-[55] lg:hidden",
           "rounded-b-3xl shadow-2xl border-b border-x border-border/50",
-          "overflow-hidden",
+          "overflow-hidden flex flex-col",
           isOpen
             ? "opacity-100 pointer-events-auto animate-[slideDownBounce_0.5s_ease-out_forwards]"
             : "opacity-0 pointer-events-none"
         )}
         style={{
           top: headerHeight,
-          maxHeight: `calc(85dvh - ${headerHeight}px)`,
+          height: `calc(100dvh - ${headerHeight}px - env(safe-area-inset-bottom, 0px))`,
           transform: isOpen ? 'translateY(0)' : 'translateY(-30px)',
           willChange: 'transform, opacity',
           transition: isOpen 
