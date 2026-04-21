@@ -45,7 +45,7 @@ export const SoftEffectsProvider: React.FC<SoftEffectsProviderProps> = ({ childr
 
   // Smooth scroll bounce effect
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
     let lastScrollTop = 0;
     let velocity = 0;
 
