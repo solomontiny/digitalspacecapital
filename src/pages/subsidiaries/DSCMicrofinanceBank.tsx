@@ -9,10 +9,13 @@ import dscMfbLogo from "@/assets/dsc-microfinance-bank-logo.png";
 import creditImg from "@/assets/credit.jpg";
 import assetManagementImg from "@/assets/asset-management.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
+import SEO from "@/components/SEO";
 
 const DSCMicrofinanceBank = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="DSC Microfinance Bank" description="DSC Microfinance Bank — empowering individuals, SMEs and businesses with accessible loans, savings and digital banking solutions across Nigeria." />
+
       <Header />
       
       {/* Hero Section */}

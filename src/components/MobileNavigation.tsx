@@ -129,22 +129,35 @@ const MobileNavigation = ({
   soundEnabled = true,
   onSoundToggle
 }: MobileNavigationProps) => {
-  // Measure the real header height so the sidebar always docks under it
+  // Measure the real header height so the sidebar always docks exactly under it.
+  // Uses ResizeObserver + scroll/resize listeners so it stays correct as the
+  // header shrinks on scroll, on orientation change, and on iOS URL-bar collapse.
   const [headerHeight, setHeaderHeight] = useState<number>(scrolled ? 80 : 96);
   const { playSound } = useSoftEffects();
 
   useEffect(() => {
+    const headerEl = document.querySelector("header");
+    if (!headerEl) return;
+
     const measure = () => {
-      const headerEl = document.querySelector("header");
-      if (headerEl) {
-        setHeaderHeight(headerEl.getBoundingClientRect().height);
-      }
+      const rect = headerEl.getBoundingClientRect();
+      // bottom edge of the header in the viewport is the true docking offset
+      setHeaderHeight(Math.max(0, Math.round(rect.bottom)));
     };
+
     measure();
+
+    const ro = new ResizeObserver(measure);
+    ro.observe(headerEl);
+
     window.addEventListener("resize", measure);
+    window.addEventListener("orientationchange", measure);
     window.addEventListener("scroll", measure, { passive: true });
+
     return () => {
+      ro.disconnect();
       window.removeEventListener("resize", measure);
+      window.removeEventListener("orientationchange", measure);
       window.removeEventListener("scroll", measure);
     };
   }, [scrolled, isOpen]);
@@ -183,7 +196,9 @@ const MobileNavigation = ({
         )}
         style={{
           top: headerHeight,
-          height: `calc(100dvh - ${headerHeight}px - env(safe-area-inset-bottom, 0px))`,
+          // Use dvh so iOS URL bar collapse doesn't clip the bottom
+          height: `calc(100dvh - ${headerHeight}px)`,
+          maxHeight: `calc(100dvh - ${headerHeight}px)`,
           transform: isOpen ? 'translateY(0)' : 'translateY(-30px)',
           willChange: 'transform, opacity',
           transition: isOpen 
@@ -197,7 +212,9 @@ const MobileNavigation = ({
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "thin",
             scrollbarColor: "hsl(var(--primary) / 0.3) transparent",
-            paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 5rem)",
+            // Generous bottom padding so the last menu item is never clipped
+            // by iOS Safari toolbar / Android nav gestures
+            paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 7rem)",
           }}
         >
           <nav className="py-4 px-2 space-y-6">

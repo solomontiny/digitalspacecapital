@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, Calendar, User } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const blogPosts = [
   {
@@ -88,6 +89,8 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="News & Insights" description="Latest news, market insights, and financial analysis from Digital Space Capital Group experts across investment, banking and fintech." />
+
       <Header />
       
       {/* Hero Section */}

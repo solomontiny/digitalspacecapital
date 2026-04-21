@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -60,6 +61,8 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO title="Contact Us" description="Get in touch with Digital Space Capital Group. Call +234 906 913 7909 or send us a message for investment, banking and financial services enquiries." />
+
       <Header />
       
       <main className="flex-grow">

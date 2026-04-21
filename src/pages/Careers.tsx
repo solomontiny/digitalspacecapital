@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { z } from "zod";
+import SEO from "@/components/SEO";
 
 const Careers = () => {
   const { toast } = useToast();
@@ -151,6 +152,8 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Careers" description="Build your career with Digital Space Capital Group. Explore open roles in investment, banking, insurance, fintech and real estate." />
+
       <Header />
       
       {/* Hero Section */}

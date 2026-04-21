@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Download, TrendingUp, FileText, Calendar, Users, DollarSign } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const InvestorRelations = () => {
   const financialReports = [
@@ -28,6 +29,8 @@ const InvestorRelations = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Investor Relations" description="Investor information, financial reports and shareholder resources from Digital Space Capital Group." />
+
       <Header />
       
       {/* Hero Section */}

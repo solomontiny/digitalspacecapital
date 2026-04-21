@@ -10,10 +10,13 @@ import assetManagementImg from "@/assets/asset-management.jpg";
 import moneyMarketImg from "@/assets/money-market-new.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import infrastructureFundImg from "@/assets/infrastructure-fund-new.jpg";
+import SEO from "@/components/SEO";
 
 const DSCAssetManagement = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="DSC Asset Management" description="DSC Asset Management — professional portfolio management, wealth advisory and investment solutions for individuals and institutions in Nigeria." />
+
       <Header />
       
       {/* Hero Section */}

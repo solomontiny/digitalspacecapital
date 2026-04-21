@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
+import SEO from "@/components/SEO";
 
 // This would typically come from an API or CMS
 const blogPostsData: Record<string, any> = {
@@ -158,6 +159,8 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen bg-background">
+      <SEO title="Article" description="In-depth financial insights and analysis from Digital Space Capital Group." />
+
         <Header />
         <div className="container mx-auto px-6 py-20 text-center">
           <h1 className="text-3xl font-bold mb-4">Blog Post Not Found</h1>

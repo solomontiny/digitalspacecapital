@@ -13,6 +13,7 @@ import toyinImage from "@/assets/team-toyin.jpg";
 import adeoyeImage from "@/assets/team-adeoye.jpg";
 import osokoImage from "@/assets/team-osoko.jpg";
 import josephImage from "@/assets/team-joseph.jpg";
+import SEO from "@/components/SEO";
 
 const Team = () => {
   const teamMembers = [
@@ -90,6 +91,8 @@ const Team = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Executive Team" description="Meet the executive leadership team driving Digital Space Capital Group's growth across investment, banking, insurance and real estate." />
+
       <Header />
       
       <main className="container mx-auto px-4 py-20">

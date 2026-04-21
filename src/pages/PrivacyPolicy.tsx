@@ -3,10 +3,13 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import CookiePreferenceCenter from "@/components/CookiePreferenceCenter";
 import { Helmet } from "react-helmet";
+import SEO from "@/components/SEO";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Privacy Policy" description="How Digital Space Capital Group collects, uses and protects your personal data and cookie preferences." />
+
       <Helmet>
         <title>Privacy Policy | Digital Space Capital</title>
         <meta name="description" content="Learn about Digital Space Capital's privacy practices, cookie usage, and how we protect your personal information." />

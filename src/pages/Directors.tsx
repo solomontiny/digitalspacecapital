@@ -11,6 +11,7 @@ import adeyinkaImage from "@/assets/director-adeyinka.png";
 import babsImage from "@/assets/director-babs.png";
 import adegokeImage from "@/assets/director-adegoke.png";
 import oluwagbemilekeImage from "@/assets/director-oluwagbemileke.jpg";
+import SEO from "@/components/SEO";
 
 const Directors = () => {
   const directors = [
@@ -81,6 +82,8 @@ const Directors = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Board of Directors" description="Meet the distinguished Board of Directors leading Digital Space Capital Group, including Chairman HRH Alh. (Dr.) Yahaya Abubakar CFR." />
+
       <Header />
       
       <main className="container mx-auto px-4 py-20">

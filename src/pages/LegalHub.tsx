@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { FileText, Shield, Cookie, Scale, Building, AlertTriangle } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const LegalHub = () => {
   const legalDocuments = [
@@ -50,6 +51,8 @@ const LegalHub = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Legal Hub" description="Central directory of all legal documents, policies and compliance information for Digital Space Capital Group." />
+
       <Helmet>
         <title>Legal Hub - Digital Space Capital</title>
         <meta name="description" content="Access all legal documents, policies, and compliance information for Digital Space Capital's financial services." />

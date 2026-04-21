@@ -15,6 +15,7 @@ import digikoloBanner from "@/assets/digikolo-banner.jpg";
 import moneyMarketImg from "@/assets/money-market-new.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import infrastructureFundImg from "@/assets/infrastructure-fund-new.jpg";
+import SEO from "@/components/SEO";
 
 // Hook for animated counting
 const useCountUp = (end: number, duration: number = 2000, startCounting: boolean = false) => {
@@ -138,6 +139,8 @@ const StatCounter = ({ icon: Icon, value, label, prefix, suffix, isVisible }: {
 
   return (
     <div className="text-center group">
+      <SEO title="Digikolo Savings App" description="Digikolo — Nigeria's smart savings app offering DigiSave, DigiTarget and DigiLock plans with competitive interest rates. Available on iOS and Android." />
+
       <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
         <Icon className="w-8 h-8 text-primary" />
       </div>

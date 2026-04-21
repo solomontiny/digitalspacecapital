@@ -3,10 +3,13 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import CookiePreferenceCenter from "@/components/CookiePreferenceCenter";
 import { Helmet } from "react-helmet";
+import SEO from "@/components/SEO";
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Terms of Service" description="Terms and conditions governing the use of Digital Space Capital Group's website and services." />
+
       <Helmet>
         <title>Terms of Service | Digital Space Capital</title>
         <meta name="description" content="Read Digital Space Capital's terms of service governing the use of our website and financial services." />
