@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ZohoIntegration from "@/components/ZohoIntegration";
 import PageTransition from "@/components/PageTransition";
 import SoftEffectsProvider from "@/components/SoftEffectsProvider";
+import StructuredData from "@/components/StructuredData";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import WhatWeDo from "./pages/WhatWeDo";
@@ -37,6 +38,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <SoftEffectsProvider>
+        <StructuredData />
         <Toaster />
         <Sonner />
         <ZohoIntegration />
