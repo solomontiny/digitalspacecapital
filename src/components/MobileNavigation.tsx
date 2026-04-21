@@ -192,11 +192,12 @@ const MobileNavigation = ({
         }}
       >
         <div
-          className="h-full w-full overflow-y-auto overscroll-contain touch-pan-y pb-20 scroll-smooth"
+          className="flex-1 w-full overflow-y-auto overscroll-contain touch-pan-y scroll-smooth"
           style={{
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "thin",
             scrollbarColor: "hsl(var(--primary) / 0.3) transparent",
+            paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 5rem)",
           }}
         >
           <nav className="py-4 px-2 space-y-6">
