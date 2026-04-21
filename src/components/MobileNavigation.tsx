@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ChevronRight, Home, Info, Briefcase, Newspaper, Building2, Award, UserCircle, Phone, Volume2, VolumeX } from "lucide-react";
