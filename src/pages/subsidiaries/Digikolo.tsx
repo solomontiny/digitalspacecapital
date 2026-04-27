@@ -565,6 +565,18 @@ const Digikolo = () => {
 
       </main>
 
+      {/* Regulatory Footnote */}
+      <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-6 border-t-2 border-primary-foreground/10">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-3 text-center">
+            <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground flex-shrink-0" />
+            <p className="text-sm md:text-base font-semibold text-primary-foreground tracking-wide">
+              DigiKolo, powered by DSC MFB <span className="opacity-90">(Licensed by Central Bank of Nigeria)</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
