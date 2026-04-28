@@ -17,18 +17,37 @@ const MarketTickerBar = () => {
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const fetchTickerData = async () => {
+  const FALLBACK: TickerItem[] = [
+    { label: "USD/NGN (Official)", value: "1,535.50", change: "+12.30", changePercent: "+0.81%", direction: "up" },
+    { label: "EUR/NGN", value: "1,685.00", change: "-8.50", changePercent: "-0.50%", direction: "down" },
+    { label: "NGX ASI", value: "104,562.40", change: "+1,245.30", changePercent: "+1.21%", direction: "up" },
+    { label: "S&P 500", value: "5,892.34", change: "+23.45", changePercent: "+0.40%", direction: "up" },
+    { label: "NASDAQ", value: "18,456.78", change: "-45.67", changePercent: "-0.25%", direction: "down" },
+    { label: "BTC/USD", value: "67,234.50", change: "+1,234.00", changePercent: "+1.87%", direction: "up" },
+    { label: "Gold", value: "2,045.30", change: "+8.50", changePercent: "+0.42%", direction: "up" },
+    { label: "Brent Oil", value: "82.45", change: "+1.85", changePercent: "+2.30%", direction: "up" },
+  ];
+
+  const fetchTickerData = async (attempt = 0): Promise<void> => {
     try {
       const { data, error } = await supabase.functions.invoke("market-ticker");
       if (error) throw error;
       if (data?.data && data.data.length > 0) {
         setItems(data.data);
+      } else {
+        setItems((prev) => (prev.length > 0 ? prev : FALLBACK));
       }
     } catch (err) {
-      console.error("Failed to fetch ticker data:", err);
-      // Keep existing data on error
+      console.warn(`Ticker fetch failed (attempt ${attempt + 1}):`, err);
+      // Retry up to 2 times with backoff on transient errors (e.g. 503)
+      if (attempt < 2) {
+        setTimeout(() => fetchTickerData(attempt + 1), 1500 * (attempt + 1));
+        return;
+      }
+      // After retries, ensure the bar still shows something
+      setItems((prev) => (prev.length > 0 ? prev : FALLBACK));
     } finally {
-      setIsLoading(false);
+      if (attempt === 0) setIsLoading(false);
     }
   };
 
