@@ -133,7 +133,7 @@ const DigitalSpaceCapital = () => {
                     <img src={dscLogo} alt="Digital Space Capital Group" className="h-20 w-auto object-contain" />
                   </div>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                    Digital Space Capital Group
+                    Digital Space Group
                   </h1>
                 </div>
                 <p className="text-xl text-muted-foreground leading-relaxed">
