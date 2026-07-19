@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 const SITE_URL = "https://digitalspacecapital.com";
-const DEFAULT_IMAGE = "https://digitalspacecapital.com/og-image.jpg";
+const DEFAULT_IMAGE = "https://digitalspacecapital.com/digital-space-capital-logo.png";
 const SITE_NAME = "Digital Space Capital Group";
 
 interface BreadcrumbItem {

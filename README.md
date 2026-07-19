@@ -1,8 +1,8 @@
-# Welcome to your Lovable project
+# Digital Space Capital Group
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/edf89306-6ac4-4130-94cb-45d119a6ca18
+Production website for Digital Space Capital Group.
 
 ## How can I edit this code?
 
@@ -60,9 +60,16 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/edf89306-6ac4-4130-94cb-45d119a6ca18) and click on Share -> Publish.
+The project is ready for Vercel. Import the GitHub repository, use the default Vite build settings (`npm run build`, output directory `dist`), and configure the production domain as `digitalspacecapital.com`. The included `vercel.json` rewrites direct requests for client-side routes to the app entry point.
+
+Before deploying, run:
+
+```sh
+npm run lint
+npm run build
+```
 
 ## Can I connect a custom domain to my Lovable project?
 

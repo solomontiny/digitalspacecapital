@@ -1,4 +1,5 @@
 // Emison Real Estate Page
+import { useCallback, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
@@ -11,18 +12,62 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
+
 import emisonRealEstateLogo from "@/assets/emison-real-estate-logo.png";
-import infrastructureImg from "@/assets/infrastructure-fund-new.jpg";
-import ongoingProjectVideo1 from "@/assets/emison-ongoing-project.mp4";
-import ongoingProjectVideo3 from "@/assets/emison-project-3.mp4";
+import emisonHeroLeasing from "@/assets/emison-hero-leasing.png";
+import emisonHeroProperty from "@/assets/emison-hero-property.png";
 import SEO from "@/components/SEO";
 
-const ongoingProjectVideo4 = "/videos/emison-project-4.mp4";
 const chemicalPlazaVideo = "/videos/chemical-plaza.mp4";
 const featuredProjectVideo = "/videos/featured-project.mp4";
 
+const heroSlides = [
+  {
+    src: emisonHeroLeasing,
+    alt: "Emison Real Estate leasing and shop rental promotion",
+  },
+  {
+    src: emisonHeroProperty,
+    alt: "Emison Real Estate property investment promotion",
+  },
+];
+
 const EmisonRealEstate = () => {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+
+  const updateActiveSlide = useCallback((api: CarouselApi) => {
+    setActiveSlide(api.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    updateActiveSlide(carouselApi);
+    carouselApi.on("select", updateActiveSlide);
+    carouselApi.on("reInit", updateActiveSlide);
+
+    return () => {
+      carouselApi.off("select", updateActiveSlide);
+      carouselApi.off("reInit", updateActiveSlide);
+    };
+  }, [carouselApi, updateActiveSlide]);
+
+  useEffect(() => {
+    if (!carouselApi || isHeroHovered) return;
+
+    const autoplay = window.setInterval(() => carouselApi.scrollNext(), 5000);
+    return () => window.clearInterval(autoplay);
+  }, [carouselApi, isHeroHovered]);
+
+  useEffect(() => {
+    const nextSlide = new Image();
+    nextSlide.src = heroSlides[(activeSlide + 1) % heroSlides.length].src;
+  }, [activeSlide]);
+
   return (
     <div className="min-h-screen bg-background">
       <SEO title="Emison Real Estate" description="Emison Real Estate — premium property development, sales and management including Ojaja Mall and ongoing landmark projects." />
@@ -30,38 +75,101 @@ const EmisonRealEstate = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-500/10 via-background to-blue-600/5 py-20">
-        <div className="container mx-auto px-4">
-          <Link to="/subsidiaries">
-            <Button variant="ghost" className="mb-6 gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Subsidiaries
-            </Button>
-          </Link>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <img src={emisonRealEstateLogo} alt="Emison Real Estate" className="h-20 w-20 object-contain" />
-                  <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                    Emison Real Estate
+      <section className="bg-gradient-to-b from-emerald-950/10 via-background to-background px-4 py-5 sm:px-6 lg:px-8 lg:py-8">
+        <div className="mx-auto max-w-[1440px]">
+          <Carousel
+            setApi={setCarouselApi}
+            opts={{ loop: true, duration: 30 }}
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-emerald-950 shadow-2xl"
+            onMouseEnter={() => setIsHeroHovered(true)}
+            onMouseLeave={() => setIsHeroHovered(false)}
+          >
+            <CarouselContent className="-ml-0">
+              {heroSlides.map((slide, index) => (
+                <CarouselItem key={slide.src} className="pl-0">
+                  <div className="relative h-[500px] sm:h-[560px] lg:h-[680px]">
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      className="h-full w-full object-cover object-center"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchPriority={index === 0 ? "high" : "auto"}
+                      style={
+                        index === activeSlide
+                          ? { animation: "emison-ken-burns 9s ease-out both" }
+                          : undefined
+                      }
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-emerald-950/68 to-emerald-950/15" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            <div className="absolute inset-0 z-10 flex items-center pointer-events-none">
+              <div className="w-full px-7 sm:px-12 lg:px-16">
+                <div className="max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700">
+                  <img
+                    src={emisonRealEstateLogo}
+                    alt="Emison Real Estate"
+                    className="mb-6 h-16 w-16 rounded-lg bg-white/95 p-2 shadow-lg sm:h-20 sm:w-20"
+                  />
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-amber-300 sm:text-sm">
+                    Elevated property experiences
+                  </p>
+                  <h1 className="font-serif text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    Premium Real Estate Solutions
                   </h1>
+                  <p className="mt-5 max-w-lg text-base leading-relaxed text-white/85 sm:text-lg">
+                    Developing premium residential, commercial and mixed-use properties while delivering trusted property development, sales and management solutions across Nigeria.
+                  </p>
+                  <a
+                    href="https://www.emisonrealestate.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pointer-events-auto mt-7 inline-flex"
+                  >
+                    <Button size="lg" className="rounded-md bg-amber-500 px-6 text-emerald-950 shadow-lg transition-colors hover:bg-amber-400">
+                      Visit Emison Website
+                    </Button>
+                  </a>
                 </div>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Full-service real estate solutions including property development, sales, and property management services.
-                </p>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-2xl" />
-                <img 
-                  src={infrastructureImg} 
-                  alt="Real Estate Development" 
-                  className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover border-4 border-background"
-                />
               </div>
             </div>
-          </div>
+
+            <Link to="/subsidiaries" className="absolute left-5 top-5 z-20">
+              <Button variant="ghost" className="gap-2 border border-white/15 bg-black/20 text-white hover:bg-black/40 hover:text-white">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Subsidiaries
+              </Button>
+            </Link>
+
+            <CarouselPrevious className="left-5 z-20 h-10 w-10 border-white/20 bg-black/25 text-white opacity-100 shadow-none transition-opacity hover:bg-black/50 hover:text-white sm:left-7 sm:h-11 sm:w-11 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100" />
+            <CarouselNext className="right-5 z-20 h-10 w-10 border-white/20 bg-black/25 text-white opacity-100 shadow-none transition-opacity hover:bg-black/50 hover:text-white sm:right-7 sm:h-11 sm:w-11 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100" />
+
+            <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+              {heroSlides.map((slide, index) => (
+                <button
+                  key={slide.src}
+                  type="button"
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={activeSlide === index ? "true" : undefined}
+                  onClick={() => carouselApi?.scrollTo(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index ? "w-8 bg-amber-300" : "w-2 bg-white/60 hover:bg-white"
+                  }`}
+                />
+              ))}
+            </div>
+          </Carousel>
         </div>
+        <style>{`
+          @keyframes emison-ken-burns {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+          }
+        `}</style>
       </section>
 
       {/* Main Content */}
@@ -217,15 +325,20 @@ const EmisonRealEstate = () => {
           {/* Contact CTA */}
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border-blue-500/20">
             <CardContent className="p-8 text-center space-y-4">
-              <h2 className="text-2xl font-bold text-foreground">Your Real Estate Partner</h2>
+              <h2
+               className="text-2xl font-bold text-foreground">Ready to Invest in Your Next Property?</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Whether you're looking to develop, buy, sell, or manage property, Emison Real Estate is here to help.
+               Explore Emison Real Estate's latest developments, investment opportunities and premium property solutions by visiting our official website.
               </p>
-              <Link to="/contact">
-                <Button size="lg" className="gap-2">
-                  Contact Us
-                </Button>
-              </Link>
+              <a
+  href="https://www.emisonrealestate.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button size="lg" className="gap-2">
+    Visit Emison Website
+  </Button>
+</a>
             </CardContent>
           </Card>
         </div>

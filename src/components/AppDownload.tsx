@@ -134,6 +134,10 @@ const AppDownload = () => {
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
                 alt="Get it on Google Play"
                 className="h-14"
+                width="145"
+                height="56"
+                loading="lazy"
+                decoding="async"
               />
             </a>
             <a 
@@ -146,6 +150,10 @@ const AppDownload = () => {
                 src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
                 alt="Download on the App Store"
                 className="h-14"
+                width="168"
+                height="56"
+                loading="lazy"
+                decoding="async"
               />
             </a>
             <Button asChild variant="outline" className="hover:scale-105 transition-transform">
@@ -164,6 +172,10 @@ const AppDownload = () => {
                 src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://play.google.com/store/apps/details?id=com.digitalspacecapital.digikolo"
                 alt="QR Code to download Digikolo app"
                 className="w-28 h-28"
+                width="112"
+                height="112"
+                loading="lazy"
+                decoding="async"
                 style={{ imageRendering: 'crisp-edges' }}
               />
             </div>
@@ -186,6 +198,7 @@ const AppDownload = () => {
                 loop
                 playsInline
                 className="w-full aspect-video object-cover"
+                preload="metadata"
               >
                 Your browser does not support the video tag.
               </video>

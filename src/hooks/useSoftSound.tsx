@@ -3,9 +3,16 @@ import { useCallback, useRef } from 'react';
 // AudioContext singleton for better performance
 let audioContext: AudioContext | null = null;
 
+type AudioContextWindow = Window & {
+  webkitAudioContext?: typeof AudioContext;
+};
+
 const getAudioContext = () => {
   if (!audioContext) {
-    audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const AudioContextConstructor =
+      window.AudioContext || (window as AudioContextWindow).webkitAudioContext;
+    if (!AudioContextConstructor) throw new Error("Web Audio API is unavailable");
+    audioContext = new AudioContextConstructor();
   }
   return audioContext;
 };
@@ -89,9 +96,8 @@ export const useSoftSound = () => {
           oscillator.stop(now + 0.08);
           break;
       }
-    } catch (error) {
-      // Silently fail if audio context is not available
-      console.log('Audio not available');
+    } catch {
+      // Audio is an optional enhancement; unsupported browsers remain silent.
     }
   }, []);
 

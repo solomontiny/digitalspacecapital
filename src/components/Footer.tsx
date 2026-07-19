@@ -3,6 +3,7 @@ import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 import logo from "@/assets/dsc-group-logo-new.png";
 
 // Declare Zoho types
@@ -150,27 +151,27 @@ const Footer = () => {
               © {new Date().getFullYear()} Digital Space Capital. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-sm text-primary-foreground/80">
-              <a href="/faq" className="hover:text-primary-foreground transition-colors">
+              <Link to="/faq" className="hover:text-primary-foreground transition-colors">
                 FAQ
-              </a>
-              <a href="/about" className="hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/about" className="hover:text-primary-foreground transition-colors">
                 About
-              </a>
-              <a href="/what-we-do" className="hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/what-we-do" className="hover:text-primary-foreground transition-colors">
                 What We Do
-              </a>
-              <a href="/subsidiaries" className="hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/subsidiaries" className="hover:text-primary-foreground transition-colors">
                 Subsidiaries
-              </a>
-              <a href="/legal" className="hover:text-primary-foreground transition-colors font-medium">
+              </Link>
+              <Link to="/legal" className="hover:text-primary-foreground transition-colors font-medium">
                 Legal Hub
-              </a>
-              <a href="/privacy-policy" className="hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/privacy-policy" className="hover:text-primary-foreground transition-colors">
                 Privacy Policy
-              </a>
-              <a href="/terms-of-service" className="hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="hover:text-primary-foreground transition-colors">
                 Terms of Service
-              </a>
+              </Link>
               <button 
                 onClick={() => window.dispatchEvent(new Event("manage-cookies"))}
                 className="hover:text-primary-foreground transition-colors"

@@ -15,7 +15,6 @@ const ZohoIntegration = () => {
       window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || {
         ready: function() {
-          console.log("Zoho SalesIQ loaded successfully");
           ${isMobile ? '$zoho.salesiq.floatbutton.visible("hide");' : ''}
         }
       };

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://digitalspacecapital.com";
 const SITE_NAME = "Digital Space Capital Group";
-const LOGO = `${SITE_URL}/og-image.jpg`;
+const LOGO = `${SITE_URL}/digital-space-capital-logo.png`;
 
 /**
  * Site-wide JSON-LD: Organization (with subsidiaries) + WebSite (with SearchAction).

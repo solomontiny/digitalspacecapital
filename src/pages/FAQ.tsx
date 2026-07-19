@@ -163,7 +163,7 @@ const FAQ = () => {
         )
       }))
       .filter(category => category.questions.length > 0);
-  }, [searchQuery]);
+  }, [faqCategories, searchQuery]);
 
   const totalResults = filteredCategories.reduce((acc, cat) => acc + cat.questions.length, 0);
 

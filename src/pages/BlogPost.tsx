@@ -9,8 +9,19 @@ import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from "
 import Newsletter from "@/components/Newsletter";
 import SEO from "@/components/SEO";
 
+interface BlogPostData {
+  id: number;
+  title: string;
+  category: string;
+  author: string;
+  date: string;
+  image: string;
+  content: string;
+  readTime: string;
+}
+
 // This would typically come from an API or CMS
-const blogPostsData: Record<string, any> = {
+const blogPostsData: Record<string, BlogPostData> = {
   "future-digital-finance-africa": {
     id: 1,
     title: "The Future of Digital Finance in Africa",
@@ -182,6 +193,7 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title={post.title} description={`${post.category} from Digital Space Capital Group.`} type="article" />
       <Header />
       
       {/* Back Button */}
@@ -225,21 +237,21 @@ const BlogPost = () => {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank')}
+              onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, "_blank", "noopener,noreferrer")}
             >
               <Facebook className="h-4 w-4" />
             </Button>
             <Button
               variant="outline"
               size="sm"
-              onClick={() => window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, '_blank')}
+              onClick={() => window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, "_blank", "noopener,noreferrer")}
             >
               <Twitter className="h-4 w-4" />
             </Button>
             <Button
               variant="outline"
               size="sm"
-              onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`, '_blank')}
+              onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`, "_blank", "noopener,noreferrer")}
             >
               <Linkedin className="h-4 w-4" />
             </Button>

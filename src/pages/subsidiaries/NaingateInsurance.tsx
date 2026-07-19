@@ -157,11 +157,15 @@ const NaingateInsurance = () => {
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Get a free insurance consultation and discover coverage options tailored to your needs.
               </p>
-              <Link to="/contact">
+              <a
+                href="https://www.naingateinsurancebrokers.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button size="lg" className="gap-2">
                   Contact Us
                 </Button>
-              </Link>
+              </a>
             </CardContent>
           </Card>
         </div>

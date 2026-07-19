@@ -16,6 +16,34 @@ html, body {
   overscroll-behavior-y: none;
 }
 
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Scroll bounce effect on body */
 .scroll-bounce {
   animation: scrollBounce 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -25,12 +53,6 @@ html, body {
   0% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
   100% { transform: translateY(0); }
-}
-
-/* Global sharp rendering for media */
-img, video {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 
 /* Soft effects wrapper - enables smooth global transitions */

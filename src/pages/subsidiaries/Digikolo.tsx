@@ -8,6 +8,7 @@ import {
   Download, Target, Vault, Coins, Gift, Smartphone, UserPlus, 
   CreditCard, Sparkles, CheckCircle2
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectGallery from "@/components/ProjectGallery";
 import AppDownload from "@/components/AppDownload";
@@ -126,7 +127,7 @@ const userReviews = [
 
 // Stat counter component
 const StatCounter = ({ icon: Icon, value, label, prefix, suffix, isVisible }: {
-  icon: any;
+  icon: LucideIcon;
   value: number;
   label: string;
   prefix: string;
@@ -139,8 +140,6 @@ const StatCounter = ({ icon: Icon, value, label, prefix, suffix, isVisible }: {
 
   return (
     <div className="text-center group">
-      <SEO title="Digikolo Savings App" description="Digikolo — Nigeria's smart savings app offering DigiSave, DigiTarget and DigiLock plans with competitive interest rates. Available on iOS and Android." />
-
       <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
         <Icon className="w-8 h-8 text-primary" />
       </div>
@@ -195,6 +194,7 @@ const Digikolo = () => {
   ];
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Digikolo Savings App" description="Digikolo — Nigeria's smart savings app offering DigiSave, DigiTarget and DigiLock plans with competitive interest rates. Available on iOS and Android." />
       <Header />
       
       {/* Hero Section */}
