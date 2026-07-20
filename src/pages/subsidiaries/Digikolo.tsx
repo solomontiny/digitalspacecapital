@@ -12,7 +12,7 @@ import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectGallery from "@/components/ProjectGallery";
 import AppDownload from "@/components/AppDownload";
-import digikoloBanner from "@/assets/digikolo-banner.jpg";
+import digikoloHero from "@/assets/digikolo-hero.png";
 import moneyMarketImg from "@/assets/money-market-new.jpg";
 import investmentBankingImg from "@/assets/investment-banking-new.jpg";
 import infrastructureFundImg from "@/assets/infrastructure-fund-new.jpg";
@@ -233,15 +233,13 @@ const Digikolo = () => {
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative animate-fade-in animation-delay-200">
+            <div className="relative animate-fade-in animation-delay-200 flex justify-center">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-primary/20 rounded-3xl blur-3xl" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border">
-                <img 
-                  src={digikoloBanner} 
-                  alt="Digikolo Platform" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+              <img
+                src={digikoloHero}
+                alt="Digikolo mobile app shown on two smartphones"
+                className="relative w-full max-w-sm h-auto object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>
